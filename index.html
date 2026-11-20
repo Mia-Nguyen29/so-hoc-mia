@@ -133,6 +133,20 @@ details.card summary{cursor:pointer;font-weight:600}
 .list{display:grid;gap:8px;max-height:320px;overflow:auto}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--accent);color:var(--accent-ink);padding:10px 18px;border-radius:99px;font-weight:700;z-index:20}
 #fx{position:fixed;inset:0;pointer-events:none;z-index:15;width:100%;height:100%}
+.pet-svg .ears{transform-origin:100px 80px}
+.breathe{animation:breathe 3.2s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.02,.985)}}
+.jump{animation:jump .7s ease-out 3;transform-origin:50% 100%}
+@keyframes jump{0%,100%{transform:translateY(0) scale(1)}30%{transform:translateY(-16px) scale(1.03,.97)}60%{transform:translateY(0) scale(1.04,.94)}}
+.shiver{animation:shiver .35s linear 4}
+@keyframes shiver{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+.nom{animation:nom .5s ease-in-out 5;transform-origin:50% 100%}
+@keyframes nom{0%,100%{transform:scale(1)}50%{transform:scale(1.03,.97)}}
+.blink{animation:blink 4.5s infinite;transform-origin:100px 104px;transform-box:view-box}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.chew{animation:chew .25s ease-in-out infinite alternate;transform-origin:100px 124px;transform-box:view-box}
+@keyframes chew{to{transform:scaleY(.4)}}
+@media (prefers-reduced-motion:reduce){.breathe,.jump,.shiver,.nom,.blink,.chew{animation:none}}
 @media (prefers-reduced-motion:reduce){.bounce,.shake{animation:none}*{transition:none!important}}
 
 input{font:inherit}
@@ -295,39 +309,74 @@ function startMic(key){if(!SR){toast("Trình duyệt này chưa hỗ trợ micro
     rec.onend=()=>{rec=null;finishMic()};rec.start()}catch(_){micTarget=null;render();toast("Chưa bật được micro")}}
 function stopMic(silent){if(rec){try{if(silent){rec.onend=null;rec.abort()}else rec.stop()}catch(_){}if(silent)rec=null}}
 
+/* ---------- pet reactions ---------- */
+let petExpr=null,petT=null;
+function renderPet(){$("#petArt").innerHTML=petSVG(mood(),level(xp()),petExpr)}
+function react(ex,line){petExpr=ex;if(line)$("#bubble").textContent=line;clearTimeout(petT);petT=setTimeout(()=>{petExpr=null;renderPet()},2800);renderPet()}
+const TAPS=[["love","Mochi thương Mia nhất! 💕"],["wink","Hì hì, học tiếp nha 😉"],["wow","Ủa? Mia gọi Mochi hả?"],["star","Mochi sẵn sàng rồi! ✨"],["happy","*vẫy vẫy tai* 🐰"]];
+function petTap(){const m=mood(),r=a=>a[Math.floor(Math.random()*a.length)];if(m==="hungry"||m==="sad")react("oops",r(PETLINES[m]));else{const t=r(TAPS);react(t[0],t[1])}}
+function exprFor(d){const ok=d.correct;switch(d.kind){case"sentence":return["munch","Ngon quá! Cảm ơn Mia 🥕"];
+  case"listen":case"movie":case"guess":return ok?["star","Đúng rồi! Giỏi quá! ✨"]:["oops","Ối, sai mất rồi… lần sau nhé!"];
+  case"speak":case"speak2":return d.stars>=2?["star","Phát âm chuẩn ghê! 🎤"]:["oops","Nói lại thử nha, Mochi nghe chưa rõ~"];
+  case"chest":return["love","Woaaa! Rương đầy cà rốt! 💕"];case"clue":return["wow","Manh mối mới! Hấp dẫn quá! 🔍"];case"news":return["wow","Tin nóng hổi đây! 📰"];}return null}
 /* ---------- pet ---------- */
-function petSVG(m,lv){
+function petSVG(m,lv,ex){
   const ink="#4A2A3A",pink="#FF8FB8",inner="#FFC2D6";
-  const sad=m==="sad",hungry=m==="hungry";
-  const earL=sad?"rotate(-58 78 74)":hungry?"rotate(-22 78 74)":"rotate(-10 78 74)";
-  const earR=sad?"rotate(58 122 74)":hungry?"rotate(30 122 74)":"rotate(10 122 74)";
-  const eyes={happy:`<path d="M74 106 q9 -11 18 0 M108 106 q9 -11 18 0" stroke="${ink}" stroke-width="4.5" fill="none" stroke-linecap="round"/>`,
-    ok:`<ellipse cx="83" cy="104" rx="7" ry="8.5" fill="${ink}"/><ellipse cx="117" cy="104" rx="7" ry="8.5" fill="${ink}"/><circle cx="85.5" cy="100.5" r="3" fill="#fff"/><circle cx="119.5" cy="100.5" r="3" fill="#fff"/><circle cx="81" cy="107" r="1.4" fill="#fff"/><circle cx="115" cy="107" r="1.4" fill="#fff"/>`,
-    hungry:`<ellipse cx="83" cy="105" rx="8.5" ry="10" fill="${ink}"/><ellipse cx="117" cy="105" rx="8.5" ry="10" fill="${ink}"/><circle cx="86" cy="101" r="3.6" fill="#fff"/><circle cx="120" cy="101" r="3.6" fill="#fff"/><path d="M80 118 q2 6 4 0" fill="#9AD7FF"/>`,
-    sad:`<path d="M75 106 q8 6 16 0 M109 106 q8 6 16 0" stroke="${ink}" stroke-width="4" fill="none" stroke-linecap="round"/><text x="146" y="66" font-size="16" fill="var(--muted)" font-family="sans-serif">z z</text>`}[m];
-  const mouth=m==="happy"?`<path d="M92 122 q4 5 8 0 q4 5 8 0" stroke="${ink}" stroke-width="2.6" fill="none" stroke-linecap="round"/><rect x="96" y="124" width="4" height="6" rx="1.5" fill="#fff" stroke="${ink}" stroke-width="1.2"/><rect x="100" y="124" width="4" height="6" rx="1.5" fill="#fff" stroke="${ink}" stroke-width="1.2"/>`
-    :hungry?`<ellipse cx="100" cy="125" rx="4.5" ry="5.5" fill="${ink}"/>`:`<path d="M93 123 q3.5 3.5 7 0 q3.5 3.5 7 0" stroke="${ink}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`;
-  const sparkle=(x,y,s)=>`<path d="M${x} ${y-s} L${x+s*.3} ${y-s*.3} L${x+s} ${y} L${x+s*.3} ${y+s*.3} L${x} ${y+s} L${x-s*.3} ${y+s*.3} L${x-s} ${y} L${x-s*.3} ${y-s*.3}Z" fill="#FFD36E"/>`;
+  const face=ex||m;
+  const sad=face==="sad",droop=face==="hungry"||face==="oops";
+  const earL=sad?"rotate(-58 78 74)":droop?"rotate(-24 78 74)":face==="wow"||face==="star"?"rotate(-4 78 74)":"rotate(-10 78 74)";
+  const earR=sad?"rotate(58 122 74)":droop?"rotate(32 122 74)":face==="wink"?"rotate(28 122 74)":face==="wow"||face==="star"?"rotate(4 122 74)":"rotate(10 122 74)";
+  const heart=(x,y,s,c)=>`<path transform="translate(${x} ${y}) scale(${s})" d="M0 3 C-6 -4 -12 2 0 10 C12 2 6 -4 0 3Z" fill="${c}"/>`;
+  const star=(x,y,s,c)=>`<path d="M${x} ${y-s} L${x+s*.3} ${y-s*.3} L${x+s} ${y} L${x+s*.3} ${y+s*.3} L${x} ${y+s} L${x-s*.3} ${y+s*.3} L${x-s} ${y} L${x-s*.3} ${y-s*.3}Z" fill="${c}"/>`;
+  const open=`<ellipse cx="83" cy="104" rx="7" ry="8.5" fill="${ink}"/><ellipse cx="117" cy="104" rx="7" ry="8.5" fill="${ink}"/><circle cx="85.5" cy="100.5" r="3" fill="#fff"/><circle cx="119.5" cy="100.5" r="3" fill="#fff"/><circle cx="81" cy="107" r="1.4" fill="#fff"/><circle cx="115" cy="107" r="1.4" fill="#fff"/>`;
+  const eyes={
+    happy:`<path d="M74 106 q9 -11 18 0 M108 106 q9 -11 18 0" stroke="${ink}" stroke-width="4.5" fill="none" stroke-linecap="round"/>`,
+    ok:`<g class="blink">${open}</g>`,
+    hungry:`<g class="blink"><ellipse cx="83" cy="105" rx="8.5" ry="10" fill="${ink}"/><ellipse cx="117" cy="105" rx="8.5" ry="10" fill="${ink}"/><circle cx="86" cy="101" r="3.6" fill="#fff"/><circle cx="120" cy="101" r="3.6" fill="#fff"/></g><path d="M78 116 q3 8 6 0z" fill="#9AD7FF"/>`,
+    sad:`<path d="M75 106 q8 6 16 0 M109 106 q8 6 16 0" stroke="${ink}" stroke-width="4" fill="none" stroke-linecap="round"/><text x="146" y="66" font-size="16" fill="var(--muted)" font-family="sans-serif">z z</text>`,
+    love:heart(83,98,1.25,"#FF4F9A")+heart(117,98,1.25,"#FF4F9A"),
+    star:star(83,104,10,"#FFC93C")+star(117,104,10,"#FFC93C"),
+    wink:`<ellipse cx="83" cy="104" rx="7" ry="8.5" fill="${ink}"/><circle cx="85.5" cy="100.5" r="3" fill="#fff"/><path d="M108 105 q9 -9 18 0" stroke="${ink}" stroke-width="4.5" fill="none" stroke-linecap="round"/>`,
+    wow:`<circle cx="83" cy="104" r="10" fill="#fff" stroke="${ink}" stroke-width="2"/><circle cx="117" cy="104" r="10" fill="#fff" stroke="${ink}" stroke-width="2"/><circle cx="83" cy="105" r="5.5" fill="${ink}"/><circle cx="117" cy="105" r="5.5" fill="${ink}"/><circle cx="85" cy="102" r="2" fill="#fff"/><circle cx="119" cy="102" r="2" fill="#fff"/>`,
+    oops:`<path d="M76 100 l12 6 l-12 6 M124 100 l-12 6 l12 6" stroke="${ink}" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M146 84 q6 10 0 14 q-6 -4 0 -14z" fill="#9AD7FF"/>`,
+    munch:`<path d="M74 106 q9 -11 18 0 M108 106 q9 -11 18 0" stroke="${ink}" stroke-width="4.5" fill="none" stroke-linecap="round"/>`}[face]||"";
+  const mouths={
+    happy:`<path d="M92 122 q4 5 8 0 q4 5 8 0" stroke="${ink}" stroke-width="2.6" fill="none" stroke-linecap="round"/><rect x="96" y="124" width="4" height="6" rx="1.5" fill="#fff" stroke="${ink}" stroke-width="1.2"/><rect x="100" y="124" width="4" height="6" rx="1.5" fill="#fff" stroke="${ink}" stroke-width="1.2"/>`,
+    hungry:`<ellipse cx="100" cy="125" rx="4.5" ry="5.5" fill="${ink}"/>`,
+    love:`<path d="M91 121 q9 12 18 0z" fill="#FF6F9F" stroke="${ink}" stroke-width="2"/>`,
+    star:`<path d="M90 120 q10 16 20 0z" fill="#FF6F9F" stroke="${ink}" stroke-width="2"/><path d="M95 127 q5 4 10 0" fill="#FFB3C9"/>`,
+    wink:`<path d="M93 122 q7 6 14 0" stroke="${ink}" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M103 124 q3 6 6 1" fill="#FF6F9F"/>`,
+    wow:`<ellipse cx="100" cy="126" rx="5" ry="6.5" fill="${ink}"/><ellipse cx="100" cy="128" rx="3" ry="2.5" fill="#FF6F9F"/>`,
+    oops:`<path d="M90 125 q3 -4 6 0 q3 4 6 0 q3 -4 6 0" stroke="${ink}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`,
+    munch:`<ellipse cx="100" cy="124" rx="7" ry="4" fill="${ink}" class="chew"/>`}[face]||`<path d="M93 123 q3.5 3.5 7 0 q3.5 3.5 7 0" stroke="${ink}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`;
+  const fx={love:heart(40,60,1.6,"#FF7FAE")+heart(160,48,1.2,"#FF9EC4")+heart(168,96,.9,"#FF4F9A"),
+    star:star(34,56,9,"#FFD36E")+star(170,46,7,"#FFD36E")+star(164,112,6,"#FFD36E")+star(40,120,5,"#FFD36E"),
+    happy:star(30,52,8,"#FFD36E")+star(172,44,6,"#FFD36E")+star(166,120,5,"#FFD36E"),
+    wow:`<text x="150" y="66" font-size="26" font-weight="800" fill="var(--accent)" font-family="sans-serif">!</text>`,
+    oops:"",munch:`<circle cx="124" cy="140" r="2.5" fill="#FF9A3D"/><circle cx="131" cy="148" r="2" fill="#FF9A3D"/><circle cx="76" cy="144" r="2" fill="#FF9A3D"/><text x="140" y="88" font-size="14" fill="var(--accent)" font-family="sans-serif">♪</text>`}[face]||"";
+  const carrotHug=`<g transform="translate(100 160) rotate(-30)"><path d="M0 -14 l5 26 h-10z" fill="#FF9A3D"/><path d="M0 -14 l-5 -7 M0 -14 l0 -9 M0 -14 l5 -7" stroke="#4CB963" stroke-width="3" stroke-linecap="round"/></g>`;
+  const carrotEat=`<g transform="translate(100 134) rotate(70)"><path d="M0 -12 l5 22 h-10z" fill="#FF9A3D"/><path d="M0 -12 l-5 -6 M0 -12 l0 -8 M0 -12 l5 -6" stroke="#4CB963" stroke-width="3" stroke-linecap="round"/></g>`;
   const bow=`<g transform="translate(130 68) rotate(18)"><path d="M0 0 l-14 -9 q-4 9 0 18z M0 0 l14 -9 q4 9 0 18z" fill="var(--accent)"/><circle r="4.5" fill="#FF7FAE"/></g>`;
   const scarf=lv>=2?`<path d="M64 140 q36 16 72 0 l-3 11 q-33 13 -66 0z" fill="var(--sea)"/><path d="M118 146 l8 22 l-12 -3z" fill="var(--sea)"/>`:"";
   const hat=lv>=3&&lv<7?`<g transform="translate(100 66)"><path d="M-30 4 q30 -24 60 0 l-5 8 h-50z" fill="#1F2A44"/><rect x="-33" y="9" width="66" height="7" rx="3.5" fill="#1F2A44"/><circle cy="-4" r="5" fill="#FFD36E"/></g>`:"";
   const glass=lv>=5?`<g transform="translate(150 150)"><circle r="11" fill="#E6F4FF" fill-opacity=".5" stroke="#B07A4A" stroke-width="4"/><path d="M8 8 l11 12" stroke="#B07A4A" stroke-width="5" stroke-linecap="round"/></g>`:"";
   const crown=lv>=7?`<path d="M74 72 l9 -24 l9 16 l8 -22 l8 22 l9 -16 l9 24z" fill="#FFD36E" stroke="#E0A93A" stroke-width="2" stroke-linejoin="round"/><circle cx="100" cy="66" r="3" fill="var(--accent)"/>`:"";
-  return `<svg viewBox="0 0 200 200" role="img" aria-label="Thỏ Mochi, cấp ${lv}" class="${m==="happy"?"bounce":""}">
+  const anim=ex==="star"||ex==="love"?"jump":ex==="oops"?"shiver":ex==="munch"?"nom":face==="happy"?"bounce":"breathe";
+  const blush=face==="love"||face==="star"||face==="wink"?".85":".55";
+  return `<svg viewBox="0 0 200 200" role="img" aria-label="Thỏ Mochi, cấp ${lv}" class="pet-svg ${anim}">
   <defs><radialGradient id="bg" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#FFE3EF"/><stop offset="1" stop-color="var(--chip)" stop-opacity="0"/></radialGradient>
   <linearGradient id="furG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--fur)"/><stop offset="1" stop-color="var(--fur-dark)"/></linearGradient></defs>
-  <circle cx="100" cy="112" r="90" fill="url(#bg)"/>
-  ${m==="happy"?sparkle(30,52,8)+sparkle(172,44,6)+sparkle(166,120,5):""}
+  <circle cx="100" cy="112" r="90" fill="url(#bg)"/>${fx}
   <ellipse cx="100" cy="190" rx="54" ry="7" fill="var(--chip)"/>
-  <g transform="${earL}"><ellipse cx="78" cy="44" rx="15" ry="40" fill="url(#furG)" stroke="#F2BCD0" stroke-width="2"/><ellipse cx="78" cy="48" rx="7.5" ry="29" fill="${inner}"/></g>
-  <g transform="${earR}"><ellipse cx="122" cy="44" rx="15" ry="40" fill="url(#furG)" stroke="#F2BCD0" stroke-width="2"/><ellipse cx="122" cy="48" rx="7.5" ry="29" fill="${inner}"/></g>
+  <g class="ears"><g transform="${earL}"><ellipse cx="78" cy="44" rx="15" ry="40" fill="url(#furG)" stroke="#F2BCD0" stroke-width="2"/><ellipse cx="78" cy="48" rx="7.5" ry="29" fill="${inner}"/></g>
+  <g transform="${earR}"><ellipse cx="122" cy="44" rx="15" ry="40" fill="url(#furG)" stroke="#F2BCD0" stroke-width="2"/><ellipse cx="122" cy="48" rx="7.5" ry="29" fill="${inner}"/></g></g>
   <circle cx="150" cy="168" r="12" fill="#fff" stroke="#F2BCD0" stroke-width="2"/>
   <ellipse cx="100" cy="164" rx="46" ry="30" fill="url(#furG)" stroke="#F2BCD0" stroke-width="2"/>
   <ellipse cx="80" cy="190" rx="14" ry="7" fill="var(--fur)" stroke="#F2BCD0" stroke-width="2"/><ellipse cx="120" cy="190" rx="14" ry="7" fill="var(--fur)" stroke="#F2BCD0" stroke-width="2"/>
   <ellipse cx="100" cy="110" rx="50" ry="44" fill="url(#furG)" stroke="#F2BCD0" stroke-width="2"/>
-  <ellipse cx="72" cy="120" rx="10" ry="6" fill="${pink}" opacity=".55"/><ellipse cx="128" cy="120" rx="10" ry="6" fill="${pink}" opacity=".55"/>
-  ${eyes}<path d="M96 115 q4 -3 8 0 q-4 6 -8 0z" fill="${pink}"/>${mouth}
-  ${m==="happy"?`<path d="M88 168 q12 -14 24 0" stroke="#F2BCD0" stroke-width="2" fill="none"/><g transform="translate(100 160) rotate(-30)"><path d="M0 -14 l5 26 h-10z" fill="#FF9A3D"/><path d="M0 -14 l-5 -7 M0 -14 l0 -9 M0 -14 l5 -7" stroke="#4CB963" stroke-width="3" stroke-linecap="round"/></g>`:""}
+  <ellipse cx="72" cy="120" rx="10" ry="6" fill="${pink}" opacity="${blush}"/><ellipse cx="128" cy="120" rx="10" ry="6" fill="${pink}" opacity="${blush}"/>
+  ${eyes}<path d="M96 115 q4 -3 8 0 q-4 6 -8 0z" fill="${pink}"/>${mouths}
+  ${face==="munch"?carrotEat:face==="happy"||face==="star"||face==="love"?carrotHug:""}
   ${lv<3?bow:""}${scarf}${hat}${crown}${glass}</svg>`}
 
 /* ---------- case of the week ---------- */
@@ -421,7 +470,7 @@ function renderCase(){const c=curCase();
 function fixHTML(l){return `<div class="fix">${l.ok?`<div>${esc(l.text)}</div><div class="ok">${l.checked?"Câu ổn rồi ✓":"Đã lưu ✓"}</div>`:`<div class="old">${esc(l.text)}</div><div class="new">${esc(l.fixed)}</div>`}${l.why?`<div class="why">${esc(l.why)}</div>`:""}</div>`}
 function render(){
   const x=xp(),lv=level(x),m=mood();
-  $("#petArt").innerHTML=petSVG(m,lv);
+  $("#petArt").innerHTML=petSVG(m,lv,petExpr);
   $("#petName").textContent=state().petName||"Mochi";
   $("#hFish").textContent="🥕 "+x;$("#hLv").textContent="⭐ Lv "+lv;$("#hStreak").textContent="🔥 "+streak();
   $("#mood").textContent={happy:"🐰 No căng bụng",ok:"🙂 Hơi đói",hungry:"🥺 Đói bụng",sad:"😢 Buồn vì nhớ Mia"}[m]+` · hôm nay ${fishDay(today())} 🥕`;
@@ -444,7 +493,7 @@ function confetti(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)re
   let f=0;(function tick(){cx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.r+=.1;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);cx.restore()});if(++f<110)requestAnimationFrame(tick);else cx.clearRect(0,0,cv.width,cv.height)})()}
 
 /* ---------- actions ---------- */
-function addLog(d,gain){DATA.logs.push({...d,day:today(),ts:Date.now()});persist();render();if(gain)toast(`+${gain} 🥕 cho Mochi`)}
+function addLog(d,gain){DATA.logs.push({...d,day:today(),ts:Date.now()});persist();render();const rx=exprFor(d);if(rx)react(rx[0],rx[1]);if(gain)toast(`+${gain} 🥕 cho Mochi`)}
 function micText(key){if(key==="hot"){const h=todayHot();return h.ex||h.en}return key.slice(2)}
 function finishMic(){const key=micTarget;if(!key)return;micTarget=null;if(!heard){render();toast("Chưa nghe rõ, bấm 🎤 nói lại nhé");return}
   stars[key]=score(micText(key),heard);
@@ -457,7 +506,7 @@ async function geminiFix(text){const k=gkey();if(!k)return null;
   if(!r.ok)throw new Error("HTTP "+r.status);const j=await r.json();return JSON.parse(j.candidates[0].content.parts[0].text.replace(/^```(json)?|```$/g,"").trim())}
 
 document.addEventListener("click",async e=>{
-  if(e.target.closest("#petArt")){const a=PETLINES[mood()];$("#bubble").textContent=a[Math.floor(Math.random()*a.length)];return}
+  if(e.target.closest("#petArt")){petTap();return}
   const b=e.target.closest("button");if(!b)return;
   if(b.dataset.say){speak(b.dataset.say,+(b.dataset.rate||.9));return}
   if(b.dataset.wk!=null&&CUR){const w=+b.dataset.wk,th=CUR.themes[w%CUR.themes.length];toast(`Tuần ${w+1}: ${th.vi}`);return}
