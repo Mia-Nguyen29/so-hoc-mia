@@ -1,0 +1,2301 @@
+[
+ {
+  "answer": 1,
+  "clues": [
+   {
+    "en": "On Monday night, the reefer was sitting in Block C. By Tuesday morning, it was gone. The yard manager freaked out and called the police.",
+    "vi": "Tối thứ Hai, cont lạnh còn nằm ở Block C. Đến sáng thứ Ba thì biến mất. Quản lý bãi hoảng hồn và gọi cảnh sát.",
+    "words": [
+     {
+      "vi": "cont lạnh",
+      "w": "reefer"
+     },
+     {
+      "vi": "hoảng loạn",
+      "w": "freak out"
+     }
+    ]
+   },
+   {
+    "en": "The gate camera caught a truck heading out at 2:14 a.m. The driver flashed a delivery order with a stamp on it. The guard just waved him through.",
+    "vi": "Camera cổng quay được một xe tải đi ra lúc 2:14 sáng. Tài xế giơ lệnh giao hàng có đóng dấu. Bảo vệ vẫy tay cho qua luôn.",
+    "words": [
+     {
+      "vi": "đi ra, rời đi",
+      "w": "head out"
+     },
+     {
+      "vi": "vẫy tay cho qua",
+      "w": "wave through"
+     }
+    ]
+   },
+   {
+    "en": "Mr. Kim swears he didn't do it: \"My crane was down from midnight till 3. Ask the mechanic!\" The mechanic backs him up.",
+    "vi": "Mr. Kim thề không phải mình: \"Cẩu của tôi hỏng từ nửa đêm tới 3 giờ. Hỏi thợ sửa đi!\" Thợ sửa xác nhận đúng vậy.",
+    "words": [
+     {
+      "vi": "thề",
+      "w": "swear"
+     },
+     {
+      "vi": "xác nhận, ủng hộ ai",
+      "w": "back someone up"
+     }
+    ]
+   },
+   {
+    "en": "Ms. Lee's company booked a truck for that night, but someone cancelled it at 11 p.m. So who was driving that truck at 2 a.m.?",
+    "vi": "Công ty của Ms. Lee có đặt một xe cho đêm đó, nhưng ai đó đã huỷ lúc 11 giờ tối. Vậy ai lái chiếc xe đó lúc 2 giờ sáng?",
+    "words": [
+     {
+      "vi": "đặt trước",
+      "w": "book"
+     },
+     {
+      "vi": "huỷ",
+      "w": "cancel"
+     }
+    ]
+   },
+   {
+    "en": "Mr. Han was at a karaoke bar till 3 a.m. About twenty people saw him sing \"My Heart Will Go On\". Pretty solid alibi, right?",
+    "vi": "Mr. Han ở quán karaoke tới 3 giờ sáng. Khoảng 20 người thấy anh ta hát \"My Heart Will Go On\". Bằng chứng ngoại phạm khá chắc nhỉ?",
+    "words": [
+     {
+      "vi": "bằng chứng ngoại phạm",
+      "w": "alibi"
+     },
+     {
+      "vi": "chắc chắn",
+      "w": "solid"
+     }
+    ]
+   },
+   {
+    "en": "Plot twist: the stamp on the delivery order is blue, but the port switched to red stamps last year. Only one person kept an old blue stamp in her drawer.",
+    "vi": "Bất ngờ chưa: con dấu trên lệnh giao hàng màu xanh, nhưng cảng đã đổi sang dấu đỏ từ năm ngoái. Chỉ có một người còn giữ con dấu xanh cũ trong ngăn kéo.",
+    "words": [
+     {
+      "vi": "tình tiết bất ngờ",
+      "w": "plot twist"
+     },
+     {
+      "vi": "ngăn kéo",
+      "w": "drawer"
+     }
+    ]
+   },
+   {
+    "en": "Ms. Lee says she was fast asleep at home. But her phone pinged a tower right next to the port at 2 a.m. Hmm, something doesn't add up.",
+    "vi": "Ms. Lee nói lúc đó cô ngủ say ở nhà. Nhưng điện thoại cô bắt sóng trạm ngay cạnh cảng lúc 2 giờ sáng. Hừm, có gì đó không khớp.",
+    "words": [
+     {
+      "vi": "ngủ say",
+      "w": "fast asleep"
+     },
+     {
+      "vi": "không hợp lý, không khớp",
+      "w": "not add up"
+     }
+    ]
+   }
+  ],
+  "intro": "Tối thứ Hai, một container mực đông lạnh còn nằm ở bãi cảng Busan. Sáng hôm sau nó biến mất không dấu vết. Mia, vào cuộc thôi!",
+  "reveal": "Ms. Lee huỷ booking xe để không để lại dấu vết, rồi dùng con dấu xanh cũ làm lệnh giao hàng giả và tự lấy cont mực đi bán. Điện thoại ở gần cảng lúc 2 giờ sáng đã tố cáo cô ấy!",
+  "suspects": [
+   {
+    "desc": "Lái cẩu ca đêm, hay than buồn ngủ",
+    "name": "Mr. Kim"
+   },
+   {
+    "desc": "Điều độ xe của công ty trucking",
+    "name": "Ms. Lee"
+   },
+   {
+    "desc": "Đại lý hải quan, mê hát karaoke",
+    "name": "Mr. Han"
+   }
+  ],
+  "title": "Container mực biến mất ở Busan",
+  "theme": "Small talk"
+ },
+ {
+  "title": "Vụ án chiếc bánh sầu riêng bị đánh cắp",
+  "intro": "Một chiếc bánh sầu riêng thơm nức để tặng khách hàng ở cảng đã bị ai đó ăn mất một nửa trong tủ lạnh. Bạn hãy dùng kỹ năng quan sát của một nhân viên logistics để tìm ra thủ phạm nhé!",
+  "suspects": [
+   {
+    "name": "Anh Nam (Điều vận)",
+    "desc": "Nghiện cà phê đen nặng và lúc nào cũng than đói."
+   },
+   {
+    "name": "Chị Mai (Kinh doanh)",
+    "desc": "Đang ăn kiêng nghiêm ngặt và cực kỳ ghét mùi sầu riêng."
+   },
+   {
+    "name": "Em Lan (Chứng từ)",
+    "desc": "Chỉ thích ăn đồ cay và luôn uống trà sữa trân châu."
+   }
+  ],
+  "clues": [
+   {
+    "en": "Someone tucked into the durian cake in the breakroom. It is a total mess!",
+    "vi": "Ai đó đã ăn chiếc bánh sầu riêng trong phòng nghỉ một cách ngon lành. Thật là một mớ hỗn độn!",
+    "words": [
+     {
+      "w": "tuck into",
+      "vi": "ăn một cách ngon lành"
+     },
+     {
+      "w": "breakroom",
+      "vi": "phòng nghỉ giải lao"
+     }
+    ]
+   },
+   {
+    "en": "I found a takeaway coffee cup right next to the fridge. It is still warm.",
+    "vi": "Tôi tìm thấy một cốc cà phê mang đi ngay cạnh tủ lạnh. Nó vẫn còn ấm.",
+    "words": [
+     {
+      "w": "takeaway",
+      "vi": "mang đi (thức ăn, đồ uống)"
+     },
+     {
+      "w": "right next to",
+      "vi": "ngay sát bên cạnh"
+     }
+    ]
+   },
+   {
+    "en": "The culprit was in a rush and dropped a shipping seal on the floor.",
+    "vi": "Thủ phạm đã rất vội vã và đánh rơi một cái kẹp chì container trên sàn nhà.",
+    "words": [
+     {
+      "w": "in a rush",
+      "vi": "đang vội vã"
+     },
+     {
+      "w": "shipping seal",
+      "vi": "kẹp chì (niêm phong container)"
+     }
+    ]
+   },
+   {
+    "en": "Anh Nam says he is starving because he had to skip breakfast today.",
+    "vi": "Anh Nam nói rằng anh ấy đang đói cồn cào vì sáng nay phải bỏ bữa sáng.",
+    "words": [
+     {
+      "w": "starving",
+      "vi": "đói cồn cào"
+     },
+     {
+      "w": "skip",
+      "vi": "bỏ qua (bữa ăn, bước làm việc)"
+     }
+    ]
+   },
+   {
+    "en": "Wait, there is a stain of black coffee on this Bill of Lading.",
+    "vi": "Chờ đã, có một vết bẩn của cà phê đen trên tờ vận đơn này.",
+    "words": [
+     {
+      "w": "stain",
+      "vi": "vết bẩn/vết ố"
+     },
+     {
+      "w": "Bill of Lading",
+      "vi": "vận đơn đường biển"
+     }
+    ]
+   },
+   {
+    "en": "The thief wanted to grab a bite before the container ship docked at the port.",
+    "vi": "Kẻ trộm muốn ăn vội một chút trước khi tàu container cập bến ở cảng.",
+    "words": [
+     {
+      "w": "grab a bite",
+      "vi": "ăn vội cái gì đó"
+     },
+     {
+      "w": "dock",
+      "vi": "cập bến"
+     }
+    ]
+   },
+   {
+    "en": "Look! Anh Nam has a sweet tooth and there is yellow cream on his favourite coffee mug.",
+    "vi": "Nhìn kìa! Anh Nam là người hảo ngọt và có kem màu vàng trên cái ly cà phê yêu thích của anh ấy.",
+    "words": [
+     {
+      "w": "sweet tooth",
+      "vi": "người hảo ngọt"
+     },
+     {
+      "w": "mug",
+      "vi": "cái ca/ly lớn có quai"
+     }
+    ]
+   }
+  ],
+  "answer": 0,
+  "reveal": "Thủ phạm chính là anh Nam! Vì quá đói và lại nghiện cà phê đen, anh ấy đã không cưỡng lại được mùi vị hấp dẫn của chiếc bánh sầu riêng.",
+  "theme": "Food & drinks"
+ },
+ {
+  "title": "Vụ Án Cuộc Gọi Nhầm Lúc Cao Điểm",
+  "intro": "Một booking quan trọng cho lô hàng 20 container cà phê bất ngờ bị hủy qua điện thoại. Bạn hãy đóng vai thám tử logistics để tìm ra người đã gọi cuộc điện thoại tai hại này nhé!",
+  "suspects": [
+   {
+    "name": "Anh Tuấn (Sales)",
+    "desc": "Anh chàng kinh doanh năng nổ, thường xuyên chạy xe máy ngoài đường để gặp khách hàng."
+   },
+   {
+    "name": "Chị Thảo (Chứng từ)",
+    "desc": "Rất nghiêm túc, luôn làm việc tại văn phòng và không bao giờ rời khỏi bàn làm việc."
+   },
+   {
+    "name": "Bé My (Thực tập sinh)",
+    "desc": "Mới vào làm, rất nhút nhát và thường chỉ dùng điện thoại bàn của công ty."
+   }
+  ],
+  "clues": [
+   {
+    "en": "The shipping line agent said the caller was 'in a hurry.' There was a lot of 'background noise' like traffic.",
+    "vi": "Đại lý hãng tàu nói rằng người gọi đang 'vội vã'. Có rất nhiều 'tiếng ồn nền' như tiếng xe cộ.",
+    "words": [
+     {
+      "w": "in a hurry",
+      "vi": "đang vội"
+     },
+     {
+      "w": "background noise",
+      "vi": "tiếng ồn xung quanh"
+     }
+    ]
+   },
+   {
+    "en": "The caller said, 'Sorry, I'm breaking up because the signal is weak here.'",
+    "vi": "Người gọi nói: 'Xin lỗi, tiếng tôi bị chập chờn vì tín hiệu ở đây yếu quá.'",
+    "words": [
+     {
+      "w": "break up",
+      "vi": "(âm thanh) bị đứt quãng / chập chờn"
+     },
+     {
+      "w": "signal",
+      "vi": "tín hiệu"
+     }
+    ]
+   },
+   {
+    "en": "The caller asked the operator to 'put me through' to the Booking department immediately.",
+    "vi": "Người gọi yêu cầu tổng đài viên 'nối máy' cho tôi đến bộ phận Booking ngay lập tức.",
+    "words": [
+     {
+      "w": "put through",
+      "vi": "nối máy (điện thoại)"
+     },
+     {
+      "w": "immediately",
+      "vi": "ngay lập tức"
+     }
+    ]
+   },
+   {
+    "en": "The agent asked the caller to 'hang on' for a second, but they shouted 'Speak up, I can't hear you!'",
+    "vi": "Nhân viên bảo người gọi 'đợi chút', nhưng họ hét lên 'Nói to lên, tôi không nghe thấy gì cả!'",
+    "words": [
+     {
+      "w": "hang on",
+      "vi": "đợi một lát"
+     },
+     {
+      "w": "speak up",
+      "vi": "nói to lên"
+     }
+    ]
+   },
+   {
+    "en": "The caller promised to 'call back' after checking the B/L number on their phone.",
+    "vi": "Người gọi hứa sẽ 'gọi lại' sau khi kiểm tra số vận đơn (B/L) trên điện thoại của họ.",
+    "words": [
+     {
+      "w": "call back",
+      "vi": "gọi lại"
+     },
+     {
+      "w": "B/L (Bill of Lading)",
+      "vi": "vận đơn đường biển"
+     }
+    ]
+   },
+   {
+    "en": "The agent noted that it was hard to 'reach' the caller again because their mobile phone went straight to voicemail.",
+    "vi": "Nhân viên ghi chú rằng rất khó để 'liên lạc' lại với người gọi vì điện thoại di động của họ chuyển thẳng vào hộp thư thoại.",
+    "words": [
+     {
+      "w": "reach someone",
+      "vi": "liên lạc được với ai đó"
+     },
+     {
+      "w": "voicemail",
+      "vi": "hộp thư thoại"
+     }
+    ]
+   },
+   {
+    "en": "The caller finally 'hung up' after a loud motorbike horn sound was heard. Today, only Tuấn was out of the office.",
+    "vi": "Người gọi cuối cùng đã 'gác máy' sau khi một tiếng còi xe máy lớn vang lên. Hôm nay, chỉ có Tuấn là không ở văn phòng.",
+    "words": [
+     {
+      "w": "hang up",
+      "vi": "gác máy"
+     },
+     {
+      "w": "out of the office",
+      "vi": "không có mặt ở văn phòng"
+     }
+    ]
+   }
+  ],
+  "answer": 0,
+  "reveal": "Thủ phạm chính là anh Tuấn Sales! Anh ấy vừa chạy xe vừa gọi điện nên tín hiệu bị chập chờn và tiếng còi xe đã tố cáo anh ấy.",
+  "theme": "Phone calls"
+ },
+ {
+  "title": "Bí ẩn chiếc cốc 'Nữ hoàng Logistics'",
+  "intro": "Một sáng thứ Hai bận rộn, chiếc cốc cà phê may mắn của bạn đột nhiên biến mất khỏi bàn làm việc. Bạn quyết định làm thám tử để tìm lại nó từ những người đồng nghiệp thân thiết.",
+  "suspects": [
+   {
+    "name": "Lan",
+    "desc": "Chuyên viên chứng từ, tính tình hiền lành nhưng hơi đãng trí."
+   },
+   {
+    "name": "Minh",
+    "desc": "Nhân viên kinh doanh (Sales), lúc nào cũng vội vàng và bàn làm việc rất bừa bộn."
+   },
+   {
+    "name": "Hùng",
+    "desc": "Nhân viên hiện trường (Ops), tính cách kỷ luật, luôn đúng giờ và ngăn nắp."
+   }
+  ],
+  "clues": [
+   {
+    "en": "I left my lucky mug right next to the draft B/Ls. When I got back from the meeting, it had vanished into thin air!",
+    "vi": "Tôi để chiếc cốc may mắn ngay cạnh xấp vận đơn nháp. Khi đi họp về, nó đã biến mất không dấu vết!",
+    "words": [
+     {
+      "w": "vanish",
+      "vi": "biến mất"
+     },
+     {
+      "w": "draft",
+      "vi": "bản nháp"
+     }
+    ]
+   },
+   {
+    "en": "I spotted a dark brown ring on Minh’s desk near a pile of booking notes. He looked a bit guilty when I walked past.",
+    "vi": "Tôi phát hiện một vết ố tròn màu nâu đậm trên bàn của Minh gần xấp ghi chú đặt chỗ. Anh ấy trông hơi có lỗi khi tôi đi ngang qua.",
+    "words": [
+     {
+      "w": "spot",
+      "vi": "nhìn thấy/phát hiện"
+     },
+     {
+      "w": "guilty",
+      "vi": "có lỗi/tội lỗi"
+     }
+    ]
+   },
+   {
+    "en": "Lan told me she saw someone heading to the pantry with a pink mug. But my mug is blue and has a picture of a container on it!",
+    "vi": "Lan nói cô ấy thấy ai đó đi về phía khu vực bếp với một chiếc cốc màu hồng. Nhưng cốc của tôi màu xanh và có hình một chiếc công-ten-nơ trên đó!",
+    "words": [
+     {
+      "w": "head to",
+      "vi": "đi về phía"
+     },
+     {
+      "w": "pantry",
+      "vi": "phòng ăn/khu vực bếp văn phòng"
+     }
+    ]
+   },
+   {
+    "en": "Hùng was out at the port all morning checking a shipment of reefer containers. He didn't even step foot in the office until lunchtime.",
+    "vi": "Hùng đã ở ngoài cảng cả buổi sáng để kiểm tra một lô hàng container lạnh. Anh ấy thậm chí còn không đặt chân vào văn phòng cho đến giờ trưa.",
+    "words": [
+     {
+      "w": "shipment",
+      "vi": "lô hàng"
+     },
+     {
+      "w": "step foot in",
+      "vi": "đặt chân vào"
+     }
+    ]
+   },
+   {
+    "en": "I noticed Minh is suddenly using a generic white cup today. He says he lost his usual one, which sounds pretty fishy to me.",
+    "vi": "Tôi nhận ra Minh đột nhiên dùng một cái cốc trắng không nhãn hiệu hôm nay. Anh ấy nói anh ấy làm mất cái cốc hay dùng, nghe có vẻ khá đáng nghi.",
+    "words": [
+     {
+      "w": "generic",
+      "vi": "chung chung/không thương hiệu"
+     },
+     {
+      "w": "fishy",
+      "vi": "đáng nghi"
+     }
+    ]
+   },
+   {
+    "en": "There is a blue handle sticking out from behind a mountain of messy folders on the Sales desk. Someone is definitely hiding something!",
+    "vi": "Có một cái quai màu xanh nhô ra từ sau một núi bìa hồ sơ bừa bộn trên bàn bộ phận Kinh doanh. Chắc chắn có ai đó đang giấu gì đó!",
+    "words": [
+     {
+      "w": "stick out",
+      "vi": "nhô ra/lòi ra"
+     },
+     {
+      "w": "messy",
+      "vi": "bừa bộn"
+     }
+    ]
+   },
+   {
+    "en": "I found it! My mug was hidden behind Minh’s monitor, filled with his pens and 'emergency' chocolate bars.",
+    "vi": "Tôi tìm thấy rồi! Chiếc cốc của tôi bị giấu sau màn hình của Minh, đựng đầy bút và những thanh sô-cô-la 'cứu trợ' của anh ấy.",
+    "words": [
+     {
+      "w": "monitor",
+      "vi": "màn hình"
+     },
+     {
+      "w": "emergency",
+      "vi": "khẩn cấp"
+     }
+    ]
+   }
+  ],
+  "answer": 1,
+  "reveal": "Thủ phạm chính là Minh! Vì quá bừa bộn và làm mất cốc riêng, anh ấy đã 'mượn tạm' chiếc cốc của bạn để đựng bút và đồ ăn vặt mà quên trả lại.",
+  "theme": "Office life"
+ },
+ {
+  "title": "Vụ Án Mô Hình Container Vàng",
+  "intro": "Mô hình container bằng vàng kỷ niệm của công ty đột nhiên biến mất khỏi văn phòng logistics. Bạn hãy dựa vào cảm xúc của các đồng nghiệp để tìm ra ai là người đã giấu nó nhé!",
+  "suspects": [
+   {
+    "name": "Chị Lan",
+    "desc": "Nhân viên booking, đang rất áp lực vì nhiều lô hàng cuối năm."
+   },
+   {
+    "name": "Anh Cường",
+    "desc": "Nhân viên chứng từ, tính tình trầm lặng và đôi khi hơi khó tính."
+   },
+   {
+    "name": "Thủy",
+    "desc": "Nhân viên chăm sóc khách hàng, luôn vui vẻ và thích sự nổi bật."
+   }
+  ],
+  "clues": [
+   {
+    "en": "The office vibe is a bit off today. Everyone seems to be in a strange mood because the model is missing.",
+    "vi": "Bầu không khí ở văn phòng hôm nay hơi lạ. Mọi người có vẻ đang có tâm trạng kỳ lạ vì mô hình đã bị mất.",
+    "words": [
+     {
+      "w": "Strange",
+      "vi": "Kỳ lạ"
+     },
+     {
+      "w": "Mood",
+      "vi": "Tâm trạng"
+     }
+    ]
+   },
+   {
+    "en": "Ms. Lan is totally overwhelmed with a huge shipment. She is too busy with her booking list to care about a toy.",
+    "vi": "Chị Lan hoàn toàn bị quá tải với một lô hàng lớn. Chị ấy quá bận rộn với danh sách đặt chỗ đến mức không quan tâm đến một món đồ chơi.",
+    "words": [
+     {
+      "w": "Overwhelmed",
+      "vi": "Bị choáng ngợp/quá tải"
+     },
+     {
+      "w": "Shipment",
+      "vi": "Lô hàng"
+     }
+    ]
+   },
+   {
+    "en": "Mr. Cuong said he is sick and tired of the bright lights in the office. He looks very grumpy this morning.",
+    "vi": "Anh Cường nói rằng anh ấy đã chán ngấy với ánh sáng rực rỡ trong văn phòng. Sáng nay trông anh ấy rất hay gắt gỏng.",
+    "words": [
+     {
+      "w": "Sick and tired",
+      "vi": "Chán ngấy"
+     },
+     {
+      "w": "Grumpy",
+      "vi": "Cọc cằn/gắt gỏng"
+     }
+    ]
+   },
+   {
+    "en": "Thuy is absolutely thrilled because she just finished a difficult task. She is on cloud nine and sharing candies with everyone.",
+    "vi": "Thủy hoàn toàn phấn khích vì cô ấy vừa hoàn thành một nhiệm vụ khó khăn. Cô ấy đang cực kỳ hạnh phúc và chia sẻ kẹo cho mọi người.",
+    "words": [
+     {
+      "w": "Thrilled",
+      "vi": "Rất phấn khích"
+     },
+     {
+      "w": "On cloud nine",
+      "vi": "Cực kỳ hạnh phúc"
+     }
+    ]
+   },
+   {
+    "en": "Someone felt miserable because the gold container was too shiny. It was hurting their eyes while they checked the B/L.",
+    "vi": "Ai đó cảm thấy khổ sở vì cái container vàng quá bóng loáng. Nó làm đau mắt họ khi họ đang kiểm tra vận đơn (B/L).",
+    "words": [
+     {
+      "w": "Miserable",
+      "vi": "Khổ sở/đáng thương"
+     },
+     {
+      "w": "Shiny",
+      "vi": "Sáng bóng"
+     }
+    ]
+   },
+   {
+    "en": "A note was found near the printer. It says: 'I feel annoyed by this distraction, I need some peace and quiet!'",
+    "vi": "Một tờ ghi chú được tìm thấy gần máy in. Nó viết là: 'Tôi thấy bực mình vì sự xao nhãng này, tôi cần chút yên tĩnh!'",
+    "words": [
+     {
+      "w": "Annoyed",
+      "vi": "Bực mình/khó chịu"
+     },
+     {
+      "w": "Peace and quiet",
+      "vi": "Sự yên bình và tĩnh lặng"
+     }
+    ]
+   },
+   {
+    "en": "Mr. Cuong finally admits he was feeling cranky. He hid the model because its reflection was hitting his computer screen all day.",
+    "vi": "Anh Cường cuối cùng cũng thừa nhận mình đã cảm thấy gắt gỏng. Anh ấy giấu mô hình đi vì sự phản chiếu của nó chiếu vào màn hình máy tính cả ngày.",
+    "words": [
+     {
+      "w": "Cranky",
+      "vi": "Hay gắt gỏng/khó chịu"
+     },
+     {
+      "w": "Reflection",
+      "vi": "Sự phản chiếu"
+     }
+    ]
+   }
+  ],
+  "answer": 1,
+  "reveal": "Anh Cường là thủ phạm! Vì cảm thấy khó chịu và gắt gỏng do ánh sáng phản chiếu từ mô hình vàng vào màn hình làm việc, anh đã đem giấu nó đi để được yên tĩnh làm việc.",
+  "theme": "Feelings"
+ },
+ {
+  "title": "Vụ Án Chiếc Váy Mất Tích",
+  "intro": "Một kiện hàng chứa chiếc váy dạ hội bạn đặt online đã biến mất khỏi kệ đồ cá nhân ở công ty logistics. Hãy cùng truy tìm xem đồng nghiệp nào đã \"tiện tay\" cầm nhầm nó nhé!",
+  "suspects": [
+   {
+    "name": "Lan",
+    "desc": "Kế toán nội bộ, rất ngăn nắp nhưng đôi khi hay lơ đãng chuyện bên ngoài."
+   },
+   {
+    "name": "Thanh",
+    "desc": "Điều phối viên xuất khẩu, một \"tín đồ\" mua sắm online chính hiệu."
+   },
+   {
+    "name": "Dũng",
+    "desc": "Nhân viên điều phối xe tải, tính tình xởi lởi nhưng làm việc hơi cẩu thả."
+   }
+  ],
+  "clues": [
+   {
+    "en": "The courier dropped off a parcel this morning, but it's gone. I think someone might have snatched it by mistake during the lunch break.",
+    "vi": "Người giao hàng đã để lại một kiện hàng sáng nay, nhưng nó biến mất rồi. Tôi nghĩ ai đó có thể đã lấy nhầm nó trong giờ nghỉ trưa.",
+    "words": [
+     {
+      "w": "snatch",
+      "vi": "vồ lấy, chộp lấy nhanh"
+     },
+     {
+      "w": "by mistake",
+      "vi": "do nhầm lẫn"
+     }
+    ]
+   },
+   {
+    "en": "Lan was busy checking the cargo manifest all morning. She said she didn't notice any colorful packages near the mailroom.",
+    "vi": "Lan bận kiểm tra bản kê khai hàng hóa cả sáng. Cô ấy nói không chú ý thấy túi mua sắm sặc sỡ nào gần phòng thư từ.",
+    "words": [
+     {
+      "w": "manifest",
+      "vi": "bản kê khai hàng hóa"
+     },
+     {
+      "w": "notice",
+      "vi": "chú ý, nhận thấy"
+     }
+    ]
+   },
+   {
+    "en": "Dung mentioned the delivery driver was in a rush today. He left the items without waiting for a signature, which is quite odd.",
+    "vi": "Dũng kể rằng tài xế giao hàng đang vội. Anh ta để lại các hộp đồ mà không chờ chữ ký, điều này khá là kỳ lạ.",
+    "words": [
+     {
+      "w": "in a rush",
+      "vi": "đang vội vã"
+     },
+     {
+      "w": "signature",
+      "vi": "chữ ký"
+     }
+    ]
+   },
+   {
+    "en": "I found a piece of pink tissue paper caught in the door of the office. That's where Thanh handles all the container tracking.",
+    "vi": "Tôi tìm thấy một mẩu giấy lót màu hồng bị kẹt ở cửa văn phòng. Đó là nơi Thanh làm việc theo dõi container suốt cả buổi.",
+    "words": [
+     {
+      "w": "be caught in",
+      "vi": "bị mắc kẹt vào"
+     },
+     {
+      "w": "tracking",
+      "vi": "theo dõi (lịch trình hàng hóa)"
+     }
+    ]
+   },
+   {
+    "en": "Thanh complained that she is dead broke after the last big sale. She admitted her shopping habit is a bit of a problem.",
+    "vi": "Thanh than thở rằng cô ấy đang hết sạch tiền sau đợt giảm giá lớn vừa rồi. Cô ấy thừa nhận thói quen mua sắm của mình hơi có vấn đề.",
+    "words": [
+     {
+      "w": "dead broke",
+      "vi": "hết sạch tiền, cháy túi"
+     },
+     {
+      "w": "habit",
+      "vi": "thói quen"
+     }
+    ]
+   },
+   {
+    "en": "I spotted a clearance sale sticker from a fancy boutique on the floor. It was right under Thanh's swivel chair!",
+    "vi": "Tôi phát hiện một nhãn dán hàng thanh lý từ một cửa hàng thời trang dưới sàn nhà. Nó nằm ngay dưới ghế xoay của Thanh!",
+    "words": [
+     {
+      "w": "clearance sale",
+      "vi": "bán xả kho, bán thanh lý"
+     },
+     {
+      "w": "boutique",
+      "vi": "cửa hàng thời trang nhỏ"
+     }
+    ]
+   },
+   {
+    "en": "Thanh is trying to hide a gift receipt from the exact same shop. She looks very guilty and won't make eye contact.",
+    "vi": "Thanh đang cố giấu một tờ hóa đơn quà tặng từ đúng cửa hàng đó. Cô ấy trông rất tội lỗi và không dám nhìn thẳng vào mắt tôi.",
+    "words": [
+     {
+      "w": "hide",
+      "vi": "che giấu"
+     },
+     {
+      "w": "gift receipt",
+      "vi": "hóa đơn quà tặng (dùng để đổi hàng)"
+     }
+    ]
+   }
+  ],
+  "answer": 1,
+  "reveal": "Thanh chính là người đã lấy nhầm gói đồ vì tưởng đó là hàng giảm giá cô ấy đặt mua! Thanh đã gửi trả lại chiếc váy và mời bạn một bữa trưa thịnh soạn để xin lỗi vì sự nhầm lẫn này.",
+  "theme": "Shopping"
+ },
+ {
+  "title": "Vụ Án Thùng Cà Phê Biến Mất",
+  "intro": "Công ty đang chuẩn bị cho bữa tiệc lập kế hoạch năm mới thì một thùng cà phê thượng hạng trong kho bỗng nhiên biến mất. Bạn hãy giúp tìm xem ai đã 'mượn' nó để phục vụ cho kế hoạch riêng của mình nhé!",
+  "suspects": [
+   {
+    "name": "Linh",
+    "desc": "Nhân viên chứng từ cực kỳ ngăn nắp, luôn lên kế hoạch ăn trưa trước 3 tiếng."
+   },
+   {
+    "name": "Nam",
+    "desc": "Giám sát kho tính tình xông xáo nhưng thường xuyên quên lập kế hoạch nghỉ ngơi."
+   },
+   {
+    "name": "An",
+    "desc": "Nhân viên kinh doanh đang bận rộn lên kế hoạch gặp gỡ một khách hàng rất lớn."
+   }
+  ],
+  "clues": [
+   {
+    "en": "I saw someone checking the loading schedule early this morning. They were trying to pencil in a personal delivery for later this week.",
+    "vi": "Tôi thấy có người kiểm tra lịch đóng hàng sáng sớm nay. Họ đang cố gắng sắp xếp tạm thời một chuyến giao hàng cá nhân vào cuối tuần này.",
+    "words": [
+     {
+      "w": "loading schedule",
+      "vi": "lịch đóng hàng"
+     },
+     {
+      "w": "pencil in",
+      "vi": "sắp xếp lịch hẹn tạm thời"
+     }
+    ]
+   },
+   {
+    "en": "There is a note on the desk about calling it a day early on Friday. It mentions needing a special gift for a big client meeting.",
+    "vi": "Có một tờ ghi chú trên bàn về việc nghỉ tay sớm vào thứ Sáu. Nó có nhắc đến việc cần một món quà đặc biệt cho cuộc họp khách hàng lớn.",
+    "words": [
+     {
+      "w": "call it a day",
+      "vi": "ngừng làm việc/nghỉ tay"
+     },
+     {
+      "w": "client",
+      "vi": "khách hàng"
+     }
+    ]
+   },
+   {
+    "en": "The CCTV shows a person wearing a sharp suit hanging around the 20-foot containers. They looked like they were making a secret plan on their phone.",
+    "vi": "Camera cho thấy một người mặc suit bảnh bao đang lảng vảng quanh các container 20 feet. Họ trông như đang lập một kế hoạch bí mật trên điện thoại.",
+    "words": [
+     {
+      "w": "sharp",
+      "vi": "bảnh bao/chỉnh tề"
+     },
+     {
+      "w": "hang around",
+      "vi": "la cà/lảng vảng"
+     }
+    ]
+   },
+   {
+    "en": "I heard someone say they want to touch base with a new partner on Saturday. They said the premium coffee would help seal the deal.",
+    "vi": "Tôi nghe thấy ai đó nói muốn liên lạc với đối tác mới vào thứ Bảy. Họ nói cà phê thượng hạng sẽ giúp chốt đơn thành công.",
+    "words": [
+     {
+      "w": "touch base",
+      "vi": "liên lạc/trao đổi"
+     },
+     {
+      "w": "seal the deal",
+      "vi": "chốt đơn/thỏa thuận thành công"
+     }
+    ]
+   },
+   {
+    "en": "Someone's digital calendar is open on the screen. It says: '10 AM - Play it by ear with the port authorities, but bring the samples!'",
+    "vi": "Lịch điện tử của ai đó đang mở trên màn hình. Nó ghi là: '10 giờ sáng - Tùy cơ ứng biến với ban quản lý cảng, nhưng nhớ mang theo hàng mẫu!'",
+    "words": [
+     {
+      "w": "play it by ear",
+      "vi": "tùy cơ ứng biến"
+     },
+     {
+      "w": "sample",
+      "vi": "hàng mẫu"
+     }
+    ]
+   },
+   {
+    "en": "The Sales Executive’s fancy gift bags are missing from his locker. He was up to his neck in paperwork for a new booking all afternoon.",
+    "vi": "Mấy chiếc túi quà sang trọng của anh nhân viên kinh doanh đã biến mất khỏi tủ đồ. Anh ấy bận ngập đầu với đống giấy tờ cho lô hàng mới suốt cả chiều.",
+    "words": [
+     {
+      "w": "up to one's neck",
+      "vi": "bận ngập đầu/rất bận"
+     },
+     {
+      "w": "paperwork",
+      "vi": "giấy tờ/thủ tục"
+     }
+    ]
+   },
+   {
+    "en": "I found a draft B/L for a 'private sample' signed by An. He admitted he wanted to get the ball rolling with the new client by giving them our best coffee!",
+    "vi": "Tôi tìm thấy một bản nháp vận đơn cho 'hàng mẫu cá nhân' do An ký. Anh ấy thừa nhận muốn bắt đầu tiến hành công việc với khách hàng mới bằng cách tặng họ loại cà phê ngon nhất của chúng ta!",
+    "words": [
+     {
+      "w": "get the ball rolling",
+      "vi": "bắt đầu tiến hành (một việc gì đó)"
+     },
+     {
+      "w": "draft B/L",
+      "vi": "vận đơn nháp"
+     }
+    ]
+   }
+  ],
+  "answer": 2,
+  "reveal": "An chính là thủ phạm vì anh ấy muốn tạo ấn tượng tốt với đối tác trong kế hoạch kinh doanh mới của mình. Anh ấy đã tự ý lấy thùng cà phê làm quà tặng để việc chốt đơn diễn ra suôn sẻ hơn!",
+  "theme": "Making plans"
+ },
+ {
+  "title": "Thám Tử Logistics: Bí Ẩn Thùng Cà Phê Mẫu",
+  "intro": "Một thùng mẫu cà phê đặc sản đã biến mất ngay trước khi container được niêm phong chì. Hãy đọc các tin nhắn trao đổi trong văn phòng để tìm ra ai là người đã 'mượn' nó nhé!",
+  "suspects": [
+   {
+    "name": "Chị Lan (Chứng từ)",
+    "desc": "Rất ngăn nắp, chỉ uống trà xanh và cực kỳ ghét mùi cà phê."
+   },
+   {
+    "name": "Anh Cường (Hiện trường)",
+    "desc": "Chuyên xử lý hàng tại cảng, hay trực ca đêm và thường xuyên than mệt mỏi."
+   },
+   {
+    "name": "Cô Vy (CS)",
+    "desc": "Thích đồ ngọt, nghiện trà sữa và sợ vị đắng của cà phê nguyên chất."
+   }
+  ],
+  "clues": [
+   {
+    "en": "Hey, I'm looping you in on the sample box issue. FYI, it's not in the warehouse anymore.",
+    "vi": "Này, tôi thêm bạn vào nhóm để nắm vụ thùng hàng mẫu nhé. Thông tin cho bạn là nó không còn ở trong kho nữa.",
+    "words": [
+     {
+      "w": "loop someone in",
+      "vi": "cập nhật thông tin cho ai đó"
+     },
+     {
+      "w": "FYI",
+      "vi": "thông tin đến bạn"
+     }
+    ]
+   },
+   {
+    "en": "We have a huge backlog of B/Ls today. Please sort this out ASAP so we can focus on documentation!",
+    "vi": "Hôm nay chúng ta có một đống vận đơn tồn đọng. Hãy giải quyết việc này càng sớm càng tốt để chúng ta tập trung làm chứng từ!",
+    "words": [
+     {
+      "w": "backlog",
+      "vi": "công việc tồn đọng"
+     },
+     {
+      "w": "ASAP",
+      "vi": "càng sớm càng tốt"
+     }
+    ]
+   },
+   {
+    "en": "Just a heads up, I saw someone near the cargo area late last night. They seemed to be on top of the schedule though.",
+    "vi": "Lưu ý một chút là tôi thấy có người ở gần khu vực hàng hóa tối qua. Tuy nhiên họ có vẻ đang nắm rất rõ lịch trình.",
+    "words": [
+     {
+      "w": "heads up",
+      "vi": "lời báo trước/cảnh báo"
+     },
+     {
+      "w": "on top of",
+      "vi": "nắm rõ/kiểm soát tốt"
+     }
+    ]
+   },
+   {
+    "en": "Keep me posted if you find anything. I'll get back to you after I finish checking the vessel schedules.",
+    "vi": "Có tin gì thì cập nhật cho tôi nhé. Tôi sẽ phản hồi lại cho bạn sau khi kiểm tra xong lịch tàu.",
+    "words": [
+     {
+      "w": "keep someone posted",
+      "vi": "cập nhật tình hình cho ai"
+     },
+     {
+      "w": "get back to",
+      "vi": "phản hồi/liên lạc lại sau"
+     }
+    ]
+   },
+   {
+    "en": "Out of the blue, the breakroom smells like fresh espresso. Can you double-check the inventory one more time?",
+    "vi": "Tự nhiên phòng nghỉ lại nồng nặc mùi cà phê espresso. Bạn kiểm tra kỹ lại danh mục hàng hóa lần nữa được không?",
+    "words": [
+     {
+      "w": "out of the blue",
+      "vi": "bất ngờ/thình lình"
+     },
+     {
+      "w": "double-check",
+      "vi": "kiểm tra kỹ lại"
+     }
+    ]
+   },
+   {
+    "en": "We're really cutting it close to the vessel's ETD. I'll look into the CCTV to see who entered the gate.",
+    "vi": "Chúng ta đang rất sát giờ tàu chạy rồi. Tôi sẽ xem xét camera để xem ai đã vào cổng.",
+    "words": [
+     {
+      "w": "cut it close",
+      "vi": "sát nút/sát giờ"
+     },
+     {
+      "w": "look into",
+      "vi": "xem xét/điều tra"
+     }
+    ]
+   },
+   {
+    "en": "I found a chat from Mr. Cuong: 'I had to pull an all-nighter for the port congestion, so I needed a caffeine kick. My bad!'",
+    "vi": "Tôi tìm thấy tin nhắn của anh Cường: 'Tôi đã phải thức trắng đêm vì cảng tắc nghẽn, nên tôi cần chút caffeine cho tỉnh táo. Lỗi của tôi!'",
+    "words": [
+     {
+      "w": "pull an all-nighter",
+      "vi": "thức trắng đêm để làm việc"
+     },
+     {
+      "w": "caffeine kick",
+      "vi": "sự tỉnh táo nhờ caffeine"
+     }
+    ]
+   }
+  ],
+  "answer": 1,
+  "reveal": "Anh Cường đã lấy thùng cà phê mẫu để pha uống vì phải thức trắng đêm xử lý hàng tại cảng. Anh ấy đã thú nhận trong tin nhắn vì quá buồn ngủ!",
+  "theme": "Work emails & chat"
+ },
+ {
+  "title": "Vụ án 'Chiếc cặp bị cầm nhầm' tại sân bay",
+  "intro": "Một túi hồ sơ quan trọng chứa vận đơn gốc (Original B/L) đã biến mất tại phòng chờ sân bay. Bạn hãy giúp tìm ra ai là người đã vô tình cầm nhầm nó nhé!",
+  "suspects": [
+   {
+    "name": "Chị Lan",
+    "desc": "Trưởng phòng Logistics, đang rất áp lực vì nhiều lô hàng bị delay."
+   },
+   {
+    "name": "Anh Cường",
+    "desc": "Nhân viên mới, lần đầu đi công tác nên rất lóng ngóng và hay quên."
+   },
+   {
+    "name": "Cô Vy",
+    "desc": "Nhân viên Sales, tín đồ mua sắm và thích dạo quanh các cửa hàng."
+   }
+  ],
+  "clues": [
+   {
+    "en": "The document bag vanished near the charging station. I spotted a coffee cup with a 'priority' sticker left right there.",
+    "vi": "Túi tài liệu đã biến mất gần trạm sạc. Tôi nhìn thấy một ly cà phê có dán nhãn 'ưu tiên' để lại ngay đó.",
+    "words": [
+     {
+      "w": "vanish",
+      "vi": "biến mất"
+     },
+     {
+      "w": "spot",
+      "vi": "nhìn thấy/phát hiện"
+     }
+    ]
+   },
+   {
+    "en": "Ms. Lan mentioned she had to drop off her kids early this morning. She looked totally wiped out because of the heavy workload.",
+    "vi": "Chị Lan kể rằng chị ấy phải đưa con đi học sớm sáng nay. Chị ấy trông hoàn toàn kiệt sức vì khối lượng công việc lớn.",
+    "words": [
+     {
+      "w": "drop off",
+      "vi": "đưa/thả ai đó xuống xe"
+     },
+     {
+      "w": "wiped out",
+      "vi": "cực kỳ mệt mỏi/kiệt sức"
+     }
+    ]
+   },
+   {
+    "en": "Mr. Cuong was panicking because he misplaced his boarding pass. He was busy checking all his pockets and ignored everything else.",
+    "vi": "Anh Cường đang hoảng loạn vì để thất lạc thẻ lên máy bay. Anh ấy mải mê kiểm tra túi quần và không để ý gì khác.",
+    "words": [
+     {
+      "w": "boarding pass",
+      "vi": "thẻ lên máy bay"
+     },
+     {
+      "w": "misplace",
+      "vi": "để thất lạc/nhầm chỗ"
+     }
+    ]
+   },
+   {
+    "en": "A witness saw a lady in a navy suit. She was talking loudly on the phone about a vessel being delayed at the port.",
+    "vi": "Một nhân chứng thấy một phụ nữ mặc vest xanh đen. Cô ấy đang nói chuyện điện thoại rất to về việc một con tàu bị trễ ở cảng.",
+    "words": [
+     {
+      "w": "vessel",
+      "vi": "tàu lớn/tàu biển"
+     },
+     {
+      "w": "delay",
+      "vi": "trì hoãn"
+     }
+    ]
+   },
+   {
+    "en": "Ms. Vy spent over an hour at the duty-free shop. She was busy browsing for luxury perfumes and didn't have any bags with her.",
+    "vi": "Cô Vy đã dành hơn một tiếng tại cửa hàng miễn thuế. Cô ấy mải mê xem các loại nước hoa xa xỉ và không mang theo túi nào.",
+    "words": [
+     {
+      "w": "duty-free",
+      "vi": "miễn thuế"
+     },
+     {
+      "w": "browse",
+      "vi": "xem qua/tìm kiếm"
+     }
+    ]
+   },
+   {
+    "en": "The security camera showed someone heading to the gate with two identical black briefcases. They seemed to be in a huge rush.",
+    "vi": "Camera an ninh cho thấy một người đang đi về phía cổng với hai chiếc cặp táp đen giống hệt nhau. Họ có vẻ đang rất vội vã.",
+    "words": [
+     {
+      "w": "head to",
+      "vi": "đi về phía"
+     },
+     {
+      "w": "briefcase",
+      "vi": "cặp tài liệu/cặp táp"
+     }
+    ]
+   },
+   {
+    "en": "Ms. Lan suddenly realized she had an extra bag while checking a booking on her laptop. She had picked it up by mistake while distracted!",
+    "vi": "Chị Lan chợt nhận ra mình có dư một chiếc túi khi đang kiểm tra một đơn đặt chỗ trên máy tính. Chị ấy đã cầm nhầm nó do bị xao nhãng!",
+    "words": [
+     {
+      "w": "booking",
+      "vi": "việc đặt chỗ/đặt chuyến"
+     },
+     {
+      "w": "realize",
+      "vi": "nhận ra"
+     }
+    ]
+   }
+  ],
+  "answer": 0,
+  "reveal": "Chị Lan chính là người đã cầm nhầm túi hồ sơ! Vì quá stress với việc đặt chỗ (booking) và lịch tàu (vessel), chị ấy đã vô tình xách luôn chiếc cặp của đồng nghiệp khi đang vội vã ra cổng lên máy bay.",
+  "theme": "Travel & airport"
+ },
+ {
+  "title": "Vụ án chiếc thẻ từ bị mất",
+  "intro": "Một chiếc thẻ từ VIP tại khách sạn cảng biển bỗng dưng biến mất. Hãy giúp quản lý tìm ra người đã cầm nhầm nó trong lúc đi lạc nhé!",
+  "suspects": [
+   {
+    "name": "Ms. Hoa",
+    "desc": "Nhân viên booking, chuyên đặt chỗ tàu, tính tình hay lơ đãng và rất dễ bị lạc đường."
+   },
+   {
+    "name": "Mr. Tuấn",
+    "desc": "Điều phối viên tại cảng, rất rành đường đi nước bước và luôn mang theo sơ đồ."
+   },
+   {
+    "name": "Ms. Linh",
+    "desc": "Chuyên viên chứng từ B/L, chỉ quan tâm đến việc tìm phòng tập gym của khách sạn."
+   }
+  ],
+  "clues": [
+   {
+    "en": "Welcome to our hotel! Please go to the front desk for check-in and the lobby is on your left.",
+    "vi": "Chào mừng quý khách! Vui lòng đến quầy lễ tân để làm thủ tục và sảnh chờ nằm ở bên trái.",
+    "words": [
+     {
+      "w": "Check-in",
+      "vi": "Làm thủ tục nhận phòng"
+     },
+     {
+      "w": "Lobby",
+      "vi": "Sảnh chờ"
+     }
+    ]
+   },
+   {
+    "en": "Ms. Hoa looks confused near the elevator. She said, 'I'm totally turned around, does this lift go to the VIP floor?'",
+    "vi": "Ms. Hoa trông có vẻ bối rối gần thang máy. Cô ấy nói: 'Tôi hoàn toàn bị lạc hướng rồi, thang máy này có lên tầng VIP không?'",
+    "words": [
+     {
+      "w": "Turned around",
+      "vi": "Bị lạc, nhầm hướng"
+     },
+     {
+      "w": "Lift",
+      "vi": "Thang máy"
+     }
+    ]
+   },
+   {
+    "en": "Mr. Tuấn is very organized. He asked the staff for directions to the port from the hotel entrance.",
+    "vi": "Mr. Tuấn rất ngăn nắp. Anh ấy hỏi nhân viên chỉ dẫn đường đi từ lối vào khách sạn ra đến cảng.",
+    "words": [
+     {
+      "w": "Directions",
+      "vi": "Chỉ dẫn đường đi"
+     },
+     {
+      "w": "Front desk",
+      "vi": "Quầy lễ tân"
+     }
+    ]
+   },
+   {
+    "en": "Ms. Linh is headed for the second floor. She wants to find the fitness center before her shift starts.",
+    "vi": "Ms. Linh đang đi về phía tầng hai. Cô ấy muốn tìm phòng tập gym trước khi ca làm việc bắt đầu.",
+    "words": [
+     {
+      "w": "Headed for",
+      "vi": "Đi về phía"
+     },
+     {
+      "w": "Fitness center",
+      "vi": "Phòng tập thể dục"
+     }
+    ]
+   },
+   {
+    "en": "A witness saw someone taking a shortcut. They were walking through the staff corridor toward the VIP lounge.",
+    "vi": "Một nhân chứng thấy ai đó đang đi đường tắt. Họ đi bộ xuyên qua hành lang nhân viên hướng về phía phòng chờ VIP.",
+    "words": [
+     {
+      "w": "Shortcut",
+      "vi": "Đường tắt"
+     },
+     {
+      "w": "Corridor",
+      "vi": "Hành lang"
+     }
+    ]
+   },
+   {
+    "en": "The hotel signage is confusing for some. A guest said they find it easier to read a Bill of Lading than these signs!",
+    "vi": "Hệ thống biển báo của khách sạn gây bối rối cho vài người. Một vị khách nói họ thấy đọc vận đơn còn dễ hơn đọc mấy cái biển này!",
+    "words": [
+     {
+      "w": "Signage",
+      "vi": "Hệ thống biển báo"
+     },
+     {
+      "w": "Single room",
+      "vi": "Phòng đơn"
+     }
+    ]
+   },
+   {
+    "en": "The staff found a 'Booking Confirmation' for a container in the VIP lounge. It was left next to some luggage near the lost and found.",
+    "vi": "Nhân viên tìm thấy một 'Xác nhận đặt chỗ' container trong phòng VIP. Nó bị bỏ lại cạnh hành lý gần khu vực đồ thất lạc.",
+    "words": [
+     {
+      "w": "Luggage",
+      "vi": "Hành lý"
+     },
+     {
+      "w": "Lost and found",
+      "vi": "Nơi giữ đồ thất lạc"
+     }
+    ]
+   }
+  ],
+  "answer": 0,
+  "reveal": "Ms. Hoa là người đã cầm nhầm thẻ VIP! Vì bị lạc đường và mải mê xem 'Booking Confirmation', cô ấy đã đi thẳng vào phòng VIP thay vì về phòng mình.",
+  "theme": "Hotels & directions"
+ },
+ {
+  "title": "Vụ Án Mực Khô Cay Biến Mất",
+  "intro": "Một thùng mẫu mực khô cay đặc biệt dành cho khách hàng đã biến mất khỏi văn phòng. Bạn cần tìm ra ai là người đã 'xử lý' chỗ mực này trước khi tàu khởi hành!",
+  "suspects": [
+   {
+    "name": "Minh",
+    "desc": "Thực tập sinh mới, hay lúng túng và hay xin lỗi."
+   },
+   {
+    "name": "Lan",
+    "desc": "Chuyên viên chứng từ, cực kỳ thích ăn đồ ăn vặt."
+   },
+   {
+    "name": "Nam",
+    "desc": "Nhân viên hiện trường, thường xuyên làm việc tại cảng."
+   }
+  ],
+  "clues": [
+   {
+    "en": "I'm so sorry, but the squid samples are gone! I was about to book the vessel when I saw the empty box.",
+    "vi": "Tôi rất xin lỗi, nhưng các mẫu mực đã biến mất rồi! Tôi đang định đặt chỗ tàu thì thấy cái hộp trống rỗng.",
+    "words": [
+     {
+      "w": "vessel",
+      "vi": "tàu lớn"
+     },
+     {
+      "w": "empty",
+      "vi": "trống rỗng"
+     }
+    ]
+   },
+   {
+    "en": "Thanks for asking, but I was at the port all morning. I didn't even touch the container doors.",
+    "vi": "Cảm ơn vì đã hỏi, nhưng tôi đã ở cảng suốt cả buổi sáng. Tôi thậm chí còn không chạm vào cửa container.",
+    "words": [
+     {
+      "w": "port",
+      "vi": "cảng"
+     },
+     {
+      "w": "touch",
+      "vi": "chạm vào"
+     }
+    ]
+   },
+   {
+    "en": "Thanks a million for the coffee, boss! By the way, does the Bill of Lading need a 'spicy' warning?",
+    "vi": "Cảm ơn sếp rất nhiều vì ly cà phê! Nhân tiện, vận đơn có cần thêm cảnh báo 'cay' không nhỉ?",
+    "words": [
+     {
+      "w": "Bill of Lading",
+      "vi": "vận đơn"
+     },
+     {
+      "w": "warning",
+      "vi": "cảnh báo"
+     }
+    ]
+   },
+   {
+    "en": "I'm sorry, I accidentally printed the packing list on the back of a snack receipt. It was for some spicy squid!",
+    "vi": "Tôi xin lỗi, tôi vô tình in danh mục hàng hóa lên mặt sau của một tờ hóa đơn ăn vặt. Đó là hóa đơn cho món mực cay!",
+    "words": [
+     {
+      "w": "accidentally",
+      "vi": "vô tình"
+     },
+     {
+      "w": "receipt",
+      "vi": "hóa đơn"
+     }
+    ]
+   },
+   {
+    "en": "I found a sticky note that says 'Sorry, I'll buy more later!' near the shipping documents. It smells like chili.",
+    "vi": "Tôi tìm thấy một mẩu giấy ghi chú viết 'Xin lỗi, tôi sẽ mua bù sau!' gần hồ sơ vận chuyển. Nó có mùi ớt.",
+    "words": [
+     {
+      "w": "sticky note",
+      "vi": "giấy ghi chú"
+     },
+     {
+      "w": "chili",
+      "vi": "ớt"
+     }
+    ]
+   },
+   {
+    "en": "Thanks for the water, I'm burning up today! Anyway, I've finished the booking for the next shipment.",
+    "vi": "Cảm ơn vì cốc nước, tôi đang thấy nóng bừng cả người đây! Dù sao thì, tôi đã đặt chỗ xong cho lô hàng tiếp theo rồi.",
+    "words": [
+     {
+      "w": "burning up",
+      "vi": "rất nóng/như bốc hỏa"
+     },
+     {
+      "w": "shipment",
+      "vi": "lô hàng"
+     }
+    ]
+   },
+   {
+    "en": "Lan's keyboard is covered in red spice. She says, 'Sorry, I couldn't resist' while holding an empty sample bag.",
+    "vi": "Bàn phím của Lan bám đầy gia vị đỏ. Cô ấy nói 'Xin lỗi, tôi không thể kiềm lòng được' trong khi tay cầm túi mẫu trống không.",
+    "words": [
+     {
+      "w": "covered in",
+      "vi": "bao phủ bởi"
+     },
+     {
+      "w": "resist",
+      "vi": "kiềm lòng/cưỡng lại"
+     }
+    ]
+   }
+  ],
+  "answer": 1,
+  "reveal": "Lan chính là thủ phạm vì quá thèm ăn vặt nên đã ăn hết mẫu mực khô của khách hàng. Cô ấy đã để lại lời nhắn xin lỗi và lộ tẩy vì bàn phím đầy bột ớt!",
+  "theme": "Sorry & thanks"
+ },
+ {
+  "title": "Vụ Án Thùng Bánh Trung Thu Biến Mất",
+  "intro": "Sếp tổng vừa phát hiện một hộp bánh trung thu sầu riêng thượng hạng trong container lạnh đã bị ai đó lấy mất. Bạn cần tìm ra kẻ trộm dựa trên cách họ trả lời các câu hỏi tại cảng!",
+  "suspects": [
+   {
+    "name": "Minh",
+    "desc": "Nhân viên chứng từ, cực kỳ lịch sự và luôn từ chối một cách khéo léo theo đúng quy trình."
+   },
+   {
+    "name": "Lan",
+    "desc": "Nhân viên điều phối, tính tình hiền lành và rất khó để nói 'không' với khách hàng."
+   },
+   {
+    "name": "Nam",
+    "desc": "Tài xế xe nâng, tính tình thẳng thắn, cộc lốc và thường xuyên nói 'không' một cách dứt khoát."
+   }
+  ],
+  "clues": [
+   {
+    "en": "The boss asked for help with the shipment manifest. Someone replied: 'I'm afraid I'm a bit tied up right now.'",
+    "vi": "Sếp nhờ giúp kiểm tra bản kê khai hàng hóa. Có người trả lời: 'Tôi e là mình đang hơi bận ngay lúc này.'",
+    "words": [
+     {
+      "w": "I'm afraid",
+      "vi": "tôi e là (cách từ chối lịch sự)"
+     },
+     {
+      "w": "Tied up",
+      "vi": "đang bận (không thể rời đi)"
+     }
+    ]
+   },
+   {
+    "en": "A note was found near the container: 'Mind if I take a look inside?' The answer written below was: 'Actually, I'd rather you didn't.'",
+    "vi": "Một mảnh giấy được tìm thấy gần container: 'Phiền bạn nếu tôi nhìn vào bên trong một chút nhé?'. Câu trả lời viết bên dưới là: 'Thực ra, tôi thà rằng bạn không làm thế.'",
+    "words": [
+     {
+      "w": "Mind if",
+      "vi": "có phiền không nếu (dùng để xin phép)"
+     },
+     {
+      "w": "I'd rather",
+      "vi": "tôi muốn/thà rằng (dùng để từ chối nhẹ nhàng)"
+     }
+    ]
+   },
+   {
+    "en": "The security guard asked to check a bag. The person shouted: 'No way! This is my personal property!'",
+    "vi": "Bảo vệ yêu cầu kiểm tra một chiếc túi. Người đó hét lên: 'Không đời nào! Đây là tài sản cá nhân của tôi!'",
+    "words": [
+     {
+      "w": "No way",
+      "vi": "không đời nào (từ chối quyết liệt)"
+     },
+     {
+      "w": "Property",
+      "vi": "tài sản"
+     }
+    ]
+   },
+   {
+    "en": "A customer requested a discount on the freight rate. Lan said: 'I'd love to help, but it's out of my hands.'",
+    "vi": "Một khách hàng yêu cầu giảm cước vận chuyển. Lan nói: 'Tôi rất muốn giúp, nhưng việc này nằm ngoài tầm kiểm soát của tôi.'",
+    "words": [
+     {
+      "w": "Freight rate",
+      "vi": "cước phí vận chuyển"
+     },
+     {
+      "w": "Out of my hands",
+      "vi": "ngoài tầm kiểm soát/không có quyền quyết định"
+     }
+    ]
+   },
+   {
+    "en": "A witness saw someone by the reefer. When asked to move, the person replied: 'No can do, I'm waiting for a booking confirmation.'",
+    "vi": "Một nhân chứng thấy ai đó cạnh container lạnh. Khi được yêu cầu di chuyển, người đó đáp: 'Không được rồi, tôi đang đợi xác nhận đặt chỗ.'",
+    "words": [
+     {
+      "w": "No can do",
+      "vi": "không thể làm được (tiếng lóng để từ chối)"
+     },
+     {
+      "w": "Reefer",
+      "vi": "container lạnh"
+     }
+    ]
+   },
+   {
+    "en": "Someone asked for a piece of the durian cake. The thief wrote on a napkin: 'Forget it! These are too delicious to share.'",
+    "vi": "Ai đó đã xin một miếng bánh sầu riêng. Kẻ trộm viết lên khăn giấy: 'Quên đi! Bánh này quá ngon để chia sẻ.'",
+    "words": [
+     {
+      "w": "Forget it",
+      "vi": "quên đi/đừng mơ (từ chối thẳng thừng)"
+     },
+     {
+      "w": "Delicious",
+      "vi": "ngon miệng"
+     }
+    ]
+   },
+   {
+    "en": "The boss saw Nam hiding a yellow box behind his forklift. When asked 'Can I see that?', Nam yelled 'Not a chance!'",
+    "vi": "Sếp thấy Nam đang giấu một chiếc hộp màu vàng sau xe nâng. Khi được hỏi 'Tôi xem cái đó được không?', Nam hét lớn 'Không bao giờ!'",
+    "words": [
+     {
+      "w": "Forklift",
+      "vi": "xe nâng"
+     },
+     {
+      "w": "Not a chance",
+      "vi": "không bao giờ/không có cơ hội đó đâu"
+     }
+    ]
+   }
+  ],
+  "answer": 2,
+  "reveal": "Nam chính là thủ phạm! Anh ta vốn nổi tiếng là người nóng nảy, hay dùng những câu từ chối mạnh bạo như 'No way' và 'Not a chance' để che giấu hộp bánh sầu riêng đang ăn dở của mình.",
+  "theme": "Asking & saying no"
+ },
+ {
+  "title": "Bí ẩn chiếc cốc trong buổi họp",
+  "intro": "Sếp đang chuẩn bị cho buổi họp cảng hàng tuần thì phát hiện chiếc cốc may mắn của mình đã biến mất. Nếu không tìm thấy nó, buổi họp quan trọng này sẽ bị trì hoãn vô thời hạn.",
+  "suspects": [
+   {
+    "name": "Lan",
+    "desc": "Nhân viên chứng từ, cực kỳ ngăn nắp và luôn đúng giờ."
+   },
+   {
+    "name": "Huy",
+    "desc": "Điều phối viên tại cảng, đang rất căng thẳng vì các lô hàng bị delay."
+   },
+   {
+    "name": "Trang",
+    "desc": "Nhân viên kinh doanh, có thói quen ăn vặt và hay quên nộp báo cáo."
+   }
+  ],
+  "clues": [
+   {
+    "en": "We need to get the ball rolling, but the boss’s lucky mug is missing! He won't start the weekly port meeting without it.",
+    "vi": "Chúng ta cần bắt đầu tiến hành thôi, nhưng chiếc cốc may mắn của sếp bị mất rồi! Sếp sẽ không bắt đầu buổi họp cảng hàng tuần nếu thiếu nó.",
+    "words": [
+     {
+      "w": "get the ball rolling",
+      "vi": "bắt đầu tiến hành công việc"
+     },
+     {
+      "w": "weekly",
+      "vi": "hàng tuần"
+     }
+    ]
+   },
+   {
+    "en": "Lan is usually on top of things, so she checked the CCTV. She saw a shadow near the office kitchen at 8 AM.",
+    "vi": "Lan thường nắm bắt tốt mọi việc, nên cô ấy đã kiểm tra camera. Cô ấy thấy một cái bóng gần bếp văn phòng lúc 8 giờ sáng.",
+    "words": [
+     {
+      "w": "on top of things",
+      "vi": "nắm bắt/kiểm soát tốt mọi việc"
+     },
+     {
+      "w": "shadow",
+      "vi": "cái bóng"
+     }
+    ]
+   },
+   {
+    "en": "Huy is snowed under with five urgent bookings today. He says he’s too busy to even think about a coffee mug.",
+    "vi": "Huy đang bận ngập đầu với năm yêu cầu đặt chỗ khẩn cấp hôm nay. Anh ấy nói mình quá bận, thậm chí không có thời gian nghĩ về cái cốc cà phê.",
+    "words": [
+     {
+      "w": "snowed under",
+      "vi": "bận ngập đầu"
+     },
+     {
+      "w": "urgent",
+      "vi": "khẩn cấp"
+     }
+    ]
+   },
+   {
+    "en": "Trang keeps asking to push back the meeting until tomorrow. She looks a bit nervous and is chewing something sweet.",
+    "vi": "Trang liên tục yêu cầu lùi lịch họp sang ngày mai. Cô ấy trông có vẻ hơi lo lắng và đang nhai thứ gì đó ngọt.",
+    "words": [
+     {
+      "w": "push back",
+      "vi": "lùi lịch/trì hoãn"
+     },
+     {
+      "w": "nervous",
+      "vi": "lo lắng/hồi hộp"
+     }
+    ]
+   },
+   {
+    "en": "I found a pink candy wrapper stuck under the boss's chair. That’s a weird place to leave trash!",
+    "vi": "Tôi tìm thấy một vỏ kẹo màu hồng bị dính dưới ghế của sếp. Thật là một nơi kỳ lạ để vứt rác!",
+    "words": [
+     {
+      "w": "stuck",
+      "vi": "bị dính/kẹt"
+     },
+     {
+      "w": "wrapper",
+      "vi": "giấy gói/vỏ bọc"
+     }
+    ]
+   },
+   {
+    "en": "Someone left a trail of pink sugar near the shipping marks labels. It leads straight to the Sales department!",
+    "vi": "Ai đó đã để lại một vệt đường màu hồng gần các nhãn ký mã hiệu vận chuyển. Nó dẫn thẳng đến phòng Kinh doanh!",
+    "words": [
+     {
+      "w": "shipping marks",
+      "vi": "ký mã hiệu vận chuyển"
+     },
+     {
+      "w": "lead to",
+      "vi": "dẫn đến"
+     }
+    ]
+   },
+   {
+    "en": "The mug was in Trang's desk drawer under some paperwork. She confessed she wanted to stall the meeting because her sales report wasn't ready!",
+    "vi": "Chiếc cốc nằm trong ngăn kéo bàn của Trang dưới đống giấy tờ. Cô ấy thú nhận muốn câu giờ buổi họp vì báo cáo doanh số chưa xong!",
+    "words": [
+     {
+      "w": "paperwork",
+      "vi": "giấy tờ/công việc bàn giấy"
+     },
+     {
+      "w": "stall",
+      "vi": "trì hoãn/câu giờ"
+     }
+    ]
+   }
+  ],
+  "answer": 2,
+  "reveal": "Trang đã giấu chiếc cốc để trì hoãn buổi họp vì cô ấy chưa hoàn thành báo cáo doanh số. Những mẩu giấy gói kẹo hồng và vệt đường ngọt đã tố cáo hành động của cô ấy!",
+  "theme": "Meetings"
+ },
+ {
+  "title": "Vụ Trộm Chiếc Cúp Container Vàng",
+  "intro": "Chiếc cúp danh giá của phòng Logistics đã biến mất sau buổi tiệc cuối năm của công ty. Hãy sử dụng khả năng quan sát và từ vựng về đàm phán để tìm ra kẻ trộm nhé!",
+  "suspects": [
+   {
+    "name": "Chị Hà",
+    "desc": "Nhân viên chứng từ, tính tình chi li và rất sợ các lỗi sai trên vận đơn."
+   },
+   {
+    "name": "Anh Minh",
+    "desc": "Nhân viên kinh doanh (Sales), người luôn ám ảnh với việc mặc cả và chốt đơn."
+   },
+   {
+    "name": "Chị Lan",
+    "desc": "Nhân viên điều vận, luôn bận rộn tranh cãi với cảng về các loại phí phát sinh."
+   }
+  ],
+  "clues": [
+   {
+    "en": "The vendor asked for $500, but I'll lower my price to $400. If they don't accept, I'll just walk away.",
+    "vi": "Người bán đòi 500 đô, nhưng tôi sẽ hạ giá xuống 400 đô. Nếu họ không đồng ý, tôi sẽ bỏ đi luôn.",
+    "words": [
+     {
+      "w": "lower my price",
+      "vi": "hạ giá"
+     },
+     {
+      "w": "walk away",
+      "vi": "ngừng đàm phán/bỏ đi"
+     }
+    ]
+   },
+   {
+    "en": "Ms. Ha was in her office all night checking a bill of lading. She needed to make sure every specification was correct.",
+    "vi": "Chị Hà đã ở trong văn phòng cả đêm để kiểm tra vận đơn. Chị ấy cần đảm bảo mọi thông số kỹ thuật đều chính xác.",
+    "words": [
+     {
+      "w": "bill of lading",
+      "vi": "vận đơn đường biển"
+     },
+     {
+      "w": "specification",
+      "vi": "thông số kỹ thuật"
+     }
+    ]
+   },
+   {
+    "en": "Mr. Minh likes to split the difference when clients complain about costs. He always finds a middle ground to keep everyone happy.",
+    "vi": "Anh Minh thích chia đôi phần chênh lệch khi khách hàng phàn nàn về chi phí. Anh ấy luôn tìm điểm chung để đôi bên cùng vui vẻ.",
+    "words": [
+     {
+      "w": "split the difference",
+      "vi": "chia đôi phần chênh lệch/lấy giá ở giữa"
+     },
+     {
+      "w": "middle ground",
+      "vi": "sự thỏa hiệp/điểm chung"
+     }
+    ]
+   },
+   {
+    "en": "Ms. Lan spent the whole afternoon haggling with the port authorities. She wanted to waive the demurrage charges for a late container.",
+    "vi": "Chị Lan đã dành cả buổi chiều để mặc cả với ban quản lý cảng. Chị ấy muốn họ miễn phí lưu bãi cho một container bị trễ.",
+    "words": [
+     {
+      "w": "haggle",
+      "vi": "mặc cả/nhảy giá"
+     },
+     {
+      "w": "demurrage",
+      "vi": "phí lưu bãi tại cảng"
+     }
+    ]
+   },
+   {
+    "en": "A witness heard someone say the golden trophy was a steal. A collector would pay a lot of money for it.",
+    "vi": "Một nhân chứng nghe thấy ai đó nói rằng chiếc cúp vàng là một món hời. Một nhà sưu tập sẽ trả rất nhiều tiền cho nó.",
+    "words": [
+     {
+      "w": "a steal",
+      "vi": "món hời/giá rất rẻ"
+     },
+     {
+      "w": "collector",
+      "vi": "nhà sưu tập"
+     }
+    ]
+   },
+   {
+    "en": "The security guard saw a person trying to drive a hard bargain with a taxi driver. They were arguing over a $2 delivery fee!",
+    "vi": "Nhân viên bảo vệ thấy một người đang cố gắng mặc cả sát sao với tài xế taxi. Họ đang tranh cãi về khoản phí giao hàng 2 đô!",
+    "words": [
+     {
+      "w": "security guard",
+      "vi": "nhân viên bảo vệ"
+     },
+     {
+      "w": "drive a hard bargain",
+      "vi": "mặc cả cứng rắn/kiên quyết"
+     }
+    ]
+   },
+   {
+    "en": "A handwritten note was found: 'I've reached an agreement with a buyer. The deal is closed!'",
+    "vi": "Một mảnh giấy viết tay được tìm thấy: 'Tôi đã đạt được thỏa thuận với người mua. Thương vụ đã được chốt!'",
+    "words": [
+     {
+      "w": "reach an agreement",
+      "vi": "đạt được thỏa thuận"
+     },
+     {
+      "w": "deal",
+      "vi": "thương vụ/thỏa thuận"
+     }
+    ]
+   }
+  ],
+  "answer": 1,
+  "reveal": "Anh Minh chính là thủ phạm! Với bản tính của một nhân viên Sales, anh ta không thể cưỡng lại việc 'chốt đơn' và đã đem chiếc cúp đi bán cho một nhà sưu tập ngay sau buổi tiệc.",
+  "theme": "Negotiating"
+ },
+ {
+  "title": "Vụ trộm bơ tại cảng Logistics",
+  "intro": "Lô hàng bơ hữu cơ nhập khẩu đặc biệt trong container lạnh đã biến mất một cách bí ẩn. Bạn hãy giúp văn phòng tìm ra ai là người đã 'mượn' chúng để bồi bổ sức khỏe nhé!",
+  "suspects": [
+   {
+    "name": "Mai (Kế toán)",
+    "desc": "Cô ấy cực kỳ mê yoga và đang trong chế độ nhịn ăn thanh lọc (detox)."
+   },
+   {
+    "name": "Kevin (Quản lý điều vận)",
+    "desc": "Anh ấy lúc nào cũng trông mệt mỏi, nghiện cà phê và đồ ăn nhanh."
+   },
+   {
+    "name": "Lan (Nhân viên chứng từ)",
+    "desc": "Cô ấy đang lo lắng về chỉ số sức khỏe và rất cuồng các loại sinh tố 'siêu thực phẩm'."
+   }
+  ],
+  "clues": [
+   {
+    "en": "The reefer container was cleared, but the premium avocados are gone. I found a neon sweatband near the shipping documents.",
+    "vi": "Container lạnh đã được thông quan, nhưng những quả bơ thượng hạng đã biến mất. Tôi tìm thấy một chiếc băng đô thấm mồ hôi màu neon gần xấp chứng từ vận chuyển.",
+    "words": [
+     {
+      "w": "Reefer container",
+      "vi": "Container lạnh (dùng chở hàng tươi sống)"
+     },
+     {
+      "w": "Sweatband",
+      "vi": "Băng đô thấm mồ hôi (khi tập thể dục)"
+     }
+    ]
+   },
+   {
+    "en": "Kevin has been feeling under the weather all morning. He’s just been drinking black coffee to stay alert at his desk.",
+    "vi": "Kevin thấy hơi mệt trong người cả sáng nay. Anh ấy chỉ uống cà phê đen để giữ tỉnh táo tại bàn làm việc.",
+    "words": [
+     {
+      "w": "Under the weather",
+      "vi": "Cảm thấy không khỏe/ốm nhẹ"
+     },
+     {
+      "w": "Stay alert",
+      "vi": "Giữ tỉnh táo"
+     }
+    ]
+   },
+   {
+    "en": "Mai says she is on a strict liquid diet this week. She hasn't eaten any solid food since Monday to rest her stomach.",
+    "vi": "Mai nói rằng cô ấy đang ăn kiêng bằng chất lỏng nghiêm ngặt tuần này. Cô ấy không ăn đồ cứng từ thứ Hai để dạ dày được nghỉ ngơi.",
+    "words": [
+     {
+      "w": "Liquid diet",
+      "vi": "Chế độ ăn kiêng bằng chất lỏng"
+     },
+     {
+      "w": "Solid food",
+      "vi": "Thức ăn dạng rắn/đồ ăn cứng"
+     }
+    ]
+   },
+   {
+    "en": "I spotted a receipt for a professional high-speed blender on the floor. It was dropped right next to the delivery order.",
+    "vi": "Tôi phát hiện một hóa đơn mua máy xay sinh tố chuyên nghiệp tốc độ cao trên sàn. Nó bị rơi ngay cạnh lệnh giao hàng.",
+    "words": [
+     {
+      "w": "Blender",
+      "vi": "Máy xay sinh tố"
+     },
+     {
+      "w": "Delivery order",
+      "vi": "Lệnh giao hàng (D/O)"
+     }
+    ]
+   },
+   {
+    "en": "Someone was searching for 'how to lower cholesterol naturally' on the office Wi-Fi. Avocados are famous for having heart-healthy fats.",
+    "vi": "Ai đó đã tìm kiếm 'cách giảm cholesterol tự nhiên' trên Wi-Fi văn phòng. Bơ rất nổi tiếng vì chứa chất béo tốt cho tim mạch.",
+    "words": [
+     {
+      "w": "Lower cholesterol",
+      "vi": "Giảm lượng mỡ trong máu"
+     },
+     {
+      "w": "Heart-healthy",
+      "vi": "Tốt cho tim mạch"
+     }
+    ]
+   },
+   {
+    "en": "There is a small green smudge on the latest Bill of Lading. It looks and smells like mashed avocado and lime juice.",
+    "vi": "Có một vết bẩn nhỏ màu xanh trên vận đơn mới nhất. Nó trông và có mùi giống hệt bơ xay với nước cốt chanh.",
+    "words": [
+     {
+      "w": "Smudge",
+      "vi": "Vết bẩn, vết lem"
+     },
+     {
+      "w": "Bill of Lading",
+      "vi": "Vận đơn đường biển"
+     }
+    ]
+   },
+   {
+    "en": "Lan is glowing today and says her energy is high. She is drinking a thick green smoothie and talking about her new superfood lifestyle.",
+    "vi": "Lan hôm nay trông rạng rỡ và nói rằng năng lượng đang dồi dào. Cô ấy đang uống một cốc sinh tố xanh đặc và nói về lối sống siêu thực phẩm mới của mình.",
+    "words": [
+     {
+      "w": "Glowing",
+      "vi": "Rạng rỡ, trông khỏe khoắn"
+     },
+     {
+      "w": "Superfood",
+      "vi": "Siêu thực phẩm"
+     }
+    ]
+   }
+  ],
+  "answer": 2,
+  "reveal": "Thủ phạm chính là Lan! Cô ấy lo lắng về sức khỏe (cholesterol) nên đã lấy bơ để làm sinh tố 'siêu thực phẩm' giúp làm đẹp da và tốt cho tim mạch.",
+  "theme": "Health"
+ },
+ {
+  "title": "Vụ mất tích 'Container Vàng'",
+  "intro": "Mô hình Container Vàng quý giá của văn phòng logistics bỗng nhiên biến mất ngay trước kỳ nghỉ cuối tuần. Hãy giúp chúng tôi tìm ra thủ phạm trước khi cơn bão ập đến nhé!",
+  "suspects": [
+   {
+    "name": "Ms. Lan",
+    "desc": "Nhân viên booking, cực kỳ ghét mưa và chỉ thích đi tắm biển vào cuối tuần."
+   },
+   {
+    "name": "Mr. Minh",
+    "desc": "Nhân viên hiện trường, đam mê câu cá bất kể thời tiết, hay làm việc tại cảng."
+   },
+   {
+    "name": "Ms. Vy",
+    "desc": "Nhân viên chứng từ, thích ở nhà xem phim và rất ngăn nắp."
+   }
+  ],
+  "clues": [
+   {
+    "en": "The Golden Container model is missing! Everyone is rushing to finish their bookings before the weekend.",
+    "vi": "Mô hình Container Vàng đã biến mất! Mọi người đang vội vã hoàn thành các đơn đặt chỗ trước cuối tuần.",
+    "words": [
+     {
+      "w": "missing",
+      "vi": "thất lạc, mất"
+     },
+     {
+      "w": "weekend",
+      "vi": "cuối tuần"
+     }
+    ]
+   },
+   {
+    "en": "The weather forecast says it will rain all Saturday. Ms. Vy is happy to stay home and organize her files.",
+    "vi": "Dự báo thời tiết nói rằng trời sẽ mưa cả ngày Thứ Bảy. Cô Vy rất vui khi được ở nhà và sắp xếp hồ sơ của mình.",
+    "words": [
+     {
+      "w": "weather forecast",
+      "vi": "dự báo thời tiết"
+     },
+     {
+      "w": "organize",
+      "vi": "sắp xếp, tổ chức"
+     }
+    ]
+   },
+   {
+    "en": "Ms. Lan is so upset about the gloomy weather. She really wanted to sunbathe at the beach this Sunday.",
+    "vi": "Cô Lan rất khó chịu về thời tiết u ám. Cô ấy thực sự muốn đi tắm nắng ở bãi biển vào Chủ Nhật này.",
+    "words": [
+     {
+      "w": "gloomy",
+      "vi": "u ám, ảm đạm"
+     },
+     {
+      "w": "sunbathe",
+      "vi": "tắm nắng"
+     }
+    ]
+   },
+   {
+    "en": "Mr. Minh doesn't care about the rain. He says he will go to the port rain or shine to check his vessel.",
+    "vi": "Anh Minh không quan tâm đến chuyện mưa gió. Anh ấy nói sẽ ra cảng dù mưa hay nắng để kiểm tra tàu của mình.",
+    "words": [
+     {
+      "w": "rain or shine",
+      "vi": "dù mưa hay nắng"
+     },
+     {
+      "w": "vessel",
+      "vi": "tàu lớn"
+     }
+    ]
+   },
+   {
+    "en": "Someone left a waterproof jacket near the empty shelf. It smells like sea water and fish.",
+    "vi": "Ai đó đã để lại một chiếc áo khoác chống nước gần chiếc kệ trống. Nó có mùi nước biển và mùi cá.",
+    "words": [
+     {
+      "w": "waterproof",
+      "vi": "chống nước"
+     },
+     {
+      "w": "shelf",
+      "vi": "cái kệ"
+     }
+    ]
+   },
+   {
+    "en": "The sky will clear up on Sunday afternoon. Ms. Lan is busy buying sunscreen and isn't looking at the shelf.",
+    "vi": "Trời sẽ hửng nắng vào chiều Chủ Nhật. Cô Lan đang bận đi mua kem chống nắng và không hề nhìn vào chiếc kệ.",
+    "words": [
+     {
+      "w": "clear up",
+      "vi": "trời quang đãng, hết mưa"
+     },
+     {
+      "w": "sunscreen",
+      "vi": "kem chống nắng"
+     }
+    ]
+   },
+   {
+    "en": "We found the model in Mr. Minh’s truck! He admitted he took it to be a lucky charm for his fishing trip.",
+    "vi": "Chúng tôi đã tìm thấy mô hình trong xe tải của anh Minh! Anh ấy thú nhận đã lấy nó để làm bùa may mắn cho chuyến đi câu cá.",
+    "words": [
+     {
+      "w": "truck",
+      "vi": "xe tải"
+     },
+     {
+      "w": "lucky charm",
+      "vi": "bùa may mắn"
+     }
+    ]
+   }
+  ],
+  "answer": 1,
+  "reveal": "Thủ phạm chính là Mr. Minh! Anh ấy đã lấy mô hình để cầu may cho chuyến câu cá cuối tuần bất chấp trời mưa bão.",
+  "theme": "Weather & weekends"
+ },
+ {
+  "title": "Vụ Án Chiếc Container Vàng Mất Tích",
+  "intro": "Văn phòng logistics đang xôn xao vì mô hình container mạ vàng dùng làm đạo cụ phim đã biến mất sau buổi tiệc cuối tuần. Bạn hãy giúp mọi người tìm lại nó trước khi sếp quay lại nhé!",
+  "suspects": [
+   {
+    "name": "Chị Lan",
+    "desc": "Nhân viên chứng từ, mê chụp ảnh phong cảnh và xem phim hành động bom tấn."
+   },
+   {
+    "name": "Anh Cường",
+    "desc": "Nhân viên điều phối cảng, thích lắp ráp mô hình và là fan cuồng phim khoa học viễn tưởng."
+   },
+   {
+    "name": "Cô Hoa",
+    "desc": "Kế toán trưởng, thích nấu ăn và thường xem phim tình cảm lãng mạn lúc rảnh."
+   }
+  ],
+  "clues": [
+   {
+    "en": "Hey, have you seen the golden container? It vanished right after the movie night finished.",
+    "vi": "Này, bạn có thấy cái container vàng đâu không? Nó biến mất ngay sau khi buổi xem phim kết thúc.",
+    "words": [
+     {
+      "w": "vanish",
+      "vi": "biến mất"
+     },
+     {
+      "w": "movie",
+      "vi": "bộ phim"
+     }
+    ]
+   },
+   {
+    "en": "I found a weird sketch on the floor. It looks like a plan for a giant robot using shipping boxes.",
+    "vi": "Tôi tìm thấy một bản phác thảo kỳ lạ trên sàn. Nó trông giống như kế hoạch cho một con robot khổng lồ làm từ các thùng hàng.",
+    "words": [
+     {
+      "w": "sketch",
+      "vi": "bản phác thảo"
+     },
+     {
+      "w": "weird",
+      "vi": "kỳ lạ"
+     }
+    ]
+   },
+   {
+    "en": "I overheard someone asking for extra-strong glue. They said their 'masterpiece' was falling apart.",
+    "vi": "Tôi nghe lỏm thấy ai đó đang hỏi mượn keo dán siêu dính. Họ nói rằng 'kiệt tác' của họ đang bị rời ra.",
+    "words": [
+     {
+      "w": "overhear",
+      "vi": "nghe lỏm"
+     },
+     {
+      "w": "masterpiece",
+      "vi": "kiệt tác"
+     }
+    ]
+   },
+   {
+    "en": "Check out this search history! Someone was looking for 'how to customize containers' for a sci-fi set.",
+    "vi": "Xem lịch sử tìm kiếm này! Ai đó đã tìm cách 'tùy chỉnh các container' cho một bối cảnh phim viễn tưởng.",
+    "words": [
+     {
+      "w": "customize",
+      "vi": "tùy chỉnh theo ý thích"
+     },
+     {
+      "w": "sci-fi",
+      "vi": "phim khoa học viễn tưởng"
+     }
+    ]
+   },
+   {
+    "en": "There's a tiny plastic wheel under the desk. It is definitely from a model kit, not a real truck.",
+    "vi": "Có một cái bánh xe nhựa tí hon dưới gầm bàn. Nó chắc chắn là từ một bộ lắp ráp mô hình, không phải xe tải thật.",
+    "words": [
+     {
+      "w": "tiny",
+      "vi": "tí hon, rất nhỏ"
+     },
+     {
+      "w": "definitely",
+      "vi": "chắc chắn"
+     }
+    ]
+   },
+   {
+    "en": "Wow, that's a lot of silver paint on his hands. He says it’s just a hobby.",
+    "vi": "Chà, có rất nhiều sơn bạc trên tay anh ấy. Anh ấy nói đó chỉ là một sở thích thôi.",
+    "words": [
+     {
+      "w": "paint",
+      "vi": "sơn / màu vẽ"
+     },
+     {
+      "w": "hobby",
+      "vi": "sở thích"
+     }
+    ]
+   },
+   {
+    "en": "Found it! The golden container is being used as a engine for a model spaceship on Cường's desk.",
+    "vi": "Tìm thấy rồi! Cái container vàng đang được dùng làm động cơ cho một chiếc tàu vũ trụ mô hình trên bàn của Cường.",
+    "words": [
+     {
+      "w": "engine",
+      "vi": "động cơ"
+     },
+     {
+      "w": "spaceship",
+      "vi": "tàu vũ trụ"
+     }
+    ]
+   }
+  ],
+  "answer": 1,
+  "reveal": "Anh Cường chính là người đã 'mượn' mô hình container để hoàn thiện con tàu vũ trụ của mình. Anh ấy quá mải mê với sở thích lắp ráp mô hình phim viễn tưởng nên đã quên xin phép mọi người!",
+  "theme": "Hobbies & movies"
+ },
+ {
+  "title": "Vụ Án 'Người Hâm Mộ Bí Mật' Tại Văn Phòng Logistics",
+  "intro": "Một tập hồ sơ vận đơn (B/L) nháp bị dính đầy cà phê, nhưng bên cạnh lại là những lời khen ngợi rất ngọt ngào dành cho mọi người. Hãy giúp chúng tôi tìm xem ai là người đồng nghiệp tốt bụng nhưng lại hơi vụng về này nhé!",
+  "suspects": [
+   {
+    "name": "Mai",
+    "desc": "Nhân viên chứng từ, cực kỳ ngăn nắp và chỉ thích uống trà xanh."
+   },
+   {
+    "name": "Nam",
+    "desc": "Nhân viên Sales, luôn tràn đầy năng lượng và nghiện cà phê espresso đậm đặc."
+   },
+   {
+    "name": "Lan",
+    "desc": "Nhân viên Booking mới, tính tình nhút nhát và chỉ uống nước lọc."
+   }
+  ],
+  "clues": [
+   {
+    "en": "Everyone is so happy today! Someone left sweet notes to cheer us up before the busy vessel arrival.",
+    "vi": "Hôm nay mọi người đều rất vui! Ai đó đã để lại những lời nhắn ngọt ngào để làm chúng tôi vui lên trước khi tàu cập cảng bận rộn.",
+    "words": [
+     {
+      "w": "cheer up",
+      "vi": "làm cho ai đó vui lên"
+     },
+     {
+      "w": "vessel",
+      "vi": "tàu lớn, tàu biển"
+     }
+    ]
+   },
+   {
+    "en": "I got a shout-out for finishing the container loading plan early. My mystery colleague is so supportive!",
+    "vi": "Tôi được khen ngợi công khai vì đã hoàn thành kế hoạch xếp hàng lên container sớm. Người đồng nghiệp bí ẩn này thật biết cách hỗ trợ!",
+    "words": [
+     {
+      "w": "shout-out",
+      "vi": "lời khen ngợi công khai"
+     },
+     {
+      "w": "supportive",
+      "vi": "hay giúp đỡ, ủng hộ"
+     }
+    ]
+   },
+   {
+    "en": "Oh no! Someone messed up this draft B/L with a big brown stain. It smells like very strong coffee.",
+    "vi": "Ôi không! Ai đó đã làm hỏng bản vận đơn nháp này bằng một vết bẩn lớn màu nâu. Nó có mùi giống như cà phê rất đậm đặc.",
+    "words": [
+     {
+      "w": "mess up",
+      "vi": "làm hỏng, làm xáo trộn"
+     },
+     {
+      "w": "draft",
+      "vi": "bản nháp"
+     }
+    ]
+   },
+   {
+    "en": "Nam is always ready to back up the team when we're busy. He says he's happy to handle the extra bookings.",
+    "vi": "Nam luôn sẵn sàng hỗ trợ đội ngũ khi chúng tôi bận rộn. Anh ấy nói anh ấy rất vui khi xử lý các booking bổ sung.",
+    "words": [
+     {
+      "w": "back up",
+      "vi": "hỗ trợ, ủng hộ"
+     },
+     {
+      "w": "handle",
+      "vi": "xử lý, giải quyết"
+     }
+    ]
+   },
+   {
+    "en": "I saw a small espresso cup near the port documents. It was empty but still warm, and the person left a 'Keep it up' note.",
+    "vi": "Tôi thấy một chiếc tách espresso nhỏ gần đống chứng từ cảng. Nó trống rỗng nhưng vẫn còn ấm, và người đó đã để lại lời nhắn 'Cố gắng lên nhé'.",
+    "words": [
+     {
+      "w": "keep it up",
+      "vi": "hãy tiếp tục phong độ tốt như vậy"
+     },
+     {
+      "w": "document",
+      "vi": "tài liệu, chứng từ"
+     }
+    ]
+   },
+   {
+    "en": "Lan said, 'You're a lifesaver!' to the person who helped her, but she noticed they had coffee on their shirt.",
+    "vi": "Lan nói: 'Bạn đúng là cứu tinh của tôi!' với người đã giúp cô ấy, nhưng cô ấy nhận ra họ có vết cà phê trên áo.",
+    "words": [
+     {
+      "w": "lifesaver",
+      "vi": "người cứu giúp (lúc khó khăn)"
+     },
+     {
+      "w": "notice",
+      "vi": "nhận ra, chú ý thấy"
+     }
+    ]
+   },
+   {
+    "en": "We found a 'Great Job' card next to the spill, and Nam’s favorite 'Best Salesman' mug is right there on the desk!",
+    "vi": "Chúng tôi tìm thấy một tấm thẻ 'Làm tốt lắm' bên cạnh vết đổ, và chiếc cốc 'Người bán hàng giỏi nhất' yêu thích của Nam đang ở ngay đó trên bàn!",
+    "words": [
+     {
+      "w": "spill",
+      "vi": "sự đổ ra, vết đổ"
+     },
+     {
+      "w": "mug",
+      "vi": "cái ly có tay cầm, cốc sứ"
+     }
+    ]
+   }
+  ],
+  "answer": 1,
+  "reveal": "Chính là anh Nam Sales! Anh ấy muốn khích lệ tinh thần cả đội bằng những lời khen và quà bánh, nhưng vì quá vội vàng xử lý booking nên đã lỡ tay làm đổ ly cà phê espresso lên đống giấy tờ.",
+  "theme": "Compliments & support"
+ },
+ {
+  "title": "Vụ Án Bản Vận Đơn Mất Tích",
+  "intro": "Văn phòng logistics đang náo loạn vì một bản vận đơn (B/L) gốc bỗng dưng biến mất ngay trước giờ tàu chạy. Mọi người cần tìm thấy nó gấp để kịp gửi hồ sơ cho khách hàng!",
+  "suspects": [
+   {
+    "name": "Chị Lan",
+    "desc": "Quản lý chứng từ, tính tình cẩn thận nhưng dạo này hay thiếu ngủ."
+   },
+   {
+    "name": "Anh Tuấn",
+    "desc": "Điều phối viên tại cảng, rất nhiệt tình nhưng cực kỳ mê ăn vặt."
+   },
+   {
+    "name": "Hạnh",
+    "desc": "Nhân viên mới đang học việc, luôn lo lắng về các thời hạn (deadline)."
+   }
+  ],
+  "clues": [
+   {
+    "en": "I'm totally swamped with these new bookings. I didn't see anyone mess with the files on your desk.",
+    "vi": "Tôi đang ngập đầu trong đống booking mới đây. Tôi không thấy ai đụng vào hồ sơ trên bàn của bạn cả.",
+    "words": [
+     {
+      "w": "swamped",
+      "vi": "ngập đầu trong công việc"
+     },
+     {
+      "w": "mess with",
+      "vi": "đụng vào, làm xáo trộn"
+     }
+    ]
+   },
+   {
+    "en": "The vessel is already at the terminal. We really need to sort this out before the cut-off time!",
+    "vi": "Tàu đã cập bến cảng rồi. Chúng ta thực sự cần giải quyết việc này trước giờ tàu cắt máng!",
+    "words": [
+     {
+      "w": "terminal",
+      "vi": "bến cảng, ga"
+     },
+     {
+      "w": "sort out",
+      "vi": "giải quyết, xử lý"
+     }
+    ]
+   },
+   {
+    "en": "Wait, why are there snack crumbs all over the sailing schedule? The culprit must have been hungry.",
+    "vi": "Khoan đã, sao lại có vụn thức ăn trên lịch trình tàu chạy thế này? Thủ phạm chắc hẳn là đang đói bụng rồi.",
+    "words": [
+     {
+      "w": "crumbs",
+      "vi": "mẩu vụn thức ăn"
+     },
+     {
+      "w": "schedule",
+      "vi": "lịch trình"
+     }
+    ]
+   },
+   {
+    "en": "The ETD is tomorrow morning, but the paperwork is a total disaster. Someone was in a big rush.",
+    "vi": "Thời gian khởi hành dự kiến là sáng mai, nhưng giấy tờ thì thật là thảm họa. Ai đó đã rất vội vàng.",
+    "words": [
+     {
+      "w": "ETD",
+      "vi": "thời gian khởi hành dự kiến"
+     },
+     {
+      "w": "disaster",
+      "vi": "thảm họa, sự lộn xộn"
+     }
+    ]
+   },
+   {
+    "en": "I found a greasy fingerprint on the draft B/L. It smells exactly like fried chicken!",
+    "vi": "Tôi tìm thấy một dấu vân tay dính mỡ trên bản nháp vận đơn. Nó có mùi y hệt gà rán vậy!",
+    "words": [
+     {
+      "w": "greasy",
+      "vi": "dính mỡ, nhờn"
+     },
+     {
+      "w": "draft",
+      "vi": "bản nháp, bản thảo"
+     }
+    ]
+   },
+   {
+    "en": "Our port coordinator is usually very fast. However, he gets easily distracted when he is eating lunch.",
+    "vi": "Điều phối viên cảng của chúng ta thường rất nhanh nhẹn. Tuy nhiên, anh ấy dễ bị xao nhãng khi đang ăn trưa.",
+    "words": [
+     {
+      "w": "coordinator",
+      "vi": "điều phối viên"
+     },
+     {
+      "w": "distracted",
+      "vi": "xao nhãng, mất tập trung"
+     }
+    ]
+   },
+   {
+    "en": "Check the printer! Tuan's empty bag of chips is jammed inside with the missing B/L!",
+    "vi": "Kiểm tra máy in đi! Túi khoai tây chiên rỗng của Tuấn bị kẹt bên trong cùng với bản B/L đang mất tích!",
+    "words": [
+     {
+      "w": "jammed",
+      "vi": "bị kẹt"
+     },
+     {
+      "w": "printer",
+      "vi": "máy in"
+     }
+    ]
+   }
+  ],
+  "answer": 1,
+  "reveal": "Anh Tuấn chính là thủ phạm vì mải ăn vặt nên đã vô tình làm kẹt cả túi khoai tây chiên vào máy in cùng với bản vận đơn quan trọng. May mắn là mọi người đã tìm thấy nó trước khi quá muộn!",
+  "theme": "Logistics: booking & schedules"
+ }
+]

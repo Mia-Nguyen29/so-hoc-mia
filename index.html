@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="vi"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sổ học Mia</title>
+<meta name="theme-color" content="#FF4F9A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Sổ học Mia">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}[hidden]{display:none!important}img{max-width:100%}
+
+/* Layout: pink game screen — sticky HUD, pet, daily quests + chest, 5-month roadmap, then quest cards; extras folded */
+:root{
+  --bg:#FFF0F6; --paper:#FFFFFF; --ink:#3A1F2B; --muted:#8A6576; --line:#F6D3E3;
+  --accent:#FF4F9A; --accent-ink:#FFFFFF; --sea:#9D4EDD; --sea-soft:#F3E8FF; --good:#2E9E5B; --bad:#E0444B; --gold:#F7B500;
+  --fur:#FFD3B5; --fur-dark:#F2A07B; --chip:#FCE4EF; --noir:#3B1B33; --noir-ink:#FFEAF4; --mint:#E5F7EC; --link:#C2337A;
+  --f-display:"Baloo 2","Be Vietnam Pro",system-ui,sans-serif; --f:"Be Vietnam Pro",system-ui,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1E1219; --paper:#2A1823; --ink:#FCE9F2; --muted:#C49BB0; --line:#45283A;
+  --accent:#FF6FAE; --accent-ink:#2A0716; --sea:#C59BFF; --sea-soft:#2E2042; --good:#5FC98A; --bad:#FF7B80; --gold:#FFCF3F;
+  --fur:#F5C29E; --fur-dark:#D98A62; --chip:#3A2231; --noir:#12090F; --noir-ink:#FFEAF4; --mint:#1C3226; --link:#FF8CC0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1E1219; --paper:#2A1823; --ink:#FCE9F2; --muted:#C49BB0; --line:#45283A;
+  --accent:#FF6FAE; --accent-ink:#2A0716; --sea:#C59BFF; --sea-soft:#2E2042; --good:#5FC98A; --bad:#FF7B80; --gold:#FFCF3F;
+  --fur:#F5C29E; --fur-dark:#D98A62; --chip:#3A2231; --noir:#12090F; --noir-ink:#FFEAF4; --mint:#1C3226; --link:#FF8CC0; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--f)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:600px;margin:0 auto;padding-block:0 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:14px}
+h2{font:800 22px/1.15 var(--f-display);margin:0}
+.muted{color:var(--muted);font-size:14px;margin:0}
+a{color:var(--link)}
+button{font:600 15px/1.2 var(--f);border-radius:14px;border:1px solid var(--line);background:var(--chip);color:var(--ink);padding:11px 14px;cursor:pointer;transition:transform .08s}
+button:active{transform:scale(.97)}
+button.go{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 3px 0 color-mix(in srgb,var(--accent) 60%,#000)}
+button:disabled{opacity:.55;cursor:default;box-shadow:none}
+button:focus-visible,textarea:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--sea);outline-offset:2px}
+textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:10px 12px;resize:vertical;flex:1 1 220px;min-width:0}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.banner{border-radius:12px;padding:10px 14px;background:var(--sea-soft);font-size:14px}
+
+.hud{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-bottom:2px solid var(--line)}
+.hud .title{font:800 22px/1 var(--f-display);color:var(--accent)}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{background:var(--paper);border:2px solid var(--line);border-radius:99px;padding:4px 12px;font-weight:700;font-variant-numeric:tabular-nums;font-size:15px}
+
+.card{background:var(--paper);border:2px solid var(--line);border-radius:22px;padding:16px;display:grid;gap:10px;min-width:0;box-shadow:0 4px 0 var(--line)}
+.card-h{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.reward{font-size:13px;font-weight:700;color:var(--accent);background:var(--chip);border-radius:99px;padding:3px 10px}
+
+.pet{display:grid;grid-template-columns:140px 1fr;gap:14px;align-items:center}
+@media (max-width:420px){.pet{grid-template-columns:110px 1fr}}
+.pet svg{width:100%;height:auto;cursor:pointer;display:block}
+.pet .name{font:800 26px/1 var(--f-display);margin:0}
+.mood{font-weight:600}
+.bar{height:14px;border-radius:99px;background:var(--chip);overflow:hidden;border:2px solid var(--line)}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#FFB3D1,var(--accent));border-radius:99px;transition:width .5s}
+.lv{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bubble{background:var(--sea-soft);border-radius:14px 14px 14px 4px;padding:8px 12px;font-size:14px}
+.bounce{animation:bounce 1.6s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+.quests{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.q{border-radius:14px;background:var(--chip);padding:8px 4px;text-align:center;font-size:12px;font-weight:600;color:var(--muted);display:grid;gap:2px;justify-items:center}
+.q b{font-size:22px;line-height:1.1;filter:grayscale(1);opacity:.6}
+.q.done{background:var(--mint);color:var(--good)}.q.done b{filter:none;opacity:1}
+.chest{display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.chest .big{font-size:36px}
+.shake{animation:shake .9s ease-in-out infinite}
+@keyframes shake{0%,100%{transform:rotate(0)}20%{transform:rotate(-8deg)}40%{transform:rotate(8deg)}60%{transform:rotate(-4deg)}}
+
+.map{display:grid;grid-template-columns:repeat(11,1fr);gap:5px}
+.wk{aspect-ratio:1;border-radius:10px;background:var(--chip);display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--muted);border:2px solid transparent;padding:0;max-width:100%}
+.wk.past{background:var(--accent);color:var(--accent-ink)}
+.wk.now{border-color:var(--accent);background:var(--paper);color:var(--accent)}
+@media (max-width:420px){.map{grid-template-columns:repeat(8,1fr)}}
+.theme-now{font-weight:600}
+
+.ls{display:grid;gap:10px}
+.lsitem{border:2px solid var(--line);border-radius:18px;padding:12px;display:grid;gap:8px}
+.lsitem.cleared{background:var(--mint);border-color:transparent}
+.playbtn{font-size:26px;width:60px;height:60px;border-radius:50%;padding:0;background:var(--sea);border-color:var(--sea);color:#fff;box-shadow:0 3px 0 color-mix(in srgb,var(--sea) 55%,#000)}
+.opts{display:grid;gap:6px}
+.opts button{text-align:left}
+.opts button.right{background:var(--good);border-color:var(--good);color:#fff}
+.opts button.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+.say{font:800 20px/1.25 var(--f-display);margin:0}
+.stars{font-size:22px;letter-spacing:2px}
+.src{font-size:12px;color:var(--muted)}
+
+.movie{background:var(--noir);color:var(--noir-ink);border-color:var(--noir);box-shadow:0 4px 0 #000}
+.movie .muted,.movie .src{color:color-mix(in srgb,var(--noir-ink) 70%,transparent)}
+.movie .quote{font:800 clamp(22px,5vw,28px)/1.25 var(--f-display);margin:0;overflow-wrap:anywhere}
+.movie .film{font-size:14px;opacity:.8;margin:0}
+.movie button{background:color-mix(in srgb,var(--noir-ink) 12%,var(--noir));color:var(--noir-ink);border-color:color-mix(in srgb,var(--noir-ink) 25%,transparent)}
+.movie .opts button.right{background:var(--good);border-color:var(--good);color:#fff}
+.movie .opts button.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+.movie a{color:#FFB3D1}.movie .reward{background:color-mix(in srgb,var(--noir-ink) 15%,var(--noir));color:#FFB3D1}
+
+.news{display:grid;gap:10px}
+.nw{border:2px solid var(--line);border-radius:18px;padding:12px;display:grid;gap:6px;min-width:0}
+.nw.read{opacity:.75}
+.nw h3{font:700 17px/1.3 var(--f);margin:0;overflow-wrap:anywhere}
+.nw .en{overflow-wrap:anywhere}
+
+.day{font-size:13px;font-weight:700;color:var(--sea);font-variant-numeric:tabular-nums}
+.clues{display:grid;gap:8px}
+.clue{border:2px dashed var(--line);border-radius:16px;padding:10px 12px;display:grid;gap:6px;min-width:0}
+.clue.new{border-style:solid;border-color:var(--accent)}
+.clue .n{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.clue .en{font-weight:500;overflow-wrap:anywhere}
+.vi{font-size:14px;color:var(--muted)}
+.words{display:flex;gap:6px;flex-wrap:wrap}
+.words a{font-size:13px;background:var(--sea-soft);border-radius:99px;padding:3px 10px;text-decoration:none}
+.locked{color:var(--muted);font-size:14px}
+.suspects{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.suspects button{display:grid;gap:2px;text-align:left}
+.suspects small{font-weight:400;color:var(--muted)}
+
+.dots{display:flex;gap:6px}.dots i{font-style:normal;font-size:22px;opacity:.2}.dots i.on{opacity:1}
+.fix{border-left:3px solid var(--accent);padding:2px 0 2px 12px;display:grid;gap:2px}
+.fix .old{color:var(--muted);text-decoration:line-through}
+.fix .new{font-weight:600}.fix .why{font-size:14px;color:var(--muted)}
+.ok{color:var(--good);font-weight:600}
+details.card summary{cursor:pointer;font-weight:600}
+.list{display:grid;gap:8px;max-height:320px;overflow:auto}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--accent);color:var(--accent-ink);padding:10px 18px;border-radius:99px;font-weight:700;z-index:20}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:15;width:100%;height:100%}
+@media (prefers-reduced-motion:reduce){.bounce,.shake{animation:none}*{transition:none!important}}
+
+input{font:inherit}
+</style>
+</head><body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="wrap">
+  <div class="hud">
+    <span class="title">Sổ học Mia</span>
+    <div class="pills"><span class="pill" id="hFish">🐟 0</span><span class="pill" id="hLv">⭐ Lv 1</span><span class="pill" id="hStreak">🔥 0</span></div>
+  </div>
+  <div id="status" class="banner" hidden></div>
+
+  <section class="card pet" aria-label="Thú cưng">
+    <div id="petArt"></div>
+    <div style="display:grid;gap:6px;min-width:0">
+      <p class="name" id="petName">Mochi</p>
+      <div class="mood" id="mood">…</div>
+      <div class="bar" aria-hidden="true"><i id="xpBar" style="width:0%"></i></div>
+      <div class="lv" id="lv">Lv 1</div>
+      <div class="bubble" id="bubble">Chạm vào Mochi xem!</div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="qH">
+    <div class="card-h"><h2 id="qH">Nhiệm vụ hôm nay</h2><span class="muted" id="qCount">0/5</span></div>
+    <div class="quests" id="quests"></div>
+    <div class="chest" id="chest"></div>
+  </section>
+
+  <section class="card" aria-labelledby="mapH">
+    <div class="card-h"><h2 id="mapH">🗺️ Lộ trình 5 tháng</h2><span class="day" id="dayNo"></span></div>
+    <p class="theme-now" id="themeNow">…</p>
+    <div class="map" id="map"></div>
+    <p class="muted">22 chủ đề, mỗi tuần 1 chủ đề, 150 ngày không trùng câu. Hết vòng thì quay lại từ đầu để ôn.</p>
+  </section>
+
+  <section class="card" aria-labelledby="lsH">
+    <div class="card-h"><h2 id="lsH">🎧 Nghe &amp; Nói</h2><span class="reward">mỗi câu +2 🐟</span></div>
+    <p class="muted">Bấm ▶ nghe, chọn câu vừa nghe, rồi nói lại vào micro.</p>
+    <div class="ls" id="ls"><p class="muted">Đang tải bài…</p></div>
+  </section>
+
+  <section class="card movie" aria-labelledby="mvH">
+    <div class="card-h"><h2 id="mvH">🔥 Câu hot hôm nay</h2><span class="reward">+3 🐟</span></div>
+    <div id="movie"><p class="muted">Đang tải…</p></div>
+  </section>
+
+  <section class="card" aria-labelledby="nwH">
+    <div class="card-h"><h2 id="nwH">📰 Tin nóng thế giới</h2><span class="reward">đọc +1 🐟</span></div>
+    <p class="muted">Tin thật từ báo nước ngoài, viết lại bằng tiếng Anh dễ hiểu.</p>
+    <div class="news" id="news"><p class="muted">Đang lấy tin…</p></div>
+  </section>
+
+  <section class="card" aria-labelledby="csH">
+    <div class="card-h"><h2 id="csH">🕵️ <span id="caseTitle">Vụ án tuần này</span></h2><span class="day" id="caseDay"></span></div>
+    <div id="case"><p class="muted">Đang mở hồ sơ…</p></div>
+  </section>
+
+  <section class="card" aria-labelledby="fdH">
+    <div class="card-h"><h2 id="fdH">✍️ Cho Mochi ăn</h2><span class="reward">mỗi câu +1 🐟</span></div>
+    <p class="muted">Viết 5 câu tiếng Anh bất kỳ. Sai cũng được.</p>
+    <div class="dots" id="dots" aria-hidden="true"><i>🐟</i><i>🐟</i><i>🐟</i><i>🐟</i><i>🐟</i></div>
+    <div class="row">
+      <textarea id="enInput" rows="2" placeholder="vd: Today I very busy because many booking"></textarea>
+      <button id="enFix" class="go">Cho ăn</button>
+    </div>
+    <p class="muted" id="aiNote" hidden>Muốn AI sửa câu: mở "Cài đặt" ở cuối trang, dán Gemini API key (1 lần).</p>
+    <div id="enLast"></div>
+  </section>
+
+  <details class="card">
+    <summary>Thêm nữa &amp; Cài đặt</summary>
+    <p class="muted">Mochi lên cấp sẽ có: khăn quàng (Lv2), mũ thuyền trưởng (Lv3), kính lúp thám tử (Lv5), vương miện (Lv7).</p>
+    <div class="row">
+      <a href="https://www.ted.com/playlists" target="_blank" rel="noopener">TED Talks ↗</a>
+      <a href="https://www.bbc.co.uk/learningenglish/english/features/6-minute-english" target="_blank" rel="noopener">BBC 6 Minute English ↗</a>
+      <a href="https://edition.cnn.com/world" target="_blank" rel="noopener">CNN World ↗</a>
+    </div>
+    <p class="muted"><b>AI sửa câu (không bắt buộc):</b> dán Gemini API key cá nhân. Key chỉ lưu trên máy này.</p>
+    <div class="row"><input id="gkey" type="password" placeholder="Gemini API key" autocomplete="off" style="flex:1 1 200px;min-width:0;font:inherit;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink)"><button id="gkeySave">Lưu</button></div>
+    <p class="muted"><b>Sao lưu tiến độ:</b> tiến độ lưu trên trình duyệt của máy này. Đổi máy thì bấm "Sao chép" ở máy cũ rồi "Dán" ở máy mới.</p>
+    <div class="row"><button id="bkCopy">Sao chép dữ liệu</button><button id="bkPaste">Dán dữ liệu</button></div>
+    <textarea id="bkBox" rows="3" placeholder="Dán dữ liệu sao lưu vào đây rồi bấm Dán dữ liệu" hidden></textarea>
+    <p class="muted">Câu đã viết gần đây:</p>
+    <div id="history" class="list"></div>
+  </details>
+</div>
+<div id="toast" class="toast" hidden></div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const dayKey=(d=new Date())=>new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10);
+const addDays=(k,n)=>{const d=new Date(k+"T12:00:00");d.setDate(d.getDate()+n);return dayKey(d)};
+const diffDays=(a,b)=>Math.round((new Date(b+"T12:00:00")-new Date(a+"T12:00:00"))/864e5);
+const mod=(a,n)=>((a%n)+n)%n;
+const today=()=>dayKey();
+const cambridge=w=>"https://dictionary.cambridge.org/search/direct/?datasetsearch=english&q="+encodeURIComponent(w);
+const AFI="https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movie_Quotes";
+const START="2026-11-20",KEY="mia-game-v1",GKEY="mia-gemini-key";
+const LEVELS=[0,5,15,30,50,80,120,170,230,300,400,520,660,820,1000];
+const PETLINES={happy:["Meo! Hôm nay no quá 😻","Mia giỏi ghê!","Purr… purr…","Mở rương đi Mia ơi!"],ok:["Mochi muốn thêm cá…","Một câu tiếng Anh thôi mà 🥺","Meo?"],hungry:["Đói quááá 😿","Cá ơi… cá đâu…","Mia quên Mochi rồi à?"],sad:["Zzz… Mochi buồn ngủ vì đói…","Mochi nhớ Mia 😢"]};
+
+/* ---------- storage (this device) ---------- */
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(_){return {}}}
+let DATA=load();DATA.logs=DATA.logs||[];DATA.state=DATA.state||{};
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(DATA))}catch(_){status("Trình duyệt không cho lưu. Đừng mở ở chế độ ẩn danh nhé.")}}
+const gkey=()=>{try{return localStorage.getItem(GKEY)||""}catch(_){return""}};
+
+let CUR=null,CASES=[],NEWS=[];
+let hotPick=null,micTarget=null,heard="",stars={},lsPick={},rec=null;
+const logs=()=>DATA.logs,state=()=>DATA.state;
+
+function status(m){const s=$("#status");s.hidden=!m;s.textContent=m||""}
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>t.hidden=true,1800)}
+const L=(k,f=()=>true)=>logs().filter(l=>l.kind===k&&f(l));
+const isToday=l=>l.day===today();
+function fishOf(l){switch(l.kind){case"sentence":return 1;case"movie":return l.correct?2:0;case"speak":return 1;case"clue":return 1;case"guess":return l.correct?10:0;case"listen":return l.correct?1:0;case"speak2":return l.stars>=2?1:0;case"chest":return 5;case"news":return 1;default:return 0}}
+const xp=()=>logs().reduce((a,l)=>a+fishOf(l),0);
+const fishDay=k=>logs().filter(l=>l.day===k).reduce((a,l)=>a+fishOf(l),0);
+function lastFedDay(){let d=null;logs().forEach(l=>{if(fishOf(l)>0&&(!d||l.day>d))d=l.day});return d}
+function mood(){const t=fishDay(today());if(t>=3)return"happy";if(t>=1)return"ok";const lf=lastFedDay();if(!lf)return"ok";return diffDays(lf,today())>=3?"sad":"hungry"}
+function level(x){let lv=1;LEVELS.forEach((v,i)=>{if(x>=v)lv=i+1});return lv}
+function streak(){const m={};logs().forEach(l=>{if(fishOf(l)>0)m[l.day]=1});let k=today(),n=0;if(!m[k])k=addDays(k,-1);while(m[k]){n++;k=addDays(k,-1)}return n}
+
+/* ---------- curriculum ---------- */
+function pos(){const raw=diffDays(state().start||START,today());const days=CUR?CUR.days:150;const d=mod(raw,days);
+  return {d,round:Math.floor(Math.max(0,raw)/days)+1,week:Math.floor(d/7),dow:d%7}}
+function todayPhrases(){if(!CUR)return[];const p=pos(),t=CUR.themes[p.week%CUR.themes.length];return [0,1,2].map(k=>({en:t.phrases[p.dow*3+k][0],vi:t.phrases[p.dow*3+k][1],theme:t}))}
+const todayHot=()=>CUR?CUR.hot[pos().d%CUR.hot.length]:null;
+
+/* ---------- speech (phone/browser built-in) ---------- */
+let VOICE=null;
+function pickVoice(){try{const vs=speechSynthesis.getVoices();VOICE=vs.find(v=>/en[-_]US/i.test(v.lang)&&/Samantha|Google US|Aria|Jenny|Natural/i.test(v.name))||vs.find(v=>/en[-_](US|GB)/i.test(v.lang))||null}catch(_){}}
+try{pickVoice();speechSynthesis.onvoiceschanged=pickVoice}catch(_){}
+function speak(text,rate=.9){try{const u=new SpeechSynthesisUtterance(text);u.lang="en-US";if(VOICE)u.voice=VOICE;u.rate=rate;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(_){toast("Máy này chưa phát được tiếng 😿")}}
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+const norm=s=>s.toLowerCase().replace(/[’]/g,"'").replace(/[^a-z' ]/g," ").split(/\s+/).filter(Boolean);
+function score(target,said){const want=norm(target),got=new Set(norm(said));if(!want.length)return 1;const hit=want.filter(w=>got.has(w)).length/want.length;return hit>=.8?3:hit>=.5?2:1}
+function startMic(key){if(!SR){toast("Trình duyệt này chưa hỗ trợ micro, thử Chrome hoặc Safari nhé");return}
+  stopMic(true);heard="";micTarget=key;render();
+  try{rec=new SR();rec.lang="en-US";rec.interimResults=false;rec.continuous=false;
+    rec.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++)if(e.results[i].isFinal)heard=(heard+" "+e.results[i][0].transcript).trim();render()};
+    rec.onerror=e=>{if(e.error==="not-allowed")toast("Chị cho phép dùng micro nhé");};
+    rec.onend=()=>{rec=null;finishMic()};rec.start()}catch(_){micTarget=null;render();toast("Chưa bật được micro")}}
+function stopMic(silent){if(rec){try{if(silent){rec.onend=null;rec.abort()}else rec.stop()}catch(_){}if(silent)rec=null}}
+
+/* ---------- pet ---------- */
+function petSVG(m,lv){
+  const eyes={happy:`<path d="M72 92 q8 -10 16 0 M112 92 q8 -10 16 0" stroke="#3A1F2B" stroke-width="4" fill="none" stroke-linecap="round"/>`,
+    ok:`<circle cx="80" cy="92" r="6" fill="#3A1F2B"/><circle cx="120" cy="92" r="6" fill="#3A1F2B"/><circle cx="82" cy="90" r="2" fill="#fff"/><circle cx="122" cy="90" r="2" fill="#fff"/>`,
+    hungry:`<circle cx="80" cy="94" r="7" fill="#3A1F2B"/><circle cx="120" cy="94" r="7" fill="#3A1F2B"/><circle cx="83" cy="91" r="3" fill="#fff"/><circle cx="123" cy="91" r="3" fill="#fff"/><path d="M70 80 l16 4 M130 80 l-16 4" stroke="#3A1F2B" stroke-width="3" stroke-linecap="round"/>`,
+    sad:`<path d="M72 94 h16 M112 94 h16" stroke="#3A1F2B" stroke-width="4" stroke-linecap="round"/><text x="140" y="60" font-size="18" fill="var(--muted)" font-family="sans-serif">z z</text>`}[m];
+  const mouth=m==="happy"?`<path d="M92 108 q8 10 16 0" stroke="#3A1F2B" stroke-width="3" fill="#FF7FAE"/>`:m==="hungry"?`<ellipse cx="100" cy="110" rx="5" ry="6" fill="#3A1F2B"/>`:`<path d="M94 108 q6 5 12 0" stroke="#3A1F2B" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+  const blush=`<ellipse cx="68" cy="106" rx="9" ry="5" fill="#FF9EC4" opacity=".7"/><ellipse cx="132" cy="106" rx="9" ry="5" fill="#FF9EC4" opacity=".7"/>`;
+  const bow=`<path d="M128 52 l-12 -10 v20z M128 52 l12 -10 v20z" fill="var(--accent)"/><circle cx="128" cy="52" r="4" fill="var(--accent)"/>`;
+  const scarf=lv>=2?`<path d="M58 124 q42 18 84 0 l-4 12 q-38 14 -76 0z" fill="var(--sea)"/><rect x="118" y="128" width="12" height="22" rx="3" fill="var(--sea)"/>`:"";
+  const hat=lv>=3&&lv<7?`<path d="M62 52 q38 -26 76 0 l-6 10 h-64z" fill="#1F2A44"/><rect x="58" y="58" width="84" height="8" rx="4" fill="#1F2A44"/><circle cx="100" cy="46" r="6" fill="#F7B500"/>`:"";
+  const glass=lv>=5?`<circle cx="148" cy="140" r="12" fill="none" stroke="#8B5E34" stroke-width="4"/><path d="M156 150 l12 14" stroke="#8B5E34" stroke-width="5" stroke-linecap="round"/>`:"";
+  const crown=lv>=7?`<path d="M70 58 l10 -26 l10 18 l10 -24 l10 24 l10 -18 l10 26z" fill="#F7B500" stroke="#C99A1E" stroke-width="2"/>`:"";
+  return `<svg viewBox="0 0 200 180" role="img" aria-label="Mèo Mochi, cấp ${lv}" class="${m==="happy"?"bounce":""}">
+  <ellipse cx="100" cy="168" rx="56" ry="8" fill="var(--chip)"/>
+  <path d="M150 150 q34 -10 26 -46" stroke="var(--fur-dark)" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <ellipse cx="100" cy="140" rx="50" ry="30" fill="var(--fur)"/>
+  <path d="M60 70 l6 -34 l26 22z M140 70 l-6 -34 l-26 22z" fill="var(--fur-dark)"/>
+  <circle cx="100" cy="94" r="46" fill="var(--fur)"/>
+  <path d="M66 70 l4 -22 l16 14z M134 70 l-4 -22 l-16 14z" fill="#FFC1D6"/>
+  ${eyes}${blush}<path d="M96 102 l4 4 l4 -4z" fill="#FF7FAE"/>${mouth}
+  <path d="M54 100 h22 M54 108 h22 M146 100 h-22 M146 108 h-22" stroke="var(--fur-dark)" stroke-width="2" stroke-linecap="round"/>
+  ${lv<3?bow:""}${scarf}${hat}${crown}${glass}</svg>`}
+
+/* ---------- case of the week ---------- */
+function curCase(){if(!CASES.length)return null;const p=pos();const c=CASES[p.week%CASES.length];return {...c,id:`r${p.round}w${p.week}`}}
+function caseUnlocked(c){return Math.min(c.clues.length,pos().dow+1)}
+
+/* ---------- quests & map ---------- */
+function quests(){const c=curCase();const opened=c?new Set(L("clue",l=>l.caseId===c.id).map(l=>l.n)):new Set();
+  const unlocked=c?caseUnlocked(c):0;
+  const clueDone=!c||L("clue",isToday).length>0||[...Array(unlocked).keys()].every(n=>opened.has(n));
+  return [
+    {ic:"🎧",t:"Nghe",done:L("listen",isToday).length>=3},
+    {ic:"🎤",t:"Nói",done:L("speak2",isToday).length+L("speak",isToday).length>=1||!SR},
+    {ic:"🔥",t:"Câu hot",done:L("movie",isToday).length>0},
+    {ic:"🕵️",t:"Manh mối",done:clueDone},
+    {ic:"✍️",t:"5 câu",done:L("sentence",isToday).length>=5}]}
+function renderQuests(){const q=quests(),n=q.filter(x=>x.done).length;
+  $("#quests").innerHTML=q.map(x=>`<div class="q${x.done?" done":""}"><b>${x.ic}</b>${x.t}${x.done?" ✓":""}</div>`).join("");
+  $("#qCount").textContent=`${n}/5`;
+  const opened=L("chest",isToday).length>0;
+  $("#chest").innerHTML=opened?`<span class="big">🎉</span><span style="flex:1">Đã mở rương hôm nay: +5 🐟. Mai quay lại nhé!</span>`
+    :n===5?`<span class="big shake">🎁</span><span style="flex:1"><b>Rương đã sẵn sàng!</b></span><button class="go" data-act="chest">Mở rương</button>`
+    :`<span class="big" style="filter:grayscale(1);opacity:.5">🎁</span><span class="muted" style="flex:1">Làm đủ 5 nhiệm vụ để mở rương +5 🐟</span>`}
+function renderMap(){if(!CUR)return;const p=pos(),n=CUR.themes.length,weeks=Math.ceil(CUR.days/7);const t=CUR.themes[p.week%n];
+  $("#dayNo").textContent=`Vòng ${p.round} · Ngày ${p.d+1}/${CUR.days}`;
+  $("#themeNow").textContent=`Tuần ${p.week+1}: ${t.vi} (${t.en})`;
+  $("#map").innerHTML=Array.from({length:weeks},(_,w)=>{const th=CUR.themes[w%n];return `<button class="wk${w<p.week?" past":w===p.week?" now":""}" data-wk="${w}" aria-label="Tuần ${w+1}: ${esc(th.vi)}">${w<p.week?"✓":w+1}</button>`}).join("")}
+
+/* ---------- listen & speak ---------- */
+function micBtn(key){if(!SR)return"";return `<button data-mic="${esc(key)}">${micTarget===key?"⏹ Dừng":"🎤 Nói lại"}</button>`}
+function starHTML(key){const s=stars[key];return s!=null?`<span class="stars" aria-label="${s} sao">${"⭐".repeat(s)}${"☆".repeat(3-s)}</span>`:""}
+function renderLS(){if(!CUR)return;const items=todayPhrases(),p=pos();
+  $("#ls").innerHTML=items.map((it,k)=>{const t=it.theme.phrases.map(x=>x[0]);const others=t.filter(x=>!items.some(y=>y.en===x));
+    const opts=[it.en,others[mod(p.d*5+k*3,others.length)],others[mod(p.d*7+k*5+1,others.length)]].filter((v,j,a)=>a.indexOf(v)===j).sort((a,b)=>mod(a.length*7+p.d,5)-mod(b.length*7+p.d,5));
+    const done=L("listen",l=>isToday(l)&&l.p===it.en)[0];const pick=done?done.pick:lsPick[it.en];
+    const key="p:"+it.en;const spoke=L("speak2",l=>isToday(l)&&l.p===it.en)[0];if(spoke&&stars[key]==null)stars[key]=spoke.stars;
+    return `<div class="lsitem${done&&spoke?" cleared":""}"><div class="row"><button class="playbtn" data-say="${esc(it.en)}" data-rate=".95" aria-label="Nghe câu ${k+1}">▶</button><button data-say="${esc(it.en)}" data-rate=".7">🐢 Chậm</button><span class="muted">Câu ${k+1}/3</span></div>
+    ${pick==null?`<div class="opts">${opts.map(o=>`<button data-ls="${esc(it.en)}" data-pick="${esc(o)}">${esc(o)}</button>`).join("")}</div>`
+      :`<p class="say">${esc(it.en)}</p><p style="margin:0">${pick===it.en?"✅ ":"❌ Nghe nhầm rồi! "}<b>${esc(it.vi)}</b></p>
+       <div class="row">${micBtn(key)}${starHTML(key)}</div>${micTarget===key?`<p class="muted">${heard?"Nghe được: "+esc(heard):"🎙️ Đang nghe… nói đi chị"}</p>`:""}
+       <a class="src" href="${cambridge(it.en)}" target="_blank" rel="noopener">Tra trên Cambridge Dictionary ↗</a>`}</div>`}).join("")}
+
+/* ---------- hot line ---------- */
+function renderHot(){const h=todayHot();if(!h)return;const p=pos();
+  const pool=CUR.hot.filter(x=>x!==h);const opts=[h,pool[mod(p.d*7,pool.length)],pool[mod(p.d*13+5,pool.length)]].filter((v,j,a)=>a.indexOf(v)===j).sort((a,b)=>mod(a.en.length+p.d,3)-mod(b.en.length+p.d,3));
+  const done=L("movie",isToday)[0];const pick=done?done.pickEn:hotPick;const answered=done||hotPick!=null;
+  let x=`<p class="quote">“${esc(h.en)}”</p>`+(h.type==="movie"?`<p class="film">🎬 ${esc(h.film)} (${h.year})</p>`:`<p class="film">💬 Thành ngữ người bản xứ hay dùng</p>`);
+  if(!answered)x+=`<p class="muted">Nghĩa là gì?</p><div class="opts">${opts.map(o=>`<button data-hot="${esc(o.en)}">${esc(o.vi)}</button>`).join("")}</div>`;
+  else{const ok=done?done.correct:hotPick===h.en;
+    x+=`<div class="opts">${opts.map(o=>`<button disabled class="${o===h?"right":o.en===pick?"wrong":""}">${esc(o.vi)}</button>`).join("")}</div>
+    <p style="margin:0">${ok?"🎉 Đúng rồi!":"Suýt đúng! Đáp án ở ô xanh."}${h.ex?` Ví dụ: <i>${esc(h.ex)}</i>`:""}</p>
+    <div class="row"><button data-say="${esc(h.ex||h.en)}" data-rate=".9">🔊 Nghe</button>${micBtn("hot")}${starHTML("hot")}</div>${micTarget==="hot"?`<p class="muted">${heard?"Nghe được: "+esc(heard):"🎙️ Đang nghe…"}</p>`:""}`}
+  x+=h.type==="movie"?`<a class="src" href="${AFI}" target="_blank" rel="noopener">Nguồn: AFI 100 câu thoại phim hay nhất ↗</a>`:`<a class="src" href="${cambridge(h.en)}" target="_blank" rel="noopener">Tra trên Cambridge Dictionary ↗</a>`;
+  $("#movie").innerHTML=x}
+
+/* ---------- news ---------- */
+function renderNews(){const list=NEWS.slice().sort((a,b)=>(b.date||"").localeCompare(a.date||"")||(a.order||0)-(b.order||0)).slice(0,3);
+  if(!list.length){$("#news").innerHTML=`<p class="muted">Chưa có tin mới.</p>`;return}
+  $("#news").innerHTML=list.map(n=>{const read=L("news",l=>l.nid===n.id).length>0;
+    return `<div class="nw${read?" read":""}"><span class="src">${esc(n.source)} · ${esc(n.date)}</span><h3>${esc(n.title)}</h3><div class="en">${esc(n.en)}</div>
+    <div class="row"><button data-say="${esc(n.title+". "+n.en)}" data-rate=".9">🔊 Nghe</button>${read?`<span class="ok">Đã đọc ✓</span>`:`<button class="go" data-news="${esc(n.id)}">Đọc xong (+1 🐟)</button>`}</div>
+    <details><summary class="muted">Xem tiếng Việt</summary><div class="vi">${esc(n.vi)}</div></details>
+    <div class="words">${(n.words||[]).map(w=>`<a href="${cambridge(w.w)}" target="_blank" rel="noopener">${esc(w.w)} · ${esc(w.vi)}</a>`).join("")}</div>
+    <a class="src" href="${esc(n.url)}" target="_blank" rel="noopener">Đọc bài gốc ↗</a></div>`}).join("")}
+
+/* ---------- case ---------- */
+function renderCase(){const c=curCase();
+  if(!c){$("#case").innerHTML=`<p class="muted">Đang tải vụ án…</p>`;$("#caseDay").textContent="";return}
+  $("#caseTitle").textContent=c.title;
+  const unlocked=caseUnlocked(c);
+  const opened=new Set(L("clue",l=>l.caseId===c.id).map(l=>l.n));
+  const guess=L("guess",l=>l.caseId===c.id)[0];
+  $("#caseDay").textContent=`Ngày ${unlocked}/${c.clues.length}`;
+  let h=`<p class="muted">${esc(c.intro)}</p><div class="suspects">${c.suspects.map(s=>`<div class="clue"><b>${esc(s.name)}</b><span class="vi">${esc(s.desc)}</span></div>`).join("")}</div><div class="clues">`;
+  c.clues.forEach((cl,n)=>{
+    if(opened.has(n))h+=`<div class="clue"><span class="n">Manh mối ${n+1}</span><div class="en">${esc(cl.en)}</div>
+      <div class="row"><button data-say="${esc(cl.en)}" data-rate=".9">🔊 Nghe</button></div>
+      <details><summary class="muted">Xem tiếng Việt</summary><div class="vi">${esc(cl.vi)}</div></details>
+      <div class="words">${(cl.words||[]).map(w=>`<a href="${cambridge(w.w)}" target="_blank" rel="noopener">${esc(w.w)} · ${esc(w.vi)}</a>`).join("")}</div></div>`;
+    else if(n<unlocked)h+=`<div class="clue new"><span class="n">Manh mối ${n+1}</span><button class="go" data-clue="${n}">🔍 Mở manh mối (+1 🐟)</button></div>`;
+    else if(n===unlocked)h+=`<div class="clue"><span class="locked">🔒 Manh mối ${n+1} mở vào ngày mai</span></div>`;
+  });
+  h+=`</div>`;
+  if(opened.size>=c.clues.length){
+    if(!guess)h+=`<p style="margin:0"><b>Đủ manh mối rồi! Ai là thủ phạm?</b> (đúng được 10 🐟)</p><div class="suspects">${c.suspects.map((s,i)=>`<button data-guess="${i}"><b>${esc(s.name)}</b><small>Chọn người này</small></button>`).join("")}</div>`;
+    else h+=`<div class="banner">${guess.correct?"🎉 Phá án thành công! ":"😅 Sai mất rồi! "}Thủ phạm: <b>${esc(c.suspects[c.answer].name)}</b>. ${esc(c.reveal)}</div><p class="muted">Tuần sau có vụ án mới nhé!</p>`;
+  }
+  $("#case").innerHTML=h}
+
+/* ---------- render ---------- */
+function fixHTML(l){return `<div class="fix">${l.ok?`<div>${esc(l.text)}</div><div class="ok">${l.checked?"Câu ổn rồi ✓":"Đã lưu ✓"}</div>`:`<div class="old">${esc(l.text)}</div><div class="new">${esc(l.fixed)}</div>`}${l.why?`<div class="why">${esc(l.why)}</div>`:""}</div>`}
+function render(){
+  const x=xp(),lv=level(x),m=mood();
+  $("#petArt").innerHTML=petSVG(m,lv);
+  $("#petName").textContent=state().petName||"Mochi";
+  $("#hFish").textContent="🐟 "+x;$("#hLv").textContent="⭐ Lv "+lv;$("#hStreak").textContent="🔥 "+streak();
+  $("#mood").textContent={happy:"😻 No căng bụng",ok:"🙂 Hơi đói",hungry:"😿 Đói meo",sad:"😢 Buồn vì nhớ Mia"}[m]+` · hôm nay ${fishDay(today())} 🐟`;
+  const lo=LEVELS[lv-1],hi=LEVELS[lv]??LEVELS[LEVELS.length-1]+200;
+  $("#xpBar").style.width=Math.min(100,(x-lo)/(hi-lo)*100)+"%";
+  $("#lv").textContent=`Lv ${lv} · còn ${Math.max(0,hi-x)} 🐟 nữa lên cấp`;
+  const n=L("sentence",isToday).length;
+  document.querySelectorAll("#dots i").forEach((d,i)=>d.classList.toggle("on",i<n));
+  const last=L("sentence",isToday).sort((a,b)=>b.ts-a.ts)[0];
+  $("#enLast").innerHTML=(n>=5?`<p class="ok">Đủ 5 câu rồi! Mochi cảm ơn Mia 😻</p>`:"")+(last?fixHTML(last):"");
+  $("#aiNote").hidden=!!gkey();
+  $("#history").innerHTML=L("sentence").sort((a,b)=>b.ts-a.ts).slice(0,30).map(fixHTML).join("")||`<p class="muted">Chưa có.</p>`;
+  renderQuests();renderMap();renderLS();renderHot();renderNews();renderCase();
+}
+
+function confetti(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  const cv=$("#fx"),cx=cv.getContext("2d");cv.width=innerWidth;cv.height=innerHeight;
+  const cols=["#FF4F9A","#FFB3D1","#9D4EDD","#F7B500","#FFFFFF"];
+  const ps=Array.from({length:130},()=>({x:innerWidth/2,y:innerHeight/2,vx:(Math.random()-.5)*12,vy:Math.random()*-12-4,s:4+Math.random()*6,c:cols[Math.floor(Math.random()*5)],r:Math.random()*6}));
+  let f=0;(function tick(){cx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.r+=.1;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);cx.restore()});if(++f<110)requestAnimationFrame(tick);else cx.clearRect(0,0,cv.width,cv.height)})()}
+
+/* ---------- actions ---------- */
+function addLog(d,gain){DATA.logs.push({...d,day:today(),ts:Date.now()});persist();render();if(gain)toast(`+${gain} 🐟 cho Mochi`)}
+function micText(key){if(key==="hot"){const h=todayHot();return h.ex||h.en}return key.slice(2)}
+function finishMic(){const key=micTarget;if(!key)return;micTarget=null;if(!heard){render();toast("Chưa nghe rõ, bấm 🎤 nói lại nhé");return}
+  stars[key]=score(micText(key),heard);
+  if(key==="hot"){if(!L("speak",isToday).length)addLog({kind:"speak",stars:stars[key]},1);else render()}
+  else{const p=key.slice(2);if(!L("speak2",l=>isToday(l)&&l.p===p).length)addLog({kind:"speak2",p,stars:stars[key]},stars[key]>=2?1:0);else render()}}
+
+async function geminiFix(text){const k=gkey();if(!k)return null;
+  const prompt=`You are a friendly English coach for a Vietnamese office worker in sea-freight logistics. Rewrite her sentence the way a native speaker would naturally say it in everyday life or at work: correct grammar (as in Cambridge/Oxford learner's dictionaries) but casual and natural, NOT stiff textbook English. Keep her meaning and keep it short. Return JSON only: {"ok":true if already correct and natural,"fixed":"natural version","why":"ONE short, cheerful sentence in Vietnamese explaining the main change; empty if ok"}.\nSentence: ${JSON.stringify(text)}`;
+  const r=await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",{method:"POST",headers:{"Content-Type":"application/json","x-goog-api-key":k},body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{responseMimeType:"application/json"}})});
+  if(!r.ok)throw new Error("HTTP "+r.status);const j=await r.json();return JSON.parse(j.candidates[0].content.parts[0].text.replace(/^```(json)?|```$/g,"").trim())}
+
+document.addEventListener("click",async e=>{
+  if(e.target.closest("#petArt")){const a=PETLINES[mood()];$("#bubble").textContent=a[Math.floor(Math.random()*a.length)];return}
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.say){speak(b.dataset.say,+(b.dataset.rate||.9));return}
+  if(b.dataset.wk!=null&&CUR){const w=+b.dataset.wk,th=CUR.themes[w%CUR.themes.length];toast(`Tuần ${w+1}: ${th.vi}`);return}
+  if(b.dataset.mic){const key=b.dataset.mic;if(micTarget===key){stopMic(false)}else startMic(key);return}
+  if(b.dataset.ls!=null){const p=b.dataset.ls,pick=b.dataset.pick;lsPick[p]=pick;addLog({kind:"listen",p,pick,correct:p===pick},p===pick?1:0);return}
+  if(b.dataset.hot!=null){const h=todayHot(),pk=b.dataset.hot;hotPick=pk;addLog({kind:"movie",pickEn:pk,hot:h.en,correct:pk===h.en},pk===h.en?2:0);return}
+  if(b.dataset.news){addLog({kind:"news",nid:b.dataset.news},1);return}
+  if(b.dataset.act==="chest"){confetti();addLog({kind:"chest"},5);$("#bubble").textContent="Woaaa! Rương đầy cá! 😻";return}
+  if(b.dataset.clue!=null){const c=curCase();addLog({kind:"clue",caseId:c.id,n:+b.dataset.clue},1);return}
+  if(b.dataset.guess!=null){const c=curCase(),g=+b.dataset.guess;if(g===c.answer)confetti();addLog({kind:"guess",caseId:c.id,pick:g,correct:g===c.answer},g===c.answer?10:0);return}
+});
+
+$("#enFix").onclick=async()=>{const text=$("#enInput").value.trim();if(!text)return;
+  const b=$("#enFix");b.disabled=true;b.textContent="Mochi đang nhai…";
+  let r={ok:true,fixed:text,why:"",checked:false};
+  try{const g=await geminiFix(text);if(g)r={ok:!!g.ok,fixed:g.fixed||text,why:g.why||"",checked:true}}catch(_){r.why="(AI đang bận, Mochi vẫn được ăn.)"}
+  addLog({kind:"sentence",text,...r},1);$("#enInput").value="";
+  b.disabled=false;b.textContent="Cho ăn";};
+$("#enInput").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("#enFix").click()}});
+$("#gkeySave").onclick=()=>{try{const v=$("#gkey").value.trim();if(v)localStorage.setItem(GKEY,v);else localStorage.removeItem(GKEY);$("#gkey").value="";toast(v?"Đã lưu key, AI sẽ sửa câu cho chị":"Đã xoá key");render()}catch(_){toast("Chưa lưu được")}};
+$("#bkCopy").onclick=async()=>{const s=JSON.stringify(DATA);try{await navigator.clipboard.writeText(s);toast("Đã sao chép dữ liệu")}catch(_){const t=$("#bkBox");t.hidden=false;t.value=s;t.select();toast("Chị bấm giữ để sao chép nhé")}};
+$("#bkPaste").onclick=()=>{const t=$("#bkBox");if(t.hidden||!t.value.trim()){t.hidden=false;t.value="";t.focus();return}
+  try{const d=JSON.parse(t.value);if(!Array.isArray(d.logs))throw 0;DATA={logs:d.logs,state:d.state||{}};persist();t.value="";t.hidden=true;render();toast("Đã khôi phục tiến độ 🎉")}catch(_){toast("Dữ liệu không đúng, chị kiểm tra lại nhé")}};
+
+render();
+Promise.all(["curriculum.json","cases.json","news.json"].map(f=>fetch(f,{cache:"no-cache"}).then(r=>r.json()).catch(()=>null)))
+  .then(([c,cs,n])=>{if(c)CUR=c;else status("Chưa tải được bài học, kiểm tra mạng rồi mở lại nhé.");if(cs)CASES=cs;if(n)NEWS=n;render()});
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+})();
+
+</script>
+</body></html>
