@@ -1,5 +1,2 @@
-const C="mia-v4",FILES=["./","index.html","curriculum.json","cases.json","news.json","manifest.webmanifest","icon-192.png","icon-512.png"];
-self.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(FILES)));self.skipWaiting()});
-self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))));self.clients.claim()});
-self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return;const u=new URL(e.request.url);if(u.origin!==location.origin||u.pathname.includes("/audio/")||e.request.headers.has("range"))return;
-  e.respondWith(fetch(e.request).then(r=>{const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp));return r}).catch(()=>caches.match(e.request)))});
+self.addEventListener("install",()=>self.skipWaiting());
+self.addEventListener("activate",e=>e.waitUntil((async()=>{for(const k of await caches.keys())await caches.delete(k);await self.registration.unregister();for(const c of await self.clients.matchAll())c.navigate(c.url)})()));

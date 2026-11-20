@@ -293,10 +293,11 @@ function pickVoice(){const vs=usVoices();let saved="";try{saved=localStorage.get
   const sel=document.querySelector("#voiceSel");if(sel){sel.innerHTML=vs.length?vs.map(v=>`<option${v===VOICE?" selected":""}>${esc(v.name)}</option>`).join(""):"<option>Giọng Anh-Mỹ mặc định của máy</option>"}}
 try{pickVoice();speechSynthesis.onvoiceschanged=pickVoice}catch(_){}
 function audioKey(t){let h=0x811c9dc5;for(const b of new TextEncoder().encode(t)){h^=b;h=Math.imul(h,0x01000193)>>>0}return h.toString(16).padStart(8,"0")}
-let AUD=null;
-function speak(text,rate=.9){try{speechSynthesis.cancel()}catch(_){}if(AUD){AUD.pause();AUD=null}
-  const a=new Audio("audio/"+audioKey(text)+".mp3");a.playbackRate=rate<.8?.72:1;a.preservesPitch=true;AUD=a;
-  a.onerror=()=>{if(AUD===a){AUD=null;ttsSpeak(text,rate)}};a.play().catch(()=>{if(AUD===a&&a.error){AUD=null;ttsSpeak(text,rate)}})}
+const PLAYER=new Audio();PLAYER.preload="auto";PLAYER.setAttribute("playsinline","");let playId=0;
+function speak(text,rate=.9){try{speechSynthesis.cancel()}catch(_){}
+  const id=++playId,r=rate<.8?.75:1;let fell=false;const fall=why=>{if(fell||id!==playId)return;fell=true;if(why)toast("Không phát được file giọng ("+why+"), dùng giọng máy");ttsSpeak(text,rate)};
+  try{PLAYER.pause();PLAYER.onerror=()=>fall("không tải được");PLAYER.src="audio/"+audioKey(text)+".mp3";PLAYER.defaultPlaybackRate=r;PLAYER.playbackRate=r;
+    const p=PLAYER.play();if(p&&p.catch)p.catch(e=>fall(e&&e.name||"lỗi"))}catch(e){fall(e&&e.name||"lỗi")}}
 function ttsSpeak(text,rate=.9){try{const u=new SpeechSynthesisUtterance(text);u.lang="en-US";if(VOICE)u.voice=VOICE;u.rate=rate;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(_){toast("Máy này chưa phát được tiếng 😿")}}
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 const norm=s=>s.toLowerCase().replace(/[’]/g,"'").replace(/[^a-z' ]/g," ").split(/\s+/).filter(Boolean);
@@ -535,7 +536,8 @@ $("#bkPaste").onclick=()=>{const t=$("#bkBox");if(t.hidden||!t.value.trim()){t.h
 render();
 Promise.all(["curriculum.json","cases.json","news.json"].map(f=>fetch(f,{cache:"no-cache"}).then(r=>r.json()).catch(()=>null)))
   .then(([c,cs,n])=>{if(c)CUR=c;else status("Chưa tải được bài học, kiểm tra mạng rồi mở lại nhé.");if(cs)CASES=cs;if(n)NEWS=n;render()});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+if("serviceWorker" in navigator)navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).catch(()=>{});
+try{caches.keys().then(ks=>ks.forEach(k=>caches.delete(k)))}catch(_){}
 })();
 
 </script>
