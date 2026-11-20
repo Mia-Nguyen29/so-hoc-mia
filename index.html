@@ -7,6 +7,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Sổ học Mia">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
+<script>window.__err=function(m){var d=document.getElementById("errbox");if(!d){d=document.createElement("div");d.id="errbox";d.style.cssText="position:fixed;left:8px;right:8px;top:8px;z-index:99;background:#B00020;color:#fff;font:13px/1.4 sans-serif;padding:10px;border-radius:10px;white-space:pre-wrap";(document.body||document.documentElement).appendChild(d)}d.textContent+=(d.textContent?" | ":"")+"Lỗi: "+m};
+window.addEventListener("error",function(e){if(e.message)__err(e.message+" @"+(e.lineno||"")+":"+(e.colno||""))});
+window.addEventListener("unhandledrejection",function(e){__err("promise: "+(e.reason&&e.reason.message||e.reason))});</script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -242,7 +245,7 @@ input{font:inherit}
 <script>
 (function(){
 const $=s=>document.querySelector(s);
-const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const dayKey=(d=new Date())=>new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10);
 const addDays=(k,n)=>{const d=new Date(k+"T12:00:00");d.setDate(d.getDate()+n);return dayKey(d)};
 const diffDays=(a,b)=>Math.round((new Date(b+"T12:00:00")-new Date(a+"T12:00:00"))/864e5);
@@ -475,7 +478,7 @@ function render(){
   $("#petName").textContent=state().petName||"Mochi";
   $("#hFish").textContent="🥕 "+x;$("#hLv").textContent="⭐ Lv "+lv;$("#hStreak").textContent="🔥 "+streak();
   $("#mood").textContent={happy:"🐰 No căng bụng",ok:"🙂 Hơi đói",hungry:"🥺 Đói bụng",sad:"😢 Buồn vì nhớ Mia"}[m]+` · hôm nay ${fishDay(today())} 🥕`;
-  const lo=LEVELS[lv-1],hi=LEVELS[lv]??LEVELS[LEVELS.length-1]+200;
+  const lo=LEVELS[lv-1],hi=LEVELS[lv]!=null?LEVELS[lv]:LEVELS[LEVELS.length-1]+200;
   $("#xpBar").style.width=Math.min(100,(x-lo)/(hi-lo)*100)+"%";
   $("#lv").textContent=`Lv ${lv} · còn ${Math.max(0,hi-x)} 🥕 nữa lên cấp`;
   const n=L("sentence",isToday).length;
