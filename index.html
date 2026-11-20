@@ -212,7 +212,7 @@ input{font:inherit}
       <a href="https://www.bbc.co.uk/learningenglish/english/features/6-minute-english" target="_blank" rel="noopener">BBC 6 Minute English ↗</a>
       <a href="https://edition.cnn.com/world" target="_blank" rel="noopener">CNN World ↗</a>
     </div>
-    <p class="muted"><b>Giọng đọc (Anh-Mỹ):</b> máy tự chọn giọng Mỹ hay nhất có trên điện thoại. Muốn đổi thì chọn ở đây.</p>
+    <p class="muted"><b>Giọng đọc (Anh-Mỹ):</b> các câu bài học đã thu sẵn giọng Ava chuẩn Mỹ. Câu ngoài bài (vụ án mới, câu chị tự viết) dùng giọng máy, chọn ở đây.</p>
     <div class="row"><select id="voiceSel" style="flex:1 1 200px;min-width:0;font:inherit;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink)"></select></div>
     <p class="muted"><b>AI sửa câu (không bắt buộc):</b> dán Gemini API key cá nhân. Key chỉ lưu trên máy này.</p>
     <div class="row"><input id="gkey" type="password" placeholder="Gemini API key" autocomplete="off" style="flex:1 1 200px;min-width:0;font:inherit;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink)"><button id="gkeySave">Lưu</button></div>
@@ -278,7 +278,12 @@ function pickVoice(){const vs=usVoices();let saved="";try{saved=localStorage.get
   if(!VOICE)VOICE=vs[0]||null;
   const sel=document.querySelector("#voiceSel");if(sel){sel.innerHTML=vs.length?vs.map(v=>`<option${v===VOICE?" selected":""}>${esc(v.name)}</option>`).join(""):"<option>Giọng Anh-Mỹ mặc định của máy</option>"}}
 try{pickVoice();speechSynthesis.onvoiceschanged=pickVoice}catch(_){}
-function speak(text,rate=.9){try{const u=new SpeechSynthesisUtterance(text);u.lang="en-US";if(VOICE)u.voice=VOICE;u.rate=rate;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(_){toast("Máy này chưa phát được tiếng 😿")}}
+function audioKey(t){let h=0x811c9dc5;for(const b of new TextEncoder().encode(t)){h^=b;h=Math.imul(h,0x01000193)>>>0}return h.toString(16).padStart(8,"0")}
+let AUD=null;
+function speak(text,rate=.9){try{speechSynthesis.cancel()}catch(_){}if(AUD){AUD.pause();AUD=null}
+  const a=new Audio("audio/"+audioKey(text)+".mp3");a.playbackRate=rate<.8?.72:1;a.preservesPitch=true;AUD=a;
+  a.onerror=()=>{if(AUD===a){AUD=null;ttsSpeak(text,rate)}};a.play().catch(()=>{if(AUD===a&&a.error){AUD=null;ttsSpeak(text,rate)}})}
+function ttsSpeak(text,rate=.9){try{const u=new SpeechSynthesisUtterance(text);u.lang="en-US";if(VOICE)u.voice=VOICE;u.rate=rate;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(_){toast("Máy này chưa phát được tiếng 😿")}}
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 const norm=s=>s.toLowerCase().replace(/[’]/g,"'").replace(/[^a-z' ]/g," ").split(/\s+/).filter(Boolean);
 function score(target,said){const want=norm(target),got=new Set(norm(said));if(!want.length)return 1;const hit=want.filter(w=>got.has(w)).length/want.length;return hit>=.8?3:hit>=.5?2:1}
