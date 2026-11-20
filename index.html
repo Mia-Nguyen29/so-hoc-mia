@@ -19,17 +19,17 @@ body{margin:0}[hidden]{display:none!important}img{max-width:100%}
 :root{
   --bg:#FFF0F6; --paper:#FFFFFF; --ink:#3A1F2B; --muted:#8A6576; --line:#F6D3E3;
   --accent:#FF4F9A; --accent-ink:#FFFFFF; --sea:#9D4EDD; --sea-soft:#F3E8FF; --good:#2E9E5B; --bad:#E0444B; --gold:#F7B500;
-  --fur:#FFD3B5; --fur-dark:#F2A07B; --chip:#FCE4EF; --noir:#3B1B33; --noir-ink:#FFEAF4; --mint:#E5F7EC; --link:#C2337A;
+  --fur:#FFFFFF; --fur-dark:#FFE6EF; --chip:#FCE4EF; --noir:#3B1B33; --noir-ink:#FFEAF4; --mint:#E5F7EC; --link:#C2337A;
   --f-display:"Baloo 2","Be Vietnam Pro",system-ui,sans-serif; --f:"Be Vietnam Pro",system-ui,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#1E1219; --paper:#2A1823; --ink:#FCE9F2; --muted:#C49BB0; --line:#45283A;
   --accent:#FF6FAE; --accent-ink:#2A0716; --sea:#C59BFF; --sea-soft:#2E2042; --good:#5FC98A; --bad:#FF7B80; --gold:#FFCF3F;
-  --fur:#F5C29E; --fur-dark:#D98A62; --chip:#3A2231; --noir:#12090F; --noir-ink:#FFEAF4; --mint:#1C3226; --link:#FF8CC0; color-scheme:dark}}
+  --fur:#FFF4F8; --fur-dark:#F6D5E2; --chip:#3A2231; --noir:#12090F; --noir-ink:#FFEAF4; --mint:#1C3226; --link:#FF8CC0; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#1E1219; --paper:#2A1823; --ink:#FCE9F2; --muted:#C49BB0; --line:#45283A;
   --accent:#FF6FAE; --accent-ink:#2A0716; --sea:#C59BFF; --sea-soft:#2E2042; --good:#5FC98A; --bad:#FF7B80; --gold:#FFCF3F;
-  --fur:#F5C29E; --fur-dark:#D98A62; --chip:#3A2231; --noir:#12090F; --noir-ink:#FFEAF4; --mint:#1C3226; --link:#FF8CC0; color-scheme:dark}
+  --fur:#FFF4F8; --fur-dark:#F6D5E2; --chip:#3A2231; --noir:#12090F; --noir-ink:#FFEAF4; --mint:#1C3226; --link:#FF8CC0; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--f)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
@@ -142,7 +142,7 @@ input{font:inherit}
 <div class="wrap">
   <div class="hud">
     <span class="title">Sổ học Mia</span>
-    <div class="pills"><span class="pill" id="hFish">🐟 0</span><span class="pill" id="hLv">⭐ Lv 1</span><span class="pill" id="hStreak">🔥 0</span></div>
+    <div class="pills"><span class="pill" id="hFish">🥕 0</span><span class="pill" id="hLv">⭐ Lv 1</span><span class="pill" id="hStreak">🔥 0</span></div>
   </div>
   <div id="status" class="banner" hidden></div>
 
@@ -171,18 +171,18 @@ input{font:inherit}
   </section>
 
   <section class="card" aria-labelledby="lsH">
-    <div class="card-h"><h2 id="lsH">🎧 Nghe &amp; Nói</h2><span class="reward">mỗi câu +2 🐟</span></div>
+    <div class="card-h"><h2 id="lsH">🎧 Nghe &amp; Nói</h2><span class="reward">mỗi câu +2 🥕</span></div>
     <p class="muted">Bấm ▶ nghe, chọn câu vừa nghe, rồi nói lại vào micro.</p>
     <div class="ls" id="ls"><p class="muted">Đang tải bài…</p></div>
   </section>
 
   <section class="card movie" aria-labelledby="mvH">
-    <div class="card-h"><h2 id="mvH">🔥 Câu hot hôm nay</h2><span class="reward">+3 🐟</span></div>
+    <div class="card-h"><h2 id="mvH">🔥 Câu hot hôm nay</h2><span class="reward">+3 🥕</span></div>
     <div id="movie"><p class="muted">Đang tải…</p></div>
   </section>
 
   <section class="card" aria-labelledby="nwH">
-    <div class="card-h"><h2 id="nwH">📰 Tin nóng thế giới</h2><span class="reward">đọc +1 🐟</span></div>
+    <div class="card-h"><h2 id="nwH">📰 Tin nóng thế giới</h2><span class="reward">đọc +1 🥕</span></div>
     <p class="muted">Tin thật từ báo nước ngoài, viết lại bằng tiếng Anh dễ hiểu.</p>
     <div class="news" id="news"><p class="muted">Đang lấy tin…</p></div>
   </section>
@@ -193,9 +193,9 @@ input{font:inherit}
   </section>
 
   <section class="card" aria-labelledby="fdH">
-    <div class="card-h"><h2 id="fdH">✍️ Cho Mochi ăn</h2><span class="reward">mỗi câu +1 🐟</span></div>
+    <div class="card-h"><h2 id="fdH">✍️ Cho Mochi ăn</h2><span class="reward">mỗi câu +1 🥕</span></div>
     <p class="muted">Viết 5 câu tiếng Anh bất kỳ. Sai cũng được.</p>
-    <div class="dots" id="dots" aria-hidden="true"><i>🐟</i><i>🐟</i><i>🐟</i><i>🐟</i><i>🐟</i></div>
+    <div class="dots" id="dots" aria-hidden="true"><i>🥕</i><i>🥕</i><i>🥕</i><i>🥕</i><i>🥕</i></div>
     <div class="row">
       <textarea id="enInput" rows="2" placeholder="vd: Today I very busy because many booking"></textarea>
       <button id="enFix" class="go">Cho ăn</button>
@@ -212,6 +212,8 @@ input{font:inherit}
       <a href="https://www.bbc.co.uk/learningenglish/english/features/6-minute-english" target="_blank" rel="noopener">BBC 6 Minute English ↗</a>
       <a href="https://edition.cnn.com/world" target="_blank" rel="noopener">CNN World ↗</a>
     </div>
+    <p class="muted"><b>Giọng đọc (Anh-Mỹ):</b> máy tự chọn giọng Mỹ hay nhất có trên điện thoại. Muốn đổi thì chọn ở đây.</p>
+    <div class="row"><select id="voiceSel" style="flex:1 1 200px;min-width:0;font:inherit;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink)"></select></div>
     <p class="muted"><b>AI sửa câu (không bắt buộc):</b> dán Gemini API key cá nhân. Key chỉ lưu trên máy này.</p>
     <div class="row"><input id="gkey" type="password" placeholder="Gemini API key" autocomplete="off" style="flex:1 1 200px;min-width:0;font:inherit;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink)"><button id="gkeySave">Lưu</button></div>
     <p class="muted"><b>Sao lưu tiến độ:</b> tiến độ lưu trên trình duyệt của máy này. Đổi máy thì bấm "Sao chép" ở máy cũ rồi "Dán" ở máy mới.</p>
@@ -236,7 +238,7 @@ const cambridge=w=>"https://dictionary.cambridge.org/search/direct/?datasetsearc
 const AFI="https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movie_Quotes";
 const START="2026-11-20",KEY="mia-game-v1",GKEY="mia-gemini-key";
 const LEVELS=[0,5,15,30,50,80,120,170,230,300,400,520,660,820,1000];
-const PETLINES={happy:["Meo! Hôm nay no quá 😻","Mia giỏi ghê!","Purr… purr…","Mở rương đi Mia ơi!"],ok:["Mochi muốn thêm cá…","Một câu tiếng Anh thôi mà 🥺","Meo?"],hungry:["Đói quááá 😿","Cá ơi… cá đâu…","Mia quên Mochi rồi à?"],sad:["Zzz… Mochi buồn ngủ vì đói…","Mochi nhớ Mia 😢"]};
+const PETLINES={happy:["Hihi! Hôm nay no căng bụng 🐰","Mia giỏi ghê!","*vẫy vẫy tai* 💕","Mở rương đi Mia ơi!"],ok:["Mochi muốn thêm cà rốt…","Một câu tiếng Anh thôi mà 🥺","Mochi nghiêng đầu… 🐰?"],hungry:["Đói quááá 🥺","Cà rốt ơi… cà rốt đâu…","Mia quên Mochi rồi à?"],sad:["Zzz… Mochi buồn ngủ vì đói…","Mochi nhớ Mia 😢"]};
 
 /* ---------- storage (this device) ---------- */
 function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(_){return {}}}
@@ -267,8 +269,14 @@ function todayPhrases(){if(!CUR)return[];const p=pos(),t=CUR.themes[p.week%CUR.t
 const todayHot=()=>CUR?CUR.hot[pos().d%CUR.hot.length]:null;
 
 /* ---------- speech (phone/browser built-in) ---------- */
-let VOICE=null;
-function pickVoice(){try{const vs=speechSynthesis.getVoices();VOICE=vs.find(v=>/en[-_]US/i.test(v.lang)&&/Samantha|Google US|Aria|Jenny|Natural/i.test(v.name))||vs.find(v=>/en[-_](US|GB)/i.test(v.lang))||null}catch(_){}}
+let VOICE=null;const VKEY="mia-voice";
+const US_PREF=[/Ava/i,/Samantha/i,/Allison/i,/Evan/i,/Nathan/i,/Google US English/i,/Aria.*Natural|Natural.*Aria/i,/Jenny.*Natural|Natural.*Jenny/i,/Guy.*Natural/i,/Natural/i,/Aria|Jenny|Zira|David|Mark/i];
+const usVoices=()=>{try{return speechSynthesis.getVoices().filter(v=>/^en[-_]US$/i.test(v.lang))}catch(_){return[]}};
+function pickVoice(){const vs=usVoices();let saved="";try{saved=localStorage.getItem(VKEY)||""}catch(_){}
+  VOICE=vs.find(v=>v.name===saved)||null;
+  if(!VOICE)for(const re of US_PREF){VOICE=vs.find(v=>re.test(v.name)&&v.localService!==false)||vs.find(v=>re.test(v.name));if(VOICE)break}
+  if(!VOICE)VOICE=vs[0]||null;
+  const sel=document.querySelector("#voiceSel");if(sel){sel.innerHTML=vs.length?vs.map(v=>`<option${v===VOICE?" selected":""}>${esc(v.name)}</option>`).join(""):"<option>Giọng Anh-Mỹ mặc định của máy</option>"}}
 try{pickVoice();speechSynthesis.onvoiceschanged=pickVoice}catch(_){}
 function speak(text,rate=.9){try{const u=new SpeechSynthesisUtterance(text);u.lang="en-US";if(VOICE)u.voice=VOICE;u.rate=rate;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(_){toast("Máy này chưa phát được tiếng 😿")}}
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
@@ -284,26 +292,37 @@ function stopMic(silent){if(rec){try{if(silent){rec.onend=null;rec.abort()}else 
 
 /* ---------- pet ---------- */
 function petSVG(m,lv){
-  const eyes={happy:`<path d="M72 92 q8 -10 16 0 M112 92 q8 -10 16 0" stroke="#3A1F2B" stroke-width="4" fill="none" stroke-linecap="round"/>`,
-    ok:`<circle cx="80" cy="92" r="6" fill="#3A1F2B"/><circle cx="120" cy="92" r="6" fill="#3A1F2B"/><circle cx="82" cy="90" r="2" fill="#fff"/><circle cx="122" cy="90" r="2" fill="#fff"/>`,
-    hungry:`<circle cx="80" cy="94" r="7" fill="#3A1F2B"/><circle cx="120" cy="94" r="7" fill="#3A1F2B"/><circle cx="83" cy="91" r="3" fill="#fff"/><circle cx="123" cy="91" r="3" fill="#fff"/><path d="M70 80 l16 4 M130 80 l-16 4" stroke="#3A1F2B" stroke-width="3" stroke-linecap="round"/>`,
-    sad:`<path d="M72 94 h16 M112 94 h16" stroke="#3A1F2B" stroke-width="4" stroke-linecap="round"/><text x="140" y="60" font-size="18" fill="var(--muted)" font-family="sans-serif">z z</text>`}[m];
-  const mouth=m==="happy"?`<path d="M92 108 q8 10 16 0" stroke="#3A1F2B" stroke-width="3" fill="#FF7FAE"/>`:m==="hungry"?`<ellipse cx="100" cy="110" rx="5" ry="6" fill="#3A1F2B"/>`:`<path d="M94 108 q6 5 12 0" stroke="#3A1F2B" stroke-width="3" fill="none" stroke-linecap="round"/>`;
-  const blush=`<ellipse cx="68" cy="106" rx="9" ry="5" fill="#FF9EC4" opacity=".7"/><ellipse cx="132" cy="106" rx="9" ry="5" fill="#FF9EC4" opacity=".7"/>`;
-  const bow=`<path d="M128 52 l-12 -10 v20z M128 52 l12 -10 v20z" fill="var(--accent)"/><circle cx="128" cy="52" r="4" fill="var(--accent)"/>`;
-  const scarf=lv>=2?`<path d="M58 124 q42 18 84 0 l-4 12 q-38 14 -76 0z" fill="var(--sea)"/><rect x="118" y="128" width="12" height="22" rx="3" fill="var(--sea)"/>`:"";
-  const hat=lv>=3&&lv<7?`<path d="M62 52 q38 -26 76 0 l-6 10 h-64z" fill="#1F2A44"/><rect x="58" y="58" width="84" height="8" rx="4" fill="#1F2A44"/><circle cx="100" cy="46" r="6" fill="#F7B500"/>`:"";
-  const glass=lv>=5?`<circle cx="148" cy="140" r="12" fill="none" stroke="#8B5E34" stroke-width="4"/><path d="M156 150 l12 14" stroke="#8B5E34" stroke-width="5" stroke-linecap="round"/>`:"";
-  const crown=lv>=7?`<path d="M70 58 l10 -26 l10 18 l10 -24 l10 24 l10 -18 l10 26z" fill="#F7B500" stroke="#C99A1E" stroke-width="2"/>`:"";
-  return `<svg viewBox="0 0 200 180" role="img" aria-label="Mèo Mochi, cấp ${lv}" class="${m==="happy"?"bounce":""}">
-  <ellipse cx="100" cy="168" rx="56" ry="8" fill="var(--chip)"/>
-  <path d="M150 150 q34 -10 26 -46" stroke="var(--fur-dark)" stroke-width="12" fill="none" stroke-linecap="round"/>
-  <ellipse cx="100" cy="140" rx="50" ry="30" fill="var(--fur)"/>
-  <path d="M60 70 l6 -34 l26 22z M140 70 l-6 -34 l-26 22z" fill="var(--fur-dark)"/>
-  <circle cx="100" cy="94" r="46" fill="var(--fur)"/>
-  <path d="M66 70 l4 -22 l16 14z M134 70 l-4 -22 l-16 14z" fill="#FFC1D6"/>
-  ${eyes}${blush}<path d="M96 102 l4 4 l4 -4z" fill="#FF7FAE"/>${mouth}
-  <path d="M54 100 h22 M54 108 h22 M146 100 h-22 M146 108 h-22" stroke="var(--fur-dark)" stroke-width="2" stroke-linecap="round"/>
+  const ink="#4A2A3A",pink="#FF8FB8",inner="#FFC2D6";
+  const sad=m==="sad",hungry=m==="hungry";
+  const earL=sad?"rotate(-58 78 74)":hungry?"rotate(-22 78 74)":"rotate(-10 78 74)";
+  const earR=sad?"rotate(58 122 74)":hungry?"rotate(30 122 74)":"rotate(10 122 74)";
+  const eyes={happy:`<path d="M74 106 q9 -11 18 0 M108 106 q9 -11 18 0" stroke="${ink}" stroke-width="4.5" fill="none" stroke-linecap="round"/>`,
+    ok:`<ellipse cx="83" cy="104" rx="7" ry="8.5" fill="${ink}"/><ellipse cx="117" cy="104" rx="7" ry="8.5" fill="${ink}"/><circle cx="85.5" cy="100.5" r="3" fill="#fff"/><circle cx="119.5" cy="100.5" r="3" fill="#fff"/><circle cx="81" cy="107" r="1.4" fill="#fff"/><circle cx="115" cy="107" r="1.4" fill="#fff"/>`,
+    hungry:`<ellipse cx="83" cy="105" rx="8.5" ry="10" fill="${ink}"/><ellipse cx="117" cy="105" rx="8.5" ry="10" fill="${ink}"/><circle cx="86" cy="101" r="3.6" fill="#fff"/><circle cx="120" cy="101" r="3.6" fill="#fff"/><path d="M80 118 q2 6 4 0" fill="#9AD7FF"/>`,
+    sad:`<path d="M75 106 q8 6 16 0 M109 106 q8 6 16 0" stroke="${ink}" stroke-width="4" fill="none" stroke-linecap="round"/><text x="146" y="66" font-size="16" fill="var(--muted)" font-family="sans-serif">z z</text>`}[m];
+  const mouth=m==="happy"?`<path d="M92 122 q4 5 8 0 q4 5 8 0" stroke="${ink}" stroke-width="2.6" fill="none" stroke-linecap="round"/><rect x="96" y="124" width="4" height="6" rx="1.5" fill="#fff" stroke="${ink}" stroke-width="1.2"/><rect x="100" y="124" width="4" height="6" rx="1.5" fill="#fff" stroke="${ink}" stroke-width="1.2"/>`
+    :hungry?`<ellipse cx="100" cy="125" rx="4.5" ry="5.5" fill="${ink}"/>`:`<path d="M93 123 q3.5 3.5 7 0 q3.5 3.5 7 0" stroke="${ink}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`;
+  const sparkle=(x,y,s)=>`<path d="M${x} ${y-s} L${x+s*.3} ${y-s*.3} L${x+s} ${y} L${x+s*.3} ${y+s*.3} L${x} ${y+s} L${x-s*.3} ${y+s*.3} L${x-s} ${y} L${x-s*.3} ${y-s*.3}Z" fill="#FFD36E"/>`;
+  const bow=`<g transform="translate(130 68) rotate(18)"><path d="M0 0 l-14 -9 q-4 9 0 18z M0 0 l14 -9 q4 9 0 18z" fill="var(--accent)"/><circle r="4.5" fill="#FF7FAE"/></g>`;
+  const scarf=lv>=2?`<path d="M64 140 q36 16 72 0 l-3 11 q-33 13 -66 0z" fill="var(--sea)"/><path d="M118 146 l8 22 l-12 -3z" fill="var(--sea)"/>`:"";
+  const hat=lv>=3&&lv<7?`<g transform="translate(100 66)"><path d="M-30 4 q30 -24 60 0 l-5 8 h-50z" fill="#1F2A44"/><rect x="-33" y="9" width="66" height="7" rx="3.5" fill="#1F2A44"/><circle cy="-4" r="5" fill="#FFD36E"/></g>`:"";
+  const glass=lv>=5?`<g transform="translate(150 150)"><circle r="11" fill="#E6F4FF" fill-opacity=".5" stroke="#B07A4A" stroke-width="4"/><path d="M8 8 l11 12" stroke="#B07A4A" stroke-width="5" stroke-linecap="round"/></g>`:"";
+  const crown=lv>=7?`<path d="M74 72 l9 -24 l9 16 l8 -22 l8 22 l9 -16 l9 24z" fill="#FFD36E" stroke="#E0A93A" stroke-width="2" stroke-linejoin="round"/><circle cx="100" cy="66" r="3" fill="var(--accent)"/>`:"";
+  return `<svg viewBox="0 0 200 200" role="img" aria-label="Thỏ Mochi, cấp ${lv}" class="${m==="happy"?"bounce":""}">
+  <defs><radialGradient id="bg" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#FFE3EF"/><stop offset="1" stop-color="var(--chip)" stop-opacity="0"/></radialGradient>
+  <linearGradient id="furG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--fur)"/><stop offset="1" stop-color="var(--fur-dark)"/></linearGradient></defs>
+  <circle cx="100" cy="112" r="90" fill="url(#bg)"/>
+  ${m==="happy"?sparkle(30,52,8)+sparkle(172,44,6)+sparkle(166,120,5):""}
+  <ellipse cx="100" cy="190" rx="54" ry="7" fill="var(--chip)"/>
+  <g transform="${earL}"><ellipse cx="78" cy="44" rx="15" ry="40" fill="url(#furG)" stroke="#F2BCD0" stroke-width="2"/><ellipse cx="78" cy="48" rx="7.5" ry="29" fill="${inner}"/></g>
+  <g transform="${earR}"><ellipse cx="122" cy="44" rx="15" ry="40" fill="url(#furG)" stroke="#F2BCD0" stroke-width="2"/><ellipse cx="122" cy="48" rx="7.5" ry="29" fill="${inner}"/></g>
+  <circle cx="150" cy="168" r="12" fill="#fff" stroke="#F2BCD0" stroke-width="2"/>
+  <ellipse cx="100" cy="164" rx="46" ry="30" fill="url(#furG)" stroke="#F2BCD0" stroke-width="2"/>
+  <ellipse cx="80" cy="190" rx="14" ry="7" fill="var(--fur)" stroke="#F2BCD0" stroke-width="2"/><ellipse cx="120" cy="190" rx="14" ry="7" fill="var(--fur)" stroke="#F2BCD0" stroke-width="2"/>
+  <ellipse cx="100" cy="110" rx="50" ry="44" fill="url(#furG)" stroke="#F2BCD0" stroke-width="2"/>
+  <ellipse cx="72" cy="120" rx="10" ry="6" fill="${pink}" opacity=".55"/><ellipse cx="128" cy="120" rx="10" ry="6" fill="${pink}" opacity=".55"/>
+  ${eyes}<path d="M96 115 q4 -3 8 0 q-4 6 -8 0z" fill="${pink}"/>${mouth}
+  ${m==="happy"?`<path d="M88 168 q12 -14 24 0" stroke="#F2BCD0" stroke-width="2" fill="none"/><g transform="translate(100 160) rotate(-30)"><path d="M0 -14 l5 26 h-10z" fill="#FF9A3D"/><path d="M0 -14 l-5 -7 M0 -14 l0 -9 M0 -14 l5 -7" stroke="#4CB963" stroke-width="3" stroke-linecap="round"/></g>`:""}
   ${lv<3?bow:""}${scarf}${hat}${crown}${glass}</svg>`}
 
 /* ---------- case of the week ---------- */
@@ -324,9 +343,9 @@ function renderQuests(){const q=quests(),n=q.filter(x=>x.done).length;
   $("#quests").innerHTML=q.map(x=>`<div class="q${x.done?" done":""}"><b>${x.ic}</b>${x.t}${x.done?" ✓":""}</div>`).join("");
   $("#qCount").textContent=`${n}/5`;
   const opened=L("chest",isToday).length>0;
-  $("#chest").innerHTML=opened?`<span class="big">🎉</span><span style="flex:1">Đã mở rương hôm nay: +5 🐟. Mai quay lại nhé!</span>`
+  $("#chest").innerHTML=opened?`<span class="big">🎉</span><span style="flex:1">Đã mở rương hôm nay: +5 🥕. Mai quay lại nhé!</span>`
     :n===5?`<span class="big shake">🎁</span><span style="flex:1"><b>Rương đã sẵn sàng!</b></span><button class="go" data-act="chest">Mở rương</button>`
-    :`<span class="big" style="filter:grayscale(1);opacity:.5">🎁</span><span class="muted" style="flex:1">Làm đủ 5 nhiệm vụ để mở rương +5 🐟</span>`}
+    :`<span class="big" style="filter:grayscale(1);opacity:.5">🎁</span><span class="muted" style="flex:1">Làm đủ 5 nhiệm vụ để mở rương +5 🥕</span>`}
 function renderMap(){if(!CUR)return;const p=pos(),n=CUR.themes.length,weeks=Math.ceil(CUR.days/7);const t=CUR.themes[p.week%n];
   $("#dayNo").textContent=`Vòng ${p.round} · Ngày ${p.d+1}/${CUR.days}`;
   $("#themeNow").textContent=`Tuần ${p.week+1}: ${t.vi} (${t.en})`;
@@ -364,7 +383,7 @@ function renderNews(){const list=NEWS.slice().sort((a,b)=>(b.date||"").localeCom
   if(!list.length){$("#news").innerHTML=`<p class="muted">Chưa có tin mới.</p>`;return}
   $("#news").innerHTML=list.map(n=>{const read=L("news",l=>l.nid===n.id).length>0;
     return `<div class="nw${read?" read":""}"><span class="src">${esc(n.source)} · ${esc(n.date)}</span><h3>${esc(n.title)}</h3><div class="en">${esc(n.en)}</div>
-    <div class="row"><button data-say="${esc(n.title+". "+n.en)}" data-rate=".9">🔊 Nghe</button>${read?`<span class="ok">Đã đọc ✓</span>`:`<button class="go" data-news="${esc(n.id)}">Đọc xong (+1 🐟)</button>`}</div>
+    <div class="row"><button data-say="${esc(n.title+". "+n.en)}" data-rate=".9">🔊 Nghe</button>${read?`<span class="ok">Đã đọc ✓</span>`:`<button class="go" data-news="${esc(n.id)}">Đọc xong (+1 🥕)</button>`}</div>
     <details><summary class="muted">Xem tiếng Việt</summary><div class="vi">${esc(n.vi)}</div></details>
     <div class="words">${(n.words||[]).map(w=>`<a href="${cambridge(w.w)}" target="_blank" rel="noopener">${esc(w.w)} · ${esc(w.vi)}</a>`).join("")}</div>
     <a class="src" href="${esc(n.url)}" target="_blank" rel="noopener">Đọc bài gốc ↗</a></div>`}).join("")}
@@ -383,12 +402,12 @@ function renderCase(){const c=curCase();
       <div class="row"><button data-say="${esc(cl.en)}" data-rate=".9">🔊 Nghe</button></div>
       <details><summary class="muted">Xem tiếng Việt</summary><div class="vi">${esc(cl.vi)}</div></details>
       <div class="words">${(cl.words||[]).map(w=>`<a href="${cambridge(w.w)}" target="_blank" rel="noopener">${esc(w.w)} · ${esc(w.vi)}</a>`).join("")}</div></div>`;
-    else if(n<unlocked)h+=`<div class="clue new"><span class="n">Manh mối ${n+1}</span><button class="go" data-clue="${n}">🔍 Mở manh mối (+1 🐟)</button></div>`;
+    else if(n<unlocked)h+=`<div class="clue new"><span class="n">Manh mối ${n+1}</span><button class="go" data-clue="${n}">🔍 Mở manh mối (+1 🥕)</button></div>`;
     else if(n===unlocked)h+=`<div class="clue"><span class="locked">🔒 Manh mối ${n+1} mở vào ngày mai</span></div>`;
   });
   h+=`</div>`;
   if(opened.size>=c.clues.length){
-    if(!guess)h+=`<p style="margin:0"><b>Đủ manh mối rồi! Ai là thủ phạm?</b> (đúng được 10 🐟)</p><div class="suspects">${c.suspects.map((s,i)=>`<button data-guess="${i}"><b>${esc(s.name)}</b><small>Chọn người này</small></button>`).join("")}</div>`;
+    if(!guess)h+=`<p style="margin:0"><b>Đủ manh mối rồi! Ai là thủ phạm?</b> (đúng được 10 🥕)</p><div class="suspects">${c.suspects.map((s,i)=>`<button data-guess="${i}"><b>${esc(s.name)}</b><small>Chọn người này</small></button>`).join("")}</div>`;
     else h+=`<div class="banner">${guess.correct?"🎉 Phá án thành công! ":"😅 Sai mất rồi! "}Thủ phạm: <b>${esc(c.suspects[c.answer].name)}</b>. ${esc(c.reveal)}</div><p class="muted">Tuần sau có vụ án mới nhé!</p>`;
   }
   $("#case").innerHTML=h}
@@ -399,15 +418,15 @@ function render(){
   const x=xp(),lv=level(x),m=mood();
   $("#petArt").innerHTML=petSVG(m,lv);
   $("#petName").textContent=state().petName||"Mochi";
-  $("#hFish").textContent="🐟 "+x;$("#hLv").textContent="⭐ Lv "+lv;$("#hStreak").textContent="🔥 "+streak();
-  $("#mood").textContent={happy:"😻 No căng bụng",ok:"🙂 Hơi đói",hungry:"😿 Đói meo",sad:"😢 Buồn vì nhớ Mia"}[m]+` · hôm nay ${fishDay(today())} 🐟`;
+  $("#hFish").textContent="🥕 "+x;$("#hLv").textContent="⭐ Lv "+lv;$("#hStreak").textContent="🔥 "+streak();
+  $("#mood").textContent={happy:"🐰 No căng bụng",ok:"🙂 Hơi đói",hungry:"🥺 Đói bụng",sad:"😢 Buồn vì nhớ Mia"}[m]+` · hôm nay ${fishDay(today())} 🥕`;
   const lo=LEVELS[lv-1],hi=LEVELS[lv]??LEVELS[LEVELS.length-1]+200;
   $("#xpBar").style.width=Math.min(100,(x-lo)/(hi-lo)*100)+"%";
-  $("#lv").textContent=`Lv ${lv} · còn ${Math.max(0,hi-x)} 🐟 nữa lên cấp`;
+  $("#lv").textContent=`Lv ${lv} · còn ${Math.max(0,hi-x)} 🥕 nữa lên cấp`;
   const n=L("sentence",isToday).length;
   document.querySelectorAll("#dots i").forEach((d,i)=>d.classList.toggle("on",i<n));
   const last=L("sentence",isToday).sort((a,b)=>b.ts-a.ts)[0];
-  $("#enLast").innerHTML=(n>=5?`<p class="ok">Đủ 5 câu rồi! Mochi cảm ơn Mia 😻</p>`:"")+(last?fixHTML(last):"");
+  $("#enLast").innerHTML=(n>=5?`<p class="ok">Đủ 5 câu rồi! Mochi cảm ơn Mia 🐰💕</p>`:"")+(last?fixHTML(last):"");
   $("#aiNote").hidden=!!gkey();
   $("#history").innerHTML=L("sentence").sort((a,b)=>b.ts-a.ts).slice(0,30).map(fixHTML).join("")||`<p class="muted">Chưa có.</p>`;
   renderQuests();renderMap();renderLS();renderHot();renderNews();renderCase();
@@ -420,7 +439,7 @@ function confetti(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)re
   let f=0;(function tick(){cx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.r+=.1;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);cx.restore()});if(++f<110)requestAnimationFrame(tick);else cx.clearRect(0,0,cv.width,cv.height)})()}
 
 /* ---------- actions ---------- */
-function addLog(d,gain){DATA.logs.push({...d,day:today(),ts:Date.now()});persist();render();if(gain)toast(`+${gain} 🐟 cho Mochi`)}
+function addLog(d,gain){DATA.logs.push({...d,day:today(),ts:Date.now()});persist();render();if(gain)toast(`+${gain} 🥕 cho Mochi`)}
 function micText(key){if(key==="hot"){const h=todayHot();return h.ex||h.en}return key.slice(2)}
 function finishMic(){const key=micTarget;if(!key)return;micTarget=null;if(!heard){render();toast("Chưa nghe rõ, bấm 🎤 nói lại nhé");return}
   stars[key]=score(micText(key),heard);
@@ -441,18 +460,19 @@ document.addEventListener("click",async e=>{
   if(b.dataset.ls!=null){const p=b.dataset.ls,pick=b.dataset.pick;lsPick[p]=pick;addLog({kind:"listen",p,pick,correct:p===pick},p===pick?1:0);return}
   if(b.dataset.hot!=null){const h=todayHot(),pk=b.dataset.hot;hotPick=pk;addLog({kind:"movie",pickEn:pk,hot:h.en,correct:pk===h.en},pk===h.en?2:0);return}
   if(b.dataset.news){addLog({kind:"news",nid:b.dataset.news},1);return}
-  if(b.dataset.act==="chest"){confetti();addLog({kind:"chest"},5);$("#bubble").textContent="Woaaa! Rương đầy cá! 😻";return}
+  if(b.dataset.act==="chest"){confetti();addLog({kind:"chest"},5);$("#bubble").textContent="Woaaa! Rương đầy cà rốt! 🐰";return}
   if(b.dataset.clue!=null){const c=curCase();addLog({kind:"clue",caseId:c.id,n:+b.dataset.clue},1);return}
   if(b.dataset.guess!=null){const c=curCase(),g=+b.dataset.guess;if(g===c.answer)confetti();addLog({kind:"guess",caseId:c.id,pick:g,correct:g===c.answer},g===c.answer?10:0);return}
 });
 
 $("#enFix").onclick=async()=>{const text=$("#enInput").value.trim();if(!text)return;
-  const b=$("#enFix");b.disabled=true;b.textContent="Mochi đang nhai…";
+  const b=$("#enFix");b.disabled=true;b.textContent="Mochi đang gặm…";
   let r={ok:true,fixed:text,why:"",checked:false};
   try{const g=await geminiFix(text);if(g)r={ok:!!g.ok,fixed:g.fixed||text,why:g.why||"",checked:true}}catch(_){r.why="(AI đang bận, Mochi vẫn được ăn.)"}
   addLog({kind:"sentence",text,...r},1);$("#enInput").value="";
   b.disabled=false;b.textContent="Cho ăn";};
 $("#enInput").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("#enFix").click()}});
+$("#voiceSel").onchange=e=>{try{localStorage.setItem(VKEY,e.target.value)}catch(_){}pickVoice();speak("Hi Mia! This is how I sound.",.9)};
 $("#gkeySave").onclick=()=>{try{const v=$("#gkey").value.trim();if(v)localStorage.setItem(GKEY,v);else localStorage.removeItem(GKEY);$("#gkey").value="";toast(v?"Đã lưu key, AI sẽ sửa câu cho chị":"Đã xoá key");render()}catch(_){toast("Chưa lưu được")}};
 $("#bkCopy").onclick=async()=>{const s=JSON.stringify(DATA);try{await navigator.clipboard.writeText(s);toast("Đã sao chép dữ liệu")}catch(_){const t=$("#bkBox");t.hidden=false;t.value=s;t.select();toast("Chị bấm giữ để sao chép nhé")}};
 $("#bkPaste").onclick=()=>{const t=$("#bkBox");if(t.hidden||!t.value.trim()){t.hidden=false;t.value="";t.focus();return}
