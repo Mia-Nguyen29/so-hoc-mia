@@ -199,8 +199,8 @@ input{font:inherit}
   </section>
 
   <section class="card" aria-labelledby="nwH">
-    <div class="card-h"><h2 id="nwH">📰 Tin nóng thế giới</h2><span class="reward">đọc +1 🥕</span></div>
-    <p class="muted">Tin thật từ báo nước ngoài, viết lại bằng tiếng Anh dễ hiểu.</p>
+    <div class="card-h"><h2 id="nwH">📰 Tin 1 phút</h2><span class="reward">đọc +1 🥕</span></div>
+    <p class="muted">Mỗi ngày 1 tin thật, viết lại thật ngắn bằng từ dễ.</p>
     <div class="news" id="news"><p class="muted">Đang lấy tin…</p></div>
   </section>
 
@@ -437,14 +437,15 @@ function renderHot(){const h=todayHot();if(!h)return;const p=pos();
   $("#movie").innerHTML=x}
 
 /* ---------- news ---------- */
-function renderNews(){const list=NEWS.slice().sort((a,b)=>(b.date||"").localeCompare(a.date||"")||(a.order||0)-(b.order||0)).slice(0,3);
+function renderNews(){const list=NEWS.slice().sort((a,b)=>(b.date||"").localeCompare(a.date||"")||(a.order||0)-(b.order||0)).slice(0,1);
   if(!list.length){$("#news").innerHTML=`<p class="muted">Chưa có tin mới.</p>`;return}
   $("#news").innerHTML=list.map(n=>{const read=L("news",l=>l.nid===n.id).length>0;
-    return `<div class="nw${read?" read":""}"><span class="src">${esc(n.source)} · ${esc(n.date)}</span><h3>${esc(n.title)}</h3><div class="en">${esc(n.en)}</div>
+    return `<div class="nw${read?" read":""}"><span class="src">${esc(n.source)} · ${esc(n.date)} · 1 phút</span><h3>${esc(n.title)}</h3><div class="en">${esc(n.en)}</div>
     <div class="row"><button data-say="${esc(n.title+". "+n.en)}" data-rate=".9">🔊 Nghe</button>${read?`<span class="ok">Đã đọc ✓</span>`:`<button class="go" data-news="${esc(n.id)}">Đọc xong (+1 🥕)</button>`}</div>
-    <details><summary class="muted">Xem tiếng Việt</summary><div class="vi">${esc(n.vi)}</div></details>
-    <div class="words">${(n.words||[]).map(w=>`<a href="${cambridge(w.w)}" target="_blank" rel="noopener">${esc(w.w)} · ${esc(w.vi)}</a>`).join("")}</div>
-    <a class="src" href="${esc(n.url)}" target="_blank" rel="noopener">Đọc bài gốc ↗</a></div>`}).join("")}
+    <details><summary><b>Dịch &amp; giải thích</b></summary><div class="vi" style="margin-top:6px">🇻🇳 ${esc(n.vi)}</div>
+    <ul style="margin:6px 0 0;padding-left:18px;display:grid;gap:4px">${(n.words||[]).map(w=>`<li><a href="${cambridge(w.w)}" target="_blank" rel="noopener"><b>${esc(w.w)}</b></a> = ${esc(w.vi)}${w.note?`<span class="vi"> · ${esc(w.note)}</span>`:""}</li>`).join("")}</ul>
+    ${n.tip?`<p class="vi" style="margin:6px 0 0">💡 ${esc(n.tip)}</p>`:""}
+    <a class="src" href="${esc(n.url)}" target="_blank" rel="noopener">Bài gốc trên ${esc(n.source)} ↗</a></details></div>`}).join("")}
 
 /* ---------- case ---------- */
 function renderCase(){const c=curCase();
