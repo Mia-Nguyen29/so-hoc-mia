@@ -1,4 +1,94 @@
 [
-{"id":"n20261121","date":"2026-11-21","order":1,"source":"CNN","title":"Black Friday sales start early","en":"Black Friday is next week. But many shops already have big sales online.","vi":"Tuần sau là Black Friday. Nhưng nhiều cửa hàng đã giảm giá mạnh trên mạng rồi.","words":[{"w":"sale","vi":"đợt giảm giá","note":"\"big sales\" = giảm giá mạnh"},{"w":"already","vi":"đã… rồi","note":"đứng trước động từ: already have"},{"w":"online","vi":"trên mạng"}],"tip":"Black Friday là thứ Sáu ngay sau Lễ Tạ ơn ở Mỹ, ngày mua sắm giảm giá lớn nhất năm.","url":"https://cnn.com/cnn-underscored/deals/best-black-friday-deals-2026-11-21"},
-{"id":"n20261120","date":"2026-11-20","order":1,"source":"CNN","title":"The FBI was hacked again","en":"Hackers got into the FBI's crime database. This is not the first time.","vi":"Tin tặc đã xâm nhập vào kho dữ liệu tội phạm của FBI. Đây không phải lần đầu.","words":[{"w":"hack","vi":"xâm nhập máy tính trái phép","note":"was hacked = bị xâm nhập"},{"w":"get into","vi":"vào được, lọt vào","note":"quá khứ: got into"},{"w":"database","vi":"kho dữ liệu"}],"tip":"FBI là Cục Điều tra Liên bang Mỹ. \"again\" = lại lần nữa.","url":"https://cnn.com/2026/11/20/politics/fbi-hacked-again-target-crime-database"}
+{
+"id": "n20261121",
+"date": "2026-11-21",
+"order": 1,
+"source": "CNN",
+"title": "Black Friday sales start early",
+"en": "Black Friday is next week. But many shops already have big sales online.",
+"vi": "Tuần sau là Black Friday. Nhưng nhiều cửa hàng đã giảm giá mạnh trên mạng rồi.",
+"words": [
+{
+"w": "sale",
+"vi": "đợt giảm giá",
+"note": "\"big sales\" = giảm giá mạnh"
+},
+{
+"w": "already",
+"vi": "đã… rồi",
+"note": "đứng trước động từ: already have"
+},
+{
+"w": "online",
+"vi": "trên mạng"
+}
+],
+"tip": "Black Friday là thứ Sáu ngay sau Lễ Tạ ơn ở Mỹ, ngày mua sắm giảm giá lớn nhất năm.",
+"url": "https://cnn.com/cnn-underscored/deals/best-black-friday-deals-2026-11-21",
+"listen": {
+"q": "Nghe xong: tin nói về chuyện gì?",
+"opts": [
+"Cửa hàng giảm giá sớm trên mạng",
+"Cửa hàng đóng cửa vào Black Friday",
+"Giá hàng tăng mạnh tuần sau"
+],
+"a": 0
+},
+"read": {
+"q": "Shops wait until Black Friday to start their sales.",
+"a": false,
+"why": "Sai, vì nhiều shop đã giảm giá trên mạng rồi (already)."
+},
+"write": {
+"task": "Viết 1 câu có từ “already” về công việc của chị.",
+"word": "already",
+"ex": "I already sent the booking to the customer."
+}
+},
+{
+"id": "n20261120",
+"date": "2026-11-20",
+"order": 1,
+"source": "CNN",
+"title": "The FBI was hacked again",
+"en": "Hackers got into the FBI's crime database. This is not the first time.",
+"vi": "Tin tặc đã xâm nhập vào kho dữ liệu tội phạm của FBI. Đây không phải lần đầu.",
+"words": [
+{
+"w": "hack",
+"vi": "xâm nhập máy tính trái phép",
+"note": "was hacked = bị xâm nhập"
+},
+{
+"w": "get into",
+"vi": "vào được, lọt vào",
+"note": "quá khứ: got into"
+},
+{
+"w": "database",
+"vi": "kho dữ liệu"
+}
+],
+"tip": "FBI là Cục Điều tra Liên bang Mỹ. \"again\" = lại lần nữa.",
+"url": "https://cnn.com/2026/11/20/politics/fbi-hacked-again-target-crime-database",
+"listen": {
+"q": "Nghe xong: chuyện gì đã xảy ra?",
+"opts": [
+"FBI bắt được tin tặc",
+"Tin tặc vào được kho dữ liệu của FBI",
+"FBI mở kho dữ liệu mới"
+],
+"a": 1
+},
+"read": {
+"q": "This is the first time the FBI was hacked.",
+"a": false,
+"why": "Sai, tin nói “not the first time” = không phải lần đầu."
+},
+"write": {
+"task": "Viết 1 câu có cụm “get into” (hoặc “got into”).",
+"word": "into",
+"ex": "I couldn't get into my email this morning."
+}
+}
 ]
