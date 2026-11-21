@@ -219,15 +219,11 @@ input{font:inherit}
   </section>
 
   <section class="card" aria-labelledby="fdH">
-    <div class="card-h"><h2 id="fdH">✍️ Cho Mochi ăn</h2><span class="reward">mỗi câu +1 🥕</span></div>
-    <p class="muted">Viết 5 câu tiếng Anh bất kỳ. Sai cũng được.</p>
+    <div class="card-h"><h2 id="fdH">✍️ Dịch câu cho Mochi</h2><span class="reward">mỗi câu +1 🥕</span></div>
+    <p class="muted">5 câu dịch 2 chiều Việt ⇄ Anh. Dịch xong bấm xem đáp án, sai cũng được.</p>
     <div class="dots" id="dots" aria-hidden="true"><i>🥕</i><i>🥕</i><i>🥕</i><i>🥕</i><i>🥕</i></div>
-    <div class="row">
-      <textarea id="enInput" rows="2" placeholder="vd: Today I very busy because many booking"></textarea>
-      <button id="enFix" class="go">Cho ăn</button>
-    </div>
-    <p class="muted" id="aiNote" hidden>Muốn AI sửa câu: mở "Cài đặt" ở cuối trang, dán Gemini API key (1 lần).</p>
-    <div id="enLast"></div>
+    <div class="ls" id="tr"><p class="muted">Đang tải…</p></div>
+    <div hidden><textarea id="enInput"></textarea><button id="enFix"></button><p id="aiNote"></p><div id="enLast"></div></div>
   </section>
 
   <details class="card">
@@ -280,7 +276,7 @@ function status(m){const s=$("#status");s.hidden=!m;s.textContent=m||""}
 function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>t.hidden=true,1800)}
 const L=(k,f=()=>true)=>logs().filter(l=>l.kind===k&&f(l));
 const isToday=l=>l.day===today();
-function fishOf(l){switch(l.kind){case"sentence":return 1;case"movie":return l.correct?2:0;case"speak":return 1;case"clue":return 1;case"guess":return l.correct?10:0;case"listen":return l.correct?1:0;case"speak2":return l.stars>=2?1:0;case"chest":return 5;case"news":return 1;case"nlisten":case"nread":case"review":return l.correct?1:0;case"nspeak":return l.stars>=2?1:0;case"nwrite":return 1;default:return 0}}
+function fishOf(l){switch(l.kind){case"sentence":return 1;case"movie":return l.correct?2:0;case"speak":return 1;case"clue":return 1;case"guess":return l.correct?10:0;case"listen":return l.correct?1:0;case"speak2":return l.stars>=2?1:0;case"chest":return 5;case"news":return 1;case"nlisten":case"nread":case"review":return l.correct?1:0;case"nspeak":return l.stars>=2?1:0;case"nwrite":return 1;case"trans":return 1;default:return 0}}
 const xp=()=>logs().reduce((a,l)=>a+fishOf(l),0);
 const fishDay=k=>logs().filter(l=>l.day===k).reduce((a,l)=>a+fishOf(l),0);
 function lastFedDay(){let d=null;logs().forEach(l=>{if(fishOf(l)>0&&(!d||l.day>d))d=l.day});return d}
@@ -328,7 +324,7 @@ function renderPet(){$("#petArt").innerHTML=petSVG(mood(),level(xp()),petExpr)}
 function react(ex,line){petExpr=ex;if(line)$("#bubble").textContent=line;clearTimeout(petT);petT=setTimeout(()=>{petExpr=null;renderPet()},2800);renderPet()}
 const TAPS=[["love","Mochi thương Mia nhất! 💕"],["wink","Hì hì, học tiếp nha 😉"],["wow","Ủa? Mia gọi Mochi hả?"],["star","Mochi sẵn sàng rồi! ✨"],["happy","*vẫy vẫy tai* 🐰"]];
 function petTap(){const m=mood(),r=a=>a[Math.floor(Math.random()*a.length)];if(m==="hungry"||m==="sad")react("oops",r(PETLINES[m]));else{const t=r(TAPS);react(t[0],t[1])}}
-function exprFor(d){const ok=d.correct;switch(d.kind){case"sentence":case"nwrite":return["munch","Ngon quá! Cảm ơn Mia 🥕"];
+function exprFor(d){const ok=d.correct;switch(d.kind){case"sentence":case"nwrite":case"trans":return["munch","Ngon quá! Cảm ơn Mia 🥕"];
   case"listen":case"movie":case"guess":case"nlisten":case"nread":case"review":return ok?["star","Đúng rồi! Giỏi quá! ✨"]:["oops","Ối, sai mất rồi… lần sau nhé!"];
   case"speak":case"speak2":case"nspeak":return d.stars>=2?["star","Phát âm chuẩn ghê! 🎤"]:["oops","Nói lại thử nha, Mochi nghe chưa rõ~"];
   case"chest":return["love","Woaaa! Rương đầy cà rốt! 💕"];case"clue":return["wow","Manh mối mới! Hấp dẫn quá! 🔍"];case"news":return["wow","Tin nóng hổi đây! 📰"];}return null}
@@ -405,7 +401,7 @@ function quests(){const c=curCase();const opened=c?new Set(L("clue",l=>l.caseId=
     {ic:"🎤",t:"Nói",done:L("speak2",isToday).length+L("speak",isToday).length>=1||!SR},
     {ic:"🔥",t:"Câu hot",done:L("movie",isToday).length>0},
     {ic:"🕵️",t:"Manh mối",done:clueDone},
-    {ic:"✍️",t:"5 câu",done:L("sentence",isToday).length>=5}]}
+    {ic:"✍️",t:"Dịch 5 câu",done:L("trans",isToday).length>=5}]}
 function renderQuests(){const q=quests(),n=q.filter(x=>x.done).length;
   $("#quests").innerHTML=q.map(x=>`<div class="q${x.done?" done":""}"><b>${x.ic}</b>${x.t}${x.done?" ✓":""}</div>`).join("");
   $("#qCount").textContent=`${n}/5`;
@@ -503,6 +499,33 @@ function renderReview(){const el=document.getElementById("rv");if(!el)return;con
     ${pick==null?`<div class="opts">${opts.map(o=>`<button data-rv="${esc(it.en)}" data-pick="${esc(o)}">${esc(o)}</button>`).join("")}</div>`
       :`<p class="say">${esc(it.en)}</p><p style="margin:0">${pick===it.en?"✅ Vẫn nhớ, giỏi quá!":"❌ Quên mất rồi, ôn lại nhé!"}</p><div class="row"><button data-say="${esc(it.en)}" data-rate=".95">🔊 Nghe lại</button></div>`}</div>`}).join("")}
 async function reviewClick(b){if(b.dataset.rv==null)return false;const p=b.dataset.rv,pick=b.dataset.pick;if(L("review",l=>isToday(l)&&l.p===p).length)return true;rvPick[p]=pick;b.disabled=true;await addLog({kind:"review",p,pick,correct:p===pick},p===pick?1:0);return true}/*/RV*/
+/*TR*/let trDraft={},trPeek={};
+function transItems(){if(!CUR)return[];const p=pos(),t=CUR.themes[p.week%CUR.themes.length],n=t.phrases.length,out=[];
+  for(let k=0;out.length<5&&k<n;k++){const ph=t.phrases[mod(p.dow*3+3+k*4,n)];if(!out.some(x=>x.en===ph[0]))out.push({en:ph[0],vi:ph[1],dir:out.length%2?"ev":"ve"})}
+  return out}
+const vnorm=s=>s.toLowerCase().normalize("NFC").replace(/[^\p{L}\p{N} ]/gu," ").split(/\s+/).filter(Boolean);
+function vscore(target,said){const want=vnorm(target),got=new Set(vnorm(said));if(!want.length)return 1;const hit=want.filter(w=>got.has(w)).length/want.length;return hit>=.7?3:hit>=.4?2:1}
+function renderTrans(){const el=document.getElementById("tr");if(!el)return;const items=transItems();
+  if(!items.length){el.innerHTML=`<p class="muted">Đang tải…</p>`;return}
+  el.innerHTML=items.map((it,i)=>{const q=it.dir==="ve"?it.vi:it.en,a=it.dir==="ve"?it.en:it.vi;
+    const done=L("trans",l=>isToday(l)&&l.p===it.en)[0],peek=trPeek[it.en];
+    const head=`<span class="muted">Câu ${i+1}/5 · ${it.dir==="ve"?"🇻🇳 → 🇬🇧 Dịch sang tiếng Anh":"🇬🇧 → 🇻🇳 Dịch sang tiếng Việt"}</span><p class="say" style="margin:0">${esc(q)}</p>`
+      +(it.dir==="ev"?`<div class="row"><button data-say="${esc(it.en)}" data-rate=".95">🔊 Nghe</button></div>`:"");
+    if(done||peek){const s=done?done.stars:0;
+      return `<div class="lsitem">${head}${done?`<div class="fix"><div>${esc(done.text)}</div><div class="ok">${"⭐".repeat(s)}${"☆".repeat(3-s)} ${s===3?"Chuẩn luôn!":s===2?"Gần đúng rồi!":"So với đáp án nhé"}</div></div>`:""}
+        <p style="margin:0">✅ Đáp án: <b>${esc(a)}</b></p>${it.dir==="ve"?`<div class="row"><button data-say="${esc(it.en)}" data-rate=".95">🔊 Nghe đáp án</button></div>`:""}
+        ${done?"":`<textarea data-trin="${esc(it.en)}" rows="2" placeholder="Gõ lại theo đáp án cho nhớ…" style="width:100%;box-sizing:border-box">${esc(trDraft[it.en]||"")}</textarea><div class="row"><button class="go" data-tr="${esc(it.en)}">Gõ xong (+1 🥕)</button></div>`}
+        <a class="src" href="${cambridge(it.en)}" target="_blank" rel="noopener">Tra trên Cambridge Dictionary ↗</a></div>`}
+    return `<div class="lsitem">${head}<textarea data-trin="${esc(it.en)}" rows="2" placeholder="${it.dir==="ve"?"Gõ tiếng Anh…":"Gõ tiếng Việt…"}" style="width:100%;box-sizing:border-box">${esc(trDraft[it.en]||"")}</textarea>
+      <div class="row"><button class="go" data-tr="${esc(it.en)}">Xem đáp án (+1 🥕)</button><button data-trpeek="${esc(it.en)}">Chịu, xem luôn</button></div></div>`}).join("")}
+document.addEventListener("input",e=>{const t=e.target;if(t&&t.dataset&&t.dataset.trin!=null)trDraft[t.dataset.trin]=t.value});
+async function transClick(b){
+  if(b.dataset.trpeek!=null){trPeek[b.dataset.trpeek]=1;renderTrans();return true}
+  if(b.dataset.tr==null)return false;const it=transItems().find(x=>x.en===b.dataset.tr);if(!it)return true;
+  const text=(trDraft[it.en]||"").trim();if(!text){toast("Chị gõ thử câu dịch trước nha, sai cũng được");return true}
+  if(L("trans",l=>isToday(l)&&l.p===it.en).length)return true;
+  const s=it.dir==="ve"?score(it.en,text):vscore(it.vi,text);b.disabled=true;
+  await addLog({kind:"trans",p:it.en,dir:it.dir,text,stars:s},1);return true}/*/TR*/
 
 /* ---------- case ---------- */
 function renderCase(){const c=curCase();
@@ -539,13 +562,13 @@ function render(){
   const lo=LEVELS[lv-1],hi=LEVELS[lv]!=null?LEVELS[lv]:LEVELS[LEVELS.length-1]+200;
   $("#xpBar").style.width=Math.min(100,(x-lo)/(hi-lo)*100)+"%";
   $("#lv").textContent=`Lv ${lv} · còn ${Math.max(0,hi-x)} 🥕 nữa lên cấp`;
-  const n=L("sentence",isToday).length;
+  const n=L("trans",isToday).length;
   document.querySelectorAll("#dots i").forEach((d,i)=>d.classList.toggle("on",i<n));
   const last=L("sentence",isToday).sort((a,b)=>b.ts-a.ts)[0];
   $("#enLast").innerHTML=(n>=5?`<p class="ok">Đủ 5 câu rồi! Mochi cảm ơn Mia 🐰💕</p>`:"")+(last?fixHTML(last):"");
   $("#aiNote").hidden=!!gkey();
   $("#history").innerHTML=L("sentence").sort((a,b)=>b.ts-a.ts).slice(0,30).map(fixHTML).join("")||`<p class="muted">Chưa có.</p>`;
-  renderQuests();renderMap();renderLS();renderHot();renderNews();renderReview();renderCase();
+  renderQuests();renderMap();renderLS();renderHot();renderNews();renderReview();renderTrans();renderCase();
 }
 
 function confetti(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
@@ -574,7 +597,7 @@ document.addEventListener("click",async e=>{
   if(b.dataset.say){speak(b.dataset.say,+(b.dataset.rate||.9));return}
   if(b.dataset.wk!=null&&CUR){const w=+b.dataset.wk,th=CUR.themes[w%CUR.themes.length];toast(`Tuần ${w+1}: ${th.vi}`);return}
   if(b.dataset.mic){const key=b.dataset.mic;if(micTarget===key){stopMic(false)}else startMic(key);return}
-  if(await newsClick(b))return;if(await reviewClick(b))return;
+  if(await newsClick(b))return;if(await reviewClick(b))return;if(await transClick(b))return;
   if(b.dataset.ls!=null){const p=b.dataset.ls,pick=b.dataset.pick;lsPick[p]=pick;addLog({kind:"listen",p,pick,correct:p===pick},p===pick?1:0);return}
   if(b.dataset.hot!=null){const h=todayHot(),pk=b.dataset.hot;hotPick=pk;addLog({kind:"movie",pickEn:pk,hot:h.en,correct:pk===h.en},pk===h.en?2:0);return}
   if(b.dataset.news){addLog({kind:"news",nid:b.dataset.news},1);return}
