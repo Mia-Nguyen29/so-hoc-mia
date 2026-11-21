@@ -37,7 +37,7 @@
 "read": {
 "q": "Shops wait until Black Friday to start their sales.",
 "a": false,
-"why": "Sai, vì nhiều shop đã giảm giá trên mạng rồi (already)."
+"why": "Câu này sai vì nhiều shop đã giảm giá trên mạng rồi (already)."
 },
 "write": {
 "task": "Viết 1 câu có từ “already” về công việc của chị.",
@@ -83,7 +83,7 @@
 "read": {
 "q": "This is the first time the FBI was hacked.",
 "a": false,
-"why": "Sai, tin nói “not the first time” = không phải lần đầu."
+"why": "Câu này sai vì tin nói “not the first time” = không phải lần đầu."
 },
 "write": {
 "task": "Viết 1 câu có cụm “get into” (hoặc “got into”).",
